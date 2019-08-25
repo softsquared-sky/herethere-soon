@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">HereThereProject</string>
+    <string name="loading">로딩중입니다.</string>
+    <string name="network_error">네트워크 연결이 원활하지 않습니다.</string>
+    <string name="login_sign_up">로그인/\n회원가입</string>
+    <string name="email_hint">메일주소@email.com</string>
+    <string name="password_hint">비밀번호</string>
+    <string name="find_email_password"><u>이메일/비밀번호 찾기</u></string>
+    <string name="login_question">HereThere가 처음이신가요?</string>
+    <string name="sign_up"><u>회원가입</u></string>
+</resources>
