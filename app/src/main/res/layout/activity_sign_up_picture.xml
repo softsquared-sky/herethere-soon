@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/loginBackground">
+
+    <ImageButton
+        android:id="@+id/btn_sign_up_picture_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/ic_sign_up_back"
+        android:background="@color/loginBackground"
+        android:onClick="signUpPictureOnClick"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        style="?android:attr/borderlessButtonStyle"
+        android:id="@+id/btn_sign_up_picture_pass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/pass"
+        android:textColor="@color/loginTextColor"
+        android:textSize="16sp"
+        android:gravity="end"
+        android:paddingTop="0dp"
+        android:paddingEnd="0dp"
+        android:lineSpacingExtra="10sp"
+        android:onClick="signUpPictureOnClick"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tv_sign_up_picture_information_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/information_input"
+        android:textColor="@color/loginTextColorNotFocus"
+        android:textSize="14sp"
+        android:lineSpacingExtra="8sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_sign_up_picture_back"/>
+
+    <TextView
+        android:id="@+id/tv_sign_up_picture_school_certification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="32dp"
+        android:lineSpacingExtra="8sp"
+        android:text="@string/school_certification"
+        android:textStyle="bold"
+        android:textColor="@color/loginTextColor"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/tv_sign_up_picture_information_input"
+        app:layout_constraintTop_toBottomOf="@id/btn_sign_up_picture_back" />
+
+    <TextView
+        android:id="@+id/tv_sign_up_picture_select_region"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/select_region"
+        android:textColor="@color/loginTextColorNotFocus"
+        android:textSize="14sp"
+        android:lineSpacingExtra="8sp"
+        app:layout_constraintStart_toEndOf="@id/tv_sign_up_picture_school_certification"
+        app:layout_constraintTop_toBottomOf="@id/btn_sign_up_picture_back" />
+
+    <TextView
+        android:id="@+id/tv_sign_up_picture_please_input_picture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/please_input_picture"
+        android:textColor="@color/loginTextColor"
+        android:textSize="32sp"
+        android:lineSpacingExtra="4sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_sign_up_picture_information_input" />
+
+    <TextView
+        android:id="@+id/info_picture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/info_picture"
+        android:textSize="12sp"
+        android:textColor="@color/loginTextColor"
+        android:lineSpacingExtra="6sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_sign_up_picture_please_input_picture" />
+
+    <ImageButton
+        android:id="@+id/btn_sign_up_picture_complete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/loginBackground"
+        android:src="@drawable/ic_image_attach"
+        android:onClick="signUpPictureOnClick"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/info_picture" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

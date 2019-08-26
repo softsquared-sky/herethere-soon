@@ -8,6 +8,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:screenOrientation="portrait"
         android:theme="@style/Theme.AppCompat.NoActionBar">
 
         <activity android:name="com.example.template.src.login.LoginActivity">
@@ -17,7 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name="com.example.template.src.signUp.SignUpEmailActivity"></activity>
+        <activity android:name="com.example.template.src.signUp.SignUpPasswordActivity"></activity>
+        <activity android:name="com.example.template.src.signUp.SignUpPrivacyActivity"></activity>
+        <activity android:name="com.example.template.src.signUp.SignUpPictureActivity"></activity>
     </application>
 
 </manifest>
