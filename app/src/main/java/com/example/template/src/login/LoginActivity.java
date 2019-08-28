@@ -15,10 +15,10 @@ import com.example.template.src.signUp.SignUpEmailActivity;
 
 public class LoginActivity extends BaseActivity implements LoginActivityView {
 
-    EditText et_login_email;
-    EditText et_login_password;
-    ImageButton btn_login;
-    boolean login_check = false;
+    EditText mLoginEmailEditText;
+    EditText mLoginPasswordEditText;
+    ImageButton mImgaeButton;
+    boolean mLoginCheck = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +26,9 @@ public class LoginActivity extends BaseActivity implements LoginActivityView {
         setContentView(R.layout.activity_login);
 
 
-        et_login_email = findViewById(R.id.login_email_input);
-        et_login_password = findViewById(R.id.login_password_input);
-        btn_login = findViewById(R.id.login_button);
+        mLoginEmailEditText = findViewById(R.id.login_email_input);
+        mLoginPasswordEditText = findViewById(R.id.login_password_input);
+        mImgaeButton = findViewById(R.id.login_button);
 
         TextWatcher textWatcher = new TextWatcher() {
             @Override
@@ -38,16 +38,16 @@ public class LoginActivity extends BaseActivity implements LoginActivityView {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (checkPassword(et_login_password.getText().toString()) && checkEmail(et_login_email.getText().toString())) {
+                if (checkPassword(mLoginPasswordEditText.getText().toString()) && checkEmail(mLoginEmailEditText.getText().toString())) {
                     //올바른 입력
                     System.out.println("success");
-                    btn_login.setImageDrawable(getDrawable(R.drawable.ic_login_yes));
-                    login_check = true;
+                    mImgaeButton.setImageDrawable(getDrawable(R.drawable.ic_login_yes));
+                    mLoginCheck = true;
                 } else {
                     //잘못된 입력
                     System.out.println("fail");
-                    btn_login.setImageDrawable(getDrawable(R.drawable.ic_login_none));
-                    login_check = false;
+                    mImgaeButton.setImageDrawable(getDrawable(R.drawable.ic_login_none));
+                    mLoginCheck = false;
                 }
             }
 
@@ -57,8 +57,8 @@ public class LoginActivity extends BaseActivity implements LoginActivityView {
             }
         };
 
-        et_login_email.addTextChangedListener(textWatcher);
-        et_login_password.addTextChangedListener(textWatcher);
+        mLoginEmailEditText.addTextChangedListener(textWatcher);
+        mLoginPasswordEditText.addTextChangedListener(textWatcher);
 
 
     }
@@ -66,7 +66,7 @@ public class LoginActivity extends BaseActivity implements LoginActivityView {
     public void loginOnClick(View view) {
         switch (view.getId()) {
             case R.id.login_button:
-                if(login_check){
+                if(mLoginCheck){
                     //로그인 성공, 메인화면으로 이동
                     break;
                 } else {

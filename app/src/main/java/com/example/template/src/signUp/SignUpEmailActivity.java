@@ -11,8 +11,8 @@ import com.example.herethereproject.R;
 import com.example.template.src.BaseActivity;
 
 public class SignUpEmailActivity extends BaseActivity {
-    EditText et_sign_up_email;
-    boolean emailCheck = false;
+    EditText mSignUpEmailEditText;
+    boolean mEmailCheck = false;
 
 
     @Override
@@ -20,7 +20,7 @@ public class SignUpEmailActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_email);
 
-        et_sign_up_email = findViewById(R.id.et_sign_up_email_input);
+        mSignUpEmailEditText = findViewById(R.id.et_sign_up_email_input);
 
         TextWatcher textWatcher = new TextWatcher() {
             @Override
@@ -30,11 +30,11 @@ public class SignUpEmailActivity extends BaseActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if(checkEmail(et_sign_up_email.getText().toString())){
+                if(checkEmail(mSignUpEmailEditText.getText().toString())){
                     System.out.println("sign success");
-                    emailCheck = true;
+                    mEmailCheck = true;
                 } else {
-                    emailCheck = false;
+                    mEmailCheck = false;
                 }
             }
 
@@ -44,24 +44,25 @@ public class SignUpEmailActivity extends BaseActivity {
             }
         };
 
-        et_sign_up_email.addTextChangedListener(textWatcher);
+        mSignUpEmailEditText.addTextChangedListener(textWatcher);
 
 
     }
 
-    public void signUpEailOnClick(View view) {
+    public void signUpEmailOnClick(View view) {
         switch (view.getId()) {
             case R.id.btn_sign_up_email_back:
-                finish();
+                onBackPressed();
                 break;
-
             case R.id.btn_sign_up_email_complete:
-                if(emailCheck){
+                if(mEmailCheck){
                     //System.out.println("click success");
                     Intent start_sign_up_password_intent = new Intent(getApplicationContext(), SignUpPasswordActivity.class);
-                    start_sign_up_password_intent.putExtra("email", et_sign_up_email.getText().toString());
+                    //sign_up_list.add(mSignUpEmailEditText.getText().toString());
+                    //System.out.println(sign_up_list.get(0));
+                    start_sign_up_password_intent.putExtra("email", mSignUpEmailEditText.getText().toString());
                     startActivity(start_sign_up_password_intent);
-                    finish();
+                    //finish();
                     break;
                     //비밀번호 입력으로 전환
                 } else{

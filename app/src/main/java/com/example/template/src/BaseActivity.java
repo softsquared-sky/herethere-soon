@@ -8,9 +8,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.herethereproject.R;
 
+import java.util.ArrayList;
+
 @SuppressLint("Registered")
 public class BaseActivity extends AppCompatActivity {
     public ProgressDialog mProgressDialog;
+    public ArrayList<String> sign_up_list = new ArrayList<>();
+
 
     //올바른 비밀번호 입력 확인(대소문자 포함)
     public boolean checkPassword(String password){

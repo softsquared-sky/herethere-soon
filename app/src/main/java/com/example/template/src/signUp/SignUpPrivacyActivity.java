@@ -12,9 +12,9 @@ import com.example.template.src.BaseActivity;
 
 public class SignUpPrivacyActivity extends BaseActivity {
 
-    EditText et_name;
-    EditText et_birth;
-    EditText et_nick;
+    EditText mSignUpNameEditText;
+    EditText mSignUpBirthEditText;
+    EditText mSignUpNickEditText;
 
     boolean privacyCheck = false;
 
@@ -23,9 +23,9 @@ public class SignUpPrivacyActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_privacy);
 
-        et_name = findViewById(R.id.et_sign_up_privacy_name);
-        et_birth = findViewById(R.id.et_sign_up_privacy_birth);
-        et_nick = findViewById(R.id.et_sign_up_privacy_nick);
+        mSignUpNameEditText = findViewById(R.id.et_sign_up_privacy_name);
+        mSignUpBirthEditText = findViewById(R.id.et_sign_up_privacy_birth);
+        mSignUpNickEditText = findViewById(R.id.et_sign_up_privacy_nick);
 
         TextWatcher textWatcher = new TextWatcher() {
             @Override
@@ -35,12 +35,15 @@ public class SignUpPrivacyActivity extends BaseActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if(et_name.getText().toString().length() > 0 && et_birth.getText().toString().length() == 8 && et_nick.getText().toString().length() > 0){
+                if(mSignUpNameEditText.getText().toString().length() > 0 && mSignUpBirthEditText.getText().toString().length() == 6 && mSignUpNickEditText.getText().toString().length() > 0){
                     privacyCheck = true;
                     System.out.println("privacy success");
                 } else {
                     privacyCheck = false;
                 }
+                //null이 나올 수 있음
+                //@Nullable
+                //방어코드
             }
 
             @Override
@@ -49,26 +52,29 @@ public class SignUpPrivacyActivity extends BaseActivity {
             }
         };
 
-        et_name.addTextChangedListener(textWatcher);
-        et_birth.addTextChangedListener(textWatcher);
-        et_nick.addTextChangedListener(textWatcher);
+        mSignUpNameEditText.addTextChangedListener(textWatcher);
+        mSignUpBirthEditText.addTextChangedListener(textWatcher);
+        mSignUpNickEditText.addTextChangedListener(textWatcher);
 
     }
 
     public void signUpPrivacyOnClick(View view) {
         switch (view.getId()) {
             case R.id.btn_sign_up_privacy_back:
-                finish();
+                //sign_up_list.remove(sign_up_list.size()-1);
+                onBackPressed();
                 break;
             case R.id.btn_sign_up_privacy_complete:
                 if(privacyCheck){
                     Intent password_intent = getIntent();
                     Intent start_picture_intent = new Intent(getApplicationContext(), SignUpPictureActivity.class);
+
                     start_picture_intent.putExtra("email", password_intent.getStringExtra("email"));
                     start_picture_intent.putExtra("password", password_intent.getStringExtra("password"));
-                    start_picture_intent.putExtra("name", et_name.getText().toString());
-                    start_picture_intent.putExtra("birth", et_birth.getText().toString());
-                    start_picture_intent.putExtra("nick", et_nick.getText().toString());
+                    start_picture_intent.putExtra("name", mSignUpNameEditText.getText().toString());
+                    start_picture_intent.putExtra("birth", mSignUpBirthEditText.getText().toString());
+                    start_picture_intent.putExtra("nick", mSignUpNickEditText.getText().toString());
+
                     startActivity(start_picture_intent);
                     break;
                 } else {

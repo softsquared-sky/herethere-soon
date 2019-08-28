@@ -14,7 +14,7 @@
         android:layout_marginTop="28dp"
         android:src="@drawable/ic_sign_up_back"
         android:background="@color/loginBackground"
-        android:onClick="signUpEailOnClick"
+        android:onClick="signUpEmailOnClick"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -96,7 +96,7 @@
         android:layout_marginTop="64dp"
         android:background="@color/loginBackground"
         android:src="@drawable/ic_sign_up_complete"
-        android:onClick="signUpEailOnClick"
+        android:onClick="signUpEmailOnClick"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_sign_up_email_input" />
 

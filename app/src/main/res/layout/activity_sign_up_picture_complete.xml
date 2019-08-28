@@ -7,20 +7,20 @@
     android:background="@color/loginBackground">
 
     <ImageButton
-        android:id="@+id/btn_sign_up_picture_back"
+        android:id="@+id/btn_sign_up_cPicture_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="28dp"
         android:src="@drawable/ic_sign_up_back"
         android:background="@color/loginBackground"
-        android:onClick="signUpPictureOnClick"
+        android:onClick="signUpPictureCompleteOnClick"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         style="?android:attr/borderlessButtonStyle"
-        android:id="@+id/btn_sign_up_picture_pass"
+        android:id="@+id/btn_sign_up_cPicture_pass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -32,13 +32,13 @@
         android:paddingTop="0dp"
         android:paddingEnd="0dp"
         android:lineSpacingExtra="10sp"
-        android:onClick="signUpPictureOnClick"
+        android:onClick="signUpPictureCompleteOnClick"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
 
     <TextView
-        android:id="@+id/tv_sign_up_picture_information_input"
+        android:id="@+id/tv_sign_up_cPicture_information_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -48,10 +48,10 @@
         android:textSize="14sp"
         android:lineSpacingExtra="8sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_sign_up_picture_back"/>
+        app:layout_constraintTop_toBottomOf="@id/btn_sign_up_cPicture_back"/>
 
     <TextView
-        android:id="@+id/tv_sign_up_picture_school_certification"
+        android:id="@+id/tv_sign_up_cPicture_school_certification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -61,11 +61,11 @@
         android:textStyle="bold"
         android:textColor="@color/loginTextColor"
         android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@id/tv_sign_up_picture_information_input"
-        app:layout_constraintTop_toBottomOf="@id/btn_sign_up_picture_back" />
+        app:layout_constraintStart_toEndOf="@id/tv_sign_up_cPicture_information_input"
+        app:layout_constraintTop_toBottomOf="@id/btn_sign_up_cPicture_back" />
 
     <TextView
-        android:id="@+id/tv_sign_up_picture_select_region"
+        android:id="@+id/tv_sign_up_cPicture_select_region"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -74,55 +74,47 @@
         android:textColor="@color/loginTextColorNotFocus"
         android:textSize="14sp"
         android:lineSpacingExtra="8sp"
-        app:layout_constraintStart_toEndOf="@id/tv_sign_up_picture_school_certification"
-        app:layout_constraintTop_toBottomOf="@id/btn_sign_up_picture_back" />
+        app:layout_constraintStart_toEndOf="@id/tv_sign_up_cPicture_school_certification"
+        app:layout_constraintTop_toBottomOf="@id/btn_sign_up_cPicture_back" />
 
     <TextView
-        android:id="@+id/tv_sign_up_picture_please_input_picture"
+        android:id="@+id/tv_sign_up_cPicture_please_input_picture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="40dp"
-        android:text="@string/please_input_picture"
+        android:text="@string/please_check_picture"
         android:textColor="@color/loginTextColor"
         android:textSize="32sp"
         android:lineSpacingExtra="4sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_sign_up_picture_information_input" />
+        app:layout_constraintTop_toBottomOf="@id/tv_sign_up_cPicture_information_input" />
 
     <TextView
-        android:id="@+id/info_picture"
+        android:id="@+id/info_cPicture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:text="@string/info_picture"
+        android:text="@string/info_check_picture"
         android:textSize="12sp"
         android:textColor="@color/loginTextColor"
         android:lineSpacingExtra="6sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_sign_up_picture_please_input_picture" />
+        app:layout_constraintTop_toBottomOf="@id/tv_sign_up_cPicture_please_input_picture" />
 
     <ImageButton
-        android:id="@+id/btn_sign_up_picture_complete"
+        android:id="@+id/btn_sign_up_cPicture_complete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="50dp"
         android:background="@color/loginBackground"
-        android:src="@drawable/ic_image_attach"
-        android:onClick="signUpPictureOnClick"
+        android:src="@drawable/ic_sign_up_ok"
+        android:onClick="signUpPictureCompleteOnClick"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/info_picture" />
+        app:layout_constraintTop_toBottomOf="@id/info_cPicture" />
 
-    <ImageView
-        android:id="@+id/iv_sign_up_picture_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:layout_marginStart="36dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_sign_up_picture_complete"/>
 
 
 
