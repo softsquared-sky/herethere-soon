@@ -1,31 +1,30 @@
-package com.example.template.src.signUp;
+package com.example.herethereproject.src.signUp;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import com.example.herethereproject.R;
-import com.example.template.src.BaseActivity;
+import com.example.herethereproject.src.BaseActivity;
 
-public class SignUpRegionActivity extends BaseActivity {
+public class SignUpPictureCompleteActivity extends BaseActivity {
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up_region);
+        setContentView(R.layout.activity_sign_up_picture_complete);
 
     }
 
-    public void signUpRegionOnClick(View view) {
+    public void signUpPictureCompleteOnClick(View view) {
         switch (view.getId()) {
-            case R.id.btn_sign_up_region_back:
-                onBackPressed();
+            case R.id.btn_sign_up_cPicture_back:
+                finish();
                 break;
-            case R.id.btn_sign_up_region_complete:
+            case R.id.btn_sign_up_cPicture_complete:
                 Intent pictureIntent = getIntent();
-                /*
                 Intent startRegionIntent = new Intent(getApplicationContext(), SignUpRegionActivity.class);
                 startRegionIntent.putExtra("email",pictureIntent.getStringExtra("email"));
                 startRegionIntent.putExtra("password", pictureIntent.getStringExtra("password"));
@@ -34,10 +33,9 @@ public class SignUpRegionActivity extends BaseActivity {
                 startRegionIntent.putExtra("nick", pictureIntent.getStringExtra("nick"));
                 startRegionIntent.putExtra("picture", pictureIntent.getStringExtra("picture"));
                 startActivity(startRegionIntent);
-                */
                 //.putExtra("picture", mPictureImageView.getImageAlpha());
                 break;
-            case R.id.btn_sign_up_region_pass:
+            case R.id.btn_sign_up_cPicture_pass:
                 //일단 하지않음
                 //사진인증 넘어가기
                 //넘어가면서 앞서 입력한 정보들 인텐트로 넘기기

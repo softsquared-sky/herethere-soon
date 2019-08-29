@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "767790500742",
+    "firebase_url": "https://herethere-soon.firebaseio.com",
+    "project_id": "herethere-soon",
+    "storage_bucket": "herethere-soon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767790500742:android:acde8dbaa4ffe387",
+        "android_client_info": {
+          "package_name": "com.example.herethereproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767790500742-mlerlmq352bf68c30m7baqh85mmmbnmk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.herethereproject",
+            "certificate_hash": "6a78d3d06116a577be74d208f3e4097b08e2a69b"
+          }
+        },
+        {
+          "client_id": "767790500742-71t8vr01m1f4ll4ucp7pfam85pbcsnge.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbo5gvn205PWyhIrjvqF45QpRiML320ew"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767790500742-71t8vr01m1f4ll4ucp7pfam85pbcsnge.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

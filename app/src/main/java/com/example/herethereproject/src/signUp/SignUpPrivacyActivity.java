@@ -1,4 +1,4 @@
-package com.example.template.src.signUp;
+package com.example.herethereproject.src.signUp;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.example.herethereproject.R;
-import com.example.template.src.BaseActivity;
+import com.example.herethereproject.src.BaseActivity;
 
 public class SignUpPrivacyActivity extends BaseActivity {
 

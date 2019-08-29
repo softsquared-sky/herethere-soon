@@ -1,4 +1,4 @@
-package com.example.template.src;
+package com.example.herethereproject.src;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;

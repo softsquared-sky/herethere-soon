@@ -1,4 +1,4 @@
-package com.example.template.src.login;
+package com.example.herethereproject.src.login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,9 +9,9 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import com.example.herethereproject.R;
-import com.example.template.src.BaseActivity;
-import com.example.template.src.login.interfaces.LoginActivityView;
-import com.example.template.src.signUp.SignUpEmailActivity;
+import com.example.herethereproject.src.login.interfaces.LoginActivityView;
+import com.example.herethereproject.src.BaseActivity;
+import com.example.herethereproject.src.signUp.SignUpEmailActivity;
 
 public class LoginActivity extends BaseActivity implements LoginActivityView {
 

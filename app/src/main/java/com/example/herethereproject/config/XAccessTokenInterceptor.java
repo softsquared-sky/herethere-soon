@@ -1,4 +1,4 @@
-package com.example.template.config;
+package com.example.herethereproject.config;
 
 import androidx.annotation.NonNull;
 

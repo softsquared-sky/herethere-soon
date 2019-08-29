@@ -15,6 +15,7 @@
 
 
 
+
     <application
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
@@ -24,20 +25,30 @@
         android:screenOrientation="portrait"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
+
+        <provider
+            android:authorities="com.example.herethereproject.fileProvider"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/image_save"/>
+        </provider>
         
-        <activity android:name="com.example.template.src.signUp.SignUpPictureActivity">
+        <activity android:name=".src.signUp.SignUpPictureActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.template.src.signUp.SignUpEmailActivity"/>
-        <activity android:name="com.example.template.src.signUp.SignUpPasswordActivity"/>
-        <activity android:name="com.example.template.src.signUp.SignUpPrivacyActivity"/>
-        <activity android:name="com.example.template.src.login.LoginActivity"/>
-        <activity android:name="com.example.template.src.signUp.SignUpPictureCompleteActivity"/>
-        <activity android:name="com.example.template.src.signUp.SignUpRegionActivity"/>
+        <activity android:name=".src.signUp.SignUpEmailActivity"/>
+        <activity android:name=".src.signUp.SignUpPasswordActivity"/>
+        <activity android:name=".src.signUp.SignUpPrivacyActivity"/>
+        <activity android:name=".src.login.LoginActivity"/>
+        <activity android:name=".src.signUp.SignUpPictureCompleteActivity"/>
+        <activity android:name=".src.signUp.SignUpRegionActivity"/>
     </application>
 
 </manifest>
