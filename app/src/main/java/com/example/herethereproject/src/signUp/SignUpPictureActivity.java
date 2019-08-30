@@ -85,13 +85,14 @@ public class SignUpPictureActivity extends BaseActivity {
                     }
                     break;
                 } else if (mPictureCheck) {
-                    Intent privacyIntent = getIntent();
+                    Intent schoolIntent = getIntent();
                     Intent startPictureCompleteIntent = new Intent(getApplicationContext(), SignUpPictureCompleteActivity.class);
-                    startPictureCompleteIntent.putExtra("email", privacyIntent.getStringExtra("email"));
-                    startPictureCompleteIntent.putExtra("password", privacyIntent.getStringExtra("password"));
-                    startPictureCompleteIntent.putExtra("name", privacyIntent.getStringExtra("name"));
-                    startPictureCompleteIntent.putExtra("birth", privacyIntent.getStringExtra("birth"));
-                    startPictureCompleteIntent.putExtra("nick", privacyIntent.getStringExtra("nick"));
+                    startPictureCompleteIntent.putExtra("email", schoolIntent.getStringExtra("email"));
+                    startPictureCompleteIntent.putExtra("password", schoolIntent.getStringExtra("password"));
+                    startPictureCompleteIntent.putExtra("name", schoolIntent.getStringExtra("name"));
+                    startPictureCompleteIntent.putExtra("birth", schoolIntent.getStringExtra("birth"));
+                    startPictureCompleteIntent.putExtra("nick", schoolIntent.getStringExtra("nick"));
+                    startPictureCompleteIntent.putExtra("school", schoolIntent.getStringExtra("school"));
                     startPictureCompleteIntent.putExtra("picture", mPicture);
                     startActivity(startPictureCompleteIntent);
                 }

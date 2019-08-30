@@ -103,14 +103,57 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_sign_up_region_please_input_picture" />
 
-    <RadioGroup
-        android:id="@+id/rg_sign_up_region_group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+
+    <RelativeLayout
+        android:id="@+id/btn_sign_up_region_select"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginEnd="46dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="50dp"
+        android:clickable="true"
+        android:onClick="signUpRegionOnClick"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/info_region"/>
+        app:layout_constraintTop_toBottomOf="@id/info_region"
+        android:background="@color/loginTextColor">
+
+        <TextView
+            android:id="@+id/tv_Sign_up_region_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:text="@string/list_select_region"
+            android:textSize="12sp"
+            android:textColor="@color/listTextColor"
+            android:lineSpacingExtra="6sp"/>
+
+        <ImageView
+            android:id="@+id/iv_sign_up_region_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="false"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="14dp"
+            android:background="@color/loginTextColor"
+            app:srcCompat="@drawable/ic_down_arrow" />
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lv_Sign_up_region"
+        android:layout_width="match_parent"
+        android:layout_height="237dp"
+        android:background="@color/loginTextColor"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="46dp"
+        android:visibility="gone"
+        android:scrollbars="vertical"
+        app:layout_constraintTop_toBottomOf="@id/btn_sign_up_region_select">
+    </ListView>
 
     <ImageButton
         android:id="@+id/btn_sign_up_region_complete"
@@ -122,7 +165,7 @@
         android:src="@drawable/ic_select_complete"
         android:onClick="signUpRegionOnClick"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rg_sign_up_region_group" />
+        app:layout_constraintTop_toBottomOf="@id/lv_Sign_up_region" />
 
 
 

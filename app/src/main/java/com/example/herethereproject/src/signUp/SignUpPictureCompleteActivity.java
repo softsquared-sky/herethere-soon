@@ -31,9 +31,9 @@ public class SignUpPictureCompleteActivity extends BaseActivity {
                 startRegionIntent.putExtra("name", pictureIntent.getStringExtra("name"));
                 startRegionIntent.putExtra("birth", pictureIntent.getStringExtra("birth"));
                 startRegionIntent.putExtra("nick", pictureIntent.getStringExtra("nick"));
+                startRegionIntent.putExtra("school", pictureIntent.getStringExtra("school"));
                 startRegionIntent.putExtra("picture", pictureIntent.getStringExtra("picture"));
                 startActivity(startRegionIntent);
-                //.putExtra("picture", mPictureImageView.getImageAlpha());
                 break;
             case R.id.btn_sign_up_cPicture_pass:
                 //일단 하지않음

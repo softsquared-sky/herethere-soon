@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/loginTextColor">
+
+    <ImageView
+        android:id="@+id/iv_sign_up_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@drawable/ic_radio_button_false"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="9dp"/>
+
+
+
+    <TextView
+        android:id="@+id/tv_sign_up_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@color/listTextColor"
+        android:textSize="14sp"
+        android:lineSpacingExtra="8sp"/>
+
+</RelativeLayout>

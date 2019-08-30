@@ -67,15 +67,15 @@ public class SignUpPrivacyActivity extends BaseActivity {
             case R.id.btn_sign_up_privacy_complete:
                 if(privacyCheck){
                     Intent password_intent = getIntent();
-                    Intent start_picture_intent = new Intent(getApplicationContext(), SignUpPictureActivity.class);
+                    Intent start_school_intent = new Intent(getApplicationContext(), SignUpSchoolActivity.class);
 
-                    start_picture_intent.putExtra("email", password_intent.getStringExtra("email"));
-                    start_picture_intent.putExtra("password", password_intent.getStringExtra("password"));
-                    start_picture_intent.putExtra("name", mSignUpNameEditText.getText().toString());
-                    start_picture_intent.putExtra("birth", mSignUpBirthEditText.getText().toString());
-                    start_picture_intent.putExtra("nick", mSignUpNickEditText.getText().toString());
+                    start_school_intent.putExtra("email", password_intent.getStringExtra("email"));
+                    start_school_intent.putExtra("password", password_intent.getStringExtra("password"));
+                    start_school_intent.putExtra("name", mSignUpNameEditText.getText().toString());
+                    start_school_intent.putExtra("birth", mSignUpBirthEditText.getText().toString());
+                    start_school_intent.putExtra("nick", mSignUpNickEditText.getText().toString());
 
-                    startActivity(start_picture_intent);
+                    startActivity(start_school_intent);
                     break;
                 } else {
                     showCustomToast(getString(R.string.toast_wrong_message));

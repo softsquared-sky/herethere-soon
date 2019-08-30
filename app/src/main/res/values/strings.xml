@@ -1,19 +1,21 @@
 <resources>
     <string name="app_name">HereThereProject</string>
-    <string name="loading">로딩중입니다.</string>
-    <string name="network_error">네트워크 연결이 원활하지 않습니다.</string>
+    <string name="loading">로딩중입니다</string>
+    <string name="network_error">네트워크 연결이 원활하지 않습니다</string>
     <string name="login_sign_up">로그인/\n회원가입</string>
-    <string name="email_hint">메일주소@email.com</string>
+    <string name="email_hint">메일주소@emailcom</string>
     <string name="password_hint">비밀번호</string>
+    <string name="school_hint">학교를 입력해주세요.</string>
     <string name="find_email_password"><u>이메일/비밀번호 찾기</u></string>
     <string name="login_question">HereThere가 처음이신가요?</string>
     <string name="sign_up"><u>회원가입</u></string>
     <string name="information_input">기본정보입력</string>
     <string name="school_certification">학교인증</string>
     <string name="select_region">관심지역선택</string>
-    <string name="please_input_email"><b>이메일</b>을\n입력해주세요</string>
-    <string name="please_input_password"><b>비밀번호</b>을\n입력해주세요</string>
-    <string name="please_input_privacy"><b>개인정보</b>을\n입력해주세요</string>
+    <string name="please_input_email"><b>이메일</b>을\n입력해주세요.</string>
+    <string name="please_input_password"><b>비밀번호</b>을\n입력해주세요.</string>
+    <string name="please_input_privacy"><b>개인정보</b>을\n입력해주세요.</string>
+    <string name="please_input_school"><b>학교</b>를\n입력해주세요.</string>
     <string name="pass">건너뛰기</string>
     <string name="dot">.</string>
     <string name="passwrod_sign_up_hint">영문, 숫자를 포함한 6~10자리</string>
@@ -21,11 +23,12 @@
     <string name="name_input">실명을 입력해주세요.</string>
     <string name="birth_input">생년월일을 입력해주세요.(ex:960101)</string>
     <string name="nick_input">사용할 닉네임을 입력해주세요.</string>
-    <string name="toast_wrong_message">올바른 형식이 아닙니다.</string>
+    <string name="toast_wrong_message">올바른 형식이 아닙니다</string>
     <string name="please_input_picture"><b>이미지 첨부</b>로\n학교 인증하기</string>
-    <string name="please_check_picture"><b>이미지 첨부</b>가\n완료되었습니다.</string>
-    <string name="info_check_picture">빠른 시일내에 인증이 완료됩니다.</string>
+    <string name="please_check_picture"><b>이미지 첨부</b>가\n완료되었습니다</string>
+    <string name="info_check_picture">빠른 시일내에 인증이 완료됩니다</string>
     <string name="please_select_region"><b>관심지역</b>을\n선택해주세요.</string>
-    <string name="info_select_region">교환학생으로 가고 싶은 곳, 친구가 교환학생으로 간 곳 등\n관심지역을 선택하면 해당 지역의 소식을 볼 수 있습니다.</string>
+    <string name="info_select_region">교환학생으로 가고 싶은 곳, 친구가 교환학생으로 간 곳 등\n관심지역을 선택하면 해당 지역의 소식을 볼 수 있습니다</string>
     <string name="info_picture">학생을 인증할 수 있는 증명서 사진을\n제출해주세요.</string>
+    <string name="list_select_region">관심지역 선택하기</string>
 </resources>
