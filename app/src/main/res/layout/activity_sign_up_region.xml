@@ -118,7 +118,7 @@
         android:background="@color/loginTextColor">
 
         <TextView
-            android:id="@+id/tv_Sign_up_region_item"
+            android:id="@+id/tv_Sign_up_region_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="14dp"

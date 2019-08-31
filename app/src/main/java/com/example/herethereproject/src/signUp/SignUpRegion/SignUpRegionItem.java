@@ -1,4 +1,4 @@
-package com.example.herethereproject.src.signUp;
+package com.example.herethereproject.src.signUp.SignUpRegion;
 
 import android.graphics.drawable.Drawable;
 

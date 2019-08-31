@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.example.herethereproject.R;
 import com.example.herethereproject.src.BaseActivity;
+import com.example.herethereproject.src.signUp.SignUpRegion.SignUpRegionActivity;
 
 public class SignUpPictureCompleteActivity extends BaseActivity {
 
@@ -21,7 +22,8 @@ public class SignUpPictureCompleteActivity extends BaseActivity {
     public void signUpPictureCompleteOnClick(View view) {
         switch (view.getId()) {
             case R.id.btn_sign_up_cPicture_back:
-                finish();
+                Intent backIntent = new Intent(getApplicationContext(), SignUpPictureActivity.class);
+                startActivity(backIntent);
                 break;
             case R.id.btn_sign_up_cPicture_complete:
                 Intent pictureIntent = getIntent();
@@ -34,6 +36,7 @@ public class SignUpPictureCompleteActivity extends BaseActivity {
                 startRegionIntent.putExtra("school", pictureIntent.getStringExtra("school"));
                 startRegionIntent.putExtra("picture", pictureIntent.getStringExtra("picture"));
                 startActivity(startRegionIntent);
+                finish();
                 break;
             case R.id.btn_sign_up_cPicture_pass:
                 //일단 하지않음

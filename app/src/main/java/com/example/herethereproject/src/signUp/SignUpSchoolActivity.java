@@ -51,7 +51,8 @@ public class SignUpSchoolActivity extends BaseActivity {
     public void signUpSchoolOnClick(View view) {
         switch (view.getId()) {
             case R.id.btn_sign_up_email_back:
-                onBackPressed();
+                Intent backIntent = new Intent(getApplicationContext(), SignUpPrivacyActivity.class);
+                startActivity(backIntent);
                 break;
             case R.id.btn_sign_up_email_complete:
                 if(mSchoolCheck){
@@ -63,6 +64,7 @@ public class SignUpSchoolActivity extends BaseActivity {
                     startPictureCompleteIntent.putExtra("birth", privacyIntent.getStringExtra("birth"));
                     startPictureCompleteIntent.putExtra("nick", privacyIntent.getStringExtra("nick"));
                     startPictureCompleteIntent.putExtra("school", mSignUpSchoolEditText.getText().toString());
+                    startActivity(startPictureCompleteIntent);
                     break;
                 } else{
                     showCustomToast(getString(R.string.toast_wrong_message));

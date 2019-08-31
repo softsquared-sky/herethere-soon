@@ -61,8 +61,8 @@ public class SignUpPrivacyActivity extends BaseActivity {
     public void signUpPrivacyOnClick(View view) {
         switch (view.getId()) {
             case R.id.btn_sign_up_privacy_back:
-                //sign_up_list.remove(sign_up_list.size()-1);
-                onBackPressed();
+                Intent backIntent = new Intent(getApplicationContext(), SignUpPasswordActivity.class);
+                startActivity(backIntent);
                 break;
             case R.id.btn_sign_up_privacy_complete:
                 if(privacyCheck){
@@ -76,6 +76,7 @@ public class SignUpPrivacyActivity extends BaseActivity {
                     start_school_intent.putExtra("nick", mSignUpNickEditText.getText().toString());
 
                     startActivity(start_school_intent);
+                    finish();
                     break;
                 } else {
                     showCustomToast(getString(R.string.toast_wrong_message));

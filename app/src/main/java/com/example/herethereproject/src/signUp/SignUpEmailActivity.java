@@ -56,13 +56,10 @@ public class SignUpEmailActivity extends BaseActivity {
                 break;
             case R.id.btn_sign_up_email_complete:
                 if(mEmailCheck){
-                    //System.out.println("click success");
                     Intent start_sign_up_password_intent = new Intent(getApplicationContext(), SignUpPasswordActivity.class);
-                    //sign_up_list.add(mSignUpEmailEditText.getText().toString());
-                    //System.out.println(sign_up_list.get(0));
                     start_sign_up_password_intent.putExtra("email", mSignUpEmailEditText.getText().toString());
                     startActivity(start_sign_up_password_intent);
-                    //finish();
+                    finish();
                     break;
                     //비밀번호 입력으로 전환
                 } else{

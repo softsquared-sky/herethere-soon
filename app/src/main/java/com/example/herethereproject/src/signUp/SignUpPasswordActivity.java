@@ -52,8 +52,8 @@ public class SignUpPasswordActivity extends BaseActivity {
     public void signUpPasswordOnClick(View view) {
         switch (view.getId()) {
             case R.id.btn_sign_up_password_back:
-                //sign_up_list.remove(sign_up_list.size()-1);
-                onBackPressed();
+                Intent backIntent = new Intent(getApplicationContext(), SignUpEmailActivity.class);
+                startActivity(backIntent);
                 break;
 
             case R.id.btn_sign_up_password_complete:
@@ -62,8 +62,8 @@ public class SignUpPasswordActivity extends BaseActivity {
                     Intent start_privacy_intent = new Intent(getApplicationContext(), SignUpPrivacyActivity.class);
                     start_privacy_intent.putExtra("email", email_intent.getStringExtra("email"));
                     start_privacy_intent.putExtra("password", mSignUpPasswordEditText.getText().toString());
-                    //sign_up_list.add(mSignUpPasswordEditText.getText().toString());
                     startActivity(start_privacy_intent);
+                    finish();
                     break;
                 } else {
                     showCustomToast(getString(R.string.toast_wrong_message));

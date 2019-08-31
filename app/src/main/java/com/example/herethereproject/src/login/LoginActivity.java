@@ -81,4 +81,14 @@ public class LoginActivity extends BaseActivity implements LoginActivityView {
                 break;
         }
     }
+
+    @Override
+    public void validateSuccess(String text) {
+
+    }
+
+    @Override
+    public void validateFailure(String message) {
+
+    }
 }

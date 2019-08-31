@@ -70,7 +70,8 @@ public class SignUpPictureActivity extends BaseActivity {
     public void signUpPictureOnClick(View view) {
         switch (view.getId()) {
             case R.id.btn_sign_up_picture_back:
-                finish();
+                Intent backIntent = new Intent(getApplicationContext(), SignUpSchoolActivity.class);
+                startActivity(backIntent);
                 break;
             case R.id.btn_sign_up_picture_complete:
                 if (!mPictureCheck) {
@@ -95,6 +96,7 @@ public class SignUpPictureActivity extends BaseActivity {
                     startPictureCompleteIntent.putExtra("school", schoolIntent.getStringExtra("school"));
                     startPictureCompleteIntent.putExtra("picture", mPicture);
                     startActivity(startPictureCompleteIntent);
+                    finish();
                 }
 
 
