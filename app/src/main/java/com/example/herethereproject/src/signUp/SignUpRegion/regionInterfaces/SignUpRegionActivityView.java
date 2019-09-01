@@ -1,12 +1,14 @@
 package com.example.herethereproject.src.signUp.SignUpRegion.regionInterfaces;
 
-import com.example.herethereproject.src.signUp.SignUpRegion.regionModels.SignUpRegionResultResponse;
+import com.example.herethereproject.src.signUp.SignUpRegion.regionModels.SignUpRegionResponse;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface SignUpRegionActivityView {
 
-    void validateSuccess(ArrayList<SignUpRegionResultResponse> result);
+    void validateSuccessGet(List<SignUpRegionResponse.data> result);
+
+    void validateSuccessPost(String text);
 
     void validateFailure(String message);
 }

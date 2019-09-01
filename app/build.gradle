@@ -41,4 +41,6 @@ dependencies {
     // https://github.com/square/retrofit/tree/master/retrofit-converters/gson
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
 
+    //compile 'com.squareup.okhttp3:logging-interceptor:3.0.0-RC1'
+
 }

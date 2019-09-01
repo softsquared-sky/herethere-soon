@@ -13,12 +13,12 @@ import com.example.herethereproject.R;
 import java.util.ArrayList;
 
 public class SignUpRegionAdapter extends BaseAdapter {
-    public ArrayList<SignUpRegionItem> data;
+    public ArrayList<SignUpRegionItem> data = new ArrayList<SignUpRegionItem>();
 
 
     public SignUpRegionAdapter(ArrayList<SignUpRegionItem> data){
         this.data = data;
-        System.out.println(data.get(3).getRegion());
+//        System.out.println(data.size());
     }
 
     @Override
@@ -38,7 +38,7 @@ public class SignUpRegionAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
-        System.out.println("ASDFA");
+        //System.out.println("ASDFA");
         final  Context context = viewGroup.getContext();
 
         if(view == null){

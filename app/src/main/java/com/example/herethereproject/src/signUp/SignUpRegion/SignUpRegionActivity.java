@@ -14,9 +14,10 @@ import com.example.herethereproject.src.BaseActivity;
 import com.example.herethereproject.src.signUp.SignUpFinishActivity;
 import com.example.herethereproject.src.signUp.SignUpPictureCompleteActivity;
 import com.example.herethereproject.src.signUp.SignUpRegion.regionInterfaces.SignUpRegionActivityView;
-import com.example.herethereproject.src.signUp.SignUpRegion.regionModels.SignUpRegionResultResponse;
+import com.example.herethereproject.src.signUp.SignUpRegion.regionModels.SignUpRegionResponse;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class SignUpRegionActivity extends BaseActivity implements SignUpRegionActivityView {
@@ -33,6 +34,9 @@ public class SignUpRegionActivity extends BaseActivity implements SignUpRegionAc
     ListView lvRegion;
     View mBtnList;
 
+    public List<SignUpRegionResponse.data> result = null;
+
+
 
 
     @Override
@@ -43,22 +47,15 @@ public class SignUpRegionActivity extends BaseActivity implements SignUpRegionAc
         Intent pictureIntent = getIntent();
         //회원가입 api를 위한 intent받기기
 
+        itemList = new ArrayList<SignUpRegionItem>();
+
         //http주소
-        //tryGetLocation();
+        tryGetLocation();
 
         lvRegion = findViewById(R.id.lv_Sign_up_region);
 
-        SignUpRegionItem regionItem;
-        itemList = new ArrayList<SignUpRegionItem>();
 
-        for(int i = 0; i < 8; i++){
-            regionItem = new SignUpRegionItem(mSampleList[i], getDrawable(R.drawable.ic_radio_button_true), getDrawable(R.drawable.ic_radio_button_false));
-            itemList.add(regionItem);
-        }
 
-        adapter = new SignUpRegionAdapter(itemList);
-
-        lvRegion.setAdapter(adapter);
 
         mBtnList = findViewById(R.id.btn_sign_up_region_select);
         mIvArrow = findViewById(R.id.iv_sign_up_region_arrow);
@@ -145,20 +142,38 @@ public class SignUpRegionActivity extends BaseActivity implements SignUpRegionAc
     }
 
     @Override
-    public void validateSuccess(ArrayList<SignUpRegionResultResponse> result) {
+    public void validateSuccessGet(List<SignUpRegionResponse.data> result) {
+        this.result = result;
+
         SignUpRegionItem regionItem;
-        itemList = new ArrayList<SignUpRegionItem>();
+        //itemList = new ArrayList<SignUpRegionItem>();
+        System.out.println("inini");
 
         for(int i = 0; i < result.size(); i++){
-            regionItem = new SignUpRegionItem(result.get(i).getLocation(), getDrawable(R.drawable.ic_radio_button_true), getDrawable(R.drawable.ic_radio_button_false));
+            //System.out.println(result.get(i).getLocation());
+            regionItem = new SignUpRegionItem(result.get(i).getLocation(), getDrawable(R.drawable.ic_radio_button_true), getDrawable(R.drawable.ic_radio_button_false), result.get(i).getLocationNo());
             itemList.add(regionItem);
+            System.out.println(itemList.get(i).region);
         }
+
+        adapter = new SignUpRegionAdapter(itemList);
+
+        lvRegion.setAdapter(adapter);
+
         hideProgressDialog();
+    }
+
+    @Override
+    public void validateSuccessPost(String text){
+        System.out.println(text);
+        hideProgressDialog();
+
     }
 
 
     @Override
     public void validateFailure(String message) {
+        System.out.println(message);
         hideProgressDialog();
     }
 

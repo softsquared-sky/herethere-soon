@@ -8,11 +8,13 @@ public class SignUpRegionItem {
     public String region;
     public Drawable trueDrawable;
     public Drawable falseDrawable;
+    public int regionNo;
 
-    public SignUpRegionItem(String region, Drawable trueDrawable, Drawable falseDrawable){
+    public SignUpRegionItem(String region, Drawable trueDrawable, Drawable falseDrawable, int regionNo){
         this.region = region;
         this.trueDrawable = trueDrawable;
         this.falseDrawable = falseDrawable;
+        this.regionNo = regionNo;
     }
 
     public void setRegionCheck(boolean regionCheck){
@@ -25,6 +27,10 @@ public class SignUpRegionItem {
 
     public String getRegion(){
         return region;
+    }
+
+    public int getRegionNo(){
+        return regionNo;
     }
 
 }

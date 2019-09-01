@@ -6,25 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SignUpRegionResponse {
-
-    public ArrayList<SignUpRegionResultResponse> results = new ArrayList<SignUpRegionResultResponse>();
-
-    public ArrayList<SignUpRegionResultResponse> getResult(){
-        return results;
-    }
-
-    @SerializedName("isSuccess")
-    private boolean isSuccess;
-
     @SerializedName("code")
-    private int code;
+    public int code;
 
     @SerializedName("message")
-    private String message;
+    public String message;
 
-    public boolean getIsSuccess() {
-        return isSuccess;
-    }
+    @SerializedName("isSuccess")
+    public boolean isSuccess;
 
     public int getCode() {
         return code;
@@ -34,12 +23,24 @@ public class SignUpRegionResponse {
         return message;
     }
 
-    public class result{
+    public boolean getIsSuccess() {
+        return isSuccess;
+    }
+
+    @SerializedName("result")
+    public List<data> result = new ArrayList<>();
+
+    public List<data> getResult(){
+        return result;
+    }
+
+    public class data {
+
         @SerializedName("locationNo")
-        private int locationNo;
+        public int locationNo;
 
         @SerializedName("location")
-        private String location;
+        public String location;
 
         public int getLocationNo(){
             return locationNo;
@@ -48,6 +49,6 @@ public class SignUpRegionResponse {
         public String getLocation(){
             return location;
         }
-    }
 
+    }
 }

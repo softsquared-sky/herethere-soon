@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import com.example.herethereproject.R;
 import com.example.herethereproject.src.login.interfaces.LoginActivityView;
 import com.example.herethereproject.src.BaseActivity;
+import com.example.herethereproject.src.login.models.LoginBody;
 import com.example.herethereproject.src.signUp.SignUpEmailActivity;
 
 public class LoginActivity extends BaseActivity implements LoginActivityView {
@@ -20,10 +21,16 @@ public class LoginActivity extends BaseActivity implements LoginActivityView {
     ImageButton mImgaeButton;
     boolean mLoginCheck = false;
 
+    public LoginBody mLoginBody;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        tryPostJwt();
+
+
 
 
         mLoginEmailEditText = findViewById(R.id.login_email_input);
@@ -67,6 +74,7 @@ public class LoginActivity extends BaseActivity implements LoginActivityView {
         switch (view.getId()) {
             case R.id.login_button:
                 if(mLoginCheck){
+
                     //로그인 성공, 메인화면으로 이동
                     break;
                 } else {
@@ -82,13 +90,25 @@ public class LoginActivity extends BaseActivity implements LoginActivityView {
         }
     }
 
+    private void tryPostJwt() {
+        mLoginBody = new LoginBody("test@naver.com","q1w2e3");
+
+        final LoginService loginService = new LoginService(this);
+        loginService.postJwt();
+
+        showProgressDialog();
+    }
+
     @Override
     public void validateSuccess(String text) {
-
+        System.out.println(text);
+        hideProgressDialog();
     }
 
     @Override
     public void validateFailure(String message) {
-
+        System.out.println("이것은");
+        System.out.println(message);
+        hideProgressDialog();
     }
 }

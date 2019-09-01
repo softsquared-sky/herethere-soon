@@ -16,13 +16,11 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApplicationClass extends Application {
-
-
     public static MediaType MEDIA_TYPE_JSON = MediaType.parse("application/json; charset=uft-8");
     public static MediaType MEDIA_TYPE_JPEG = MediaType.parse("image/jpeg");
 
     // 테스트 서버 주소
-    public static String BASE_URL = "52.79.198.51";
+    public static String BASE_URL = "http://52.79.198.51/";
     // 실서버 주소
 //    public static String BASE_URL = "https://template.softsquared.com/";
 
@@ -46,6 +44,8 @@ public class ApplicationClass extends Application {
 
         if (sSharedPreferences == null) {
             sSharedPreferences = getApplicationContext().getSharedPreferences(TAG, Context.MODE_PRIVATE);
+            sSharedPreferences.getString(X_ACCESS_TOKEN, null);
+            //sSharedPreferences = getApplicationContext().getSharedPreferences(TAG, Context.MODE_PRIVATE);
         }
     }
 
@@ -66,5 +66,4 @@ public class ApplicationClass extends Application {
 
         return retrofit;
     }
-
 }
