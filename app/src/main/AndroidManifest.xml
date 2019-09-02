@@ -38,7 +38,7 @@
                 android:resource="@xml/image_save"/>
         </provider>
         
-        <activity android:name=".src.login.LoginActivity">
+        <activity android:name=".src.signUp.SignUpRegion.SignUpRegionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -48,11 +48,11 @@
         <activity android:name=".src.signUp.SignUpEmailActivity"/>
         <activity android:name=".src.signUp.SignUpPasswordActivity"/>
         <activity android:name=".src.signUp.SignUpPrivacyActivity"/>
-        <activity android:name=".src.signUp.SignUpRegion.SignUpRegionActivity"/>
-
+        <activity android:name=".src.login.LoginActivity"/>
         <activity android:name=".src.signUp.SignUpPictureCompleteActivity"/>
         <activity android:name=".src.signUp.SignUpPictureActivity"/>
         <activity android:name=".src.signUp.SignUpSchoolActivity"/>
+        <activity android:name=".src.signUp.SignUpFinishActivity"/>
     </application>
 
 </manifest>

@@ -26,6 +26,7 @@ public class SignUpRegionActivity extends BaseActivity implements SignUpRegionAc
 
     SignUpRegionAdapter adapter;
     public ArrayList<SignUpRegionItem> itemList;
+    public List<Integer> mLocationNo;
 
 
     TextView mListTextView;
@@ -48,6 +49,8 @@ public class SignUpRegionActivity extends BaseActivity implements SignUpRegionAc
         //회원가입 api를 위한 intent받기기
 
         itemList = new ArrayList<SignUpRegionItem>();
+
+        tryPostUser();
 
         //http주소
         tryGetLocation();
@@ -84,20 +87,18 @@ public class SignUpRegionActivity extends BaseActivity implements SignUpRegionAc
                     lvRegion.setVisibility(View.GONE);
                     mIvArrow.setImageDrawable(getDrawable(R.drawable.ic_down_arrow));
 
-                    int count = 0;
                     ArrayList<String> name = new ArrayList<String >();
+                    mLocationNo = new ArrayList<Integer>();
                     for(int i = 0; i < itemList.size(); i++){
                         if(itemList.get(i).getRegionCheck()){
-                            count++;
                             name.add(itemList.get(i).getRegion());
+                            mLocationNo.add(itemList.get(i).getRegionNo());
                         }
                     }
-                    System.out.println(name.size());
                     if(name.size() != 0){
                         String selectRegion = name.get(0);
                         for(int i = 1; i < name.size(); i++){
-                            selectRegion = selectRegion.concat(", ");
-                            selectRegion = selectRegion.concat(name.get(i));
+                            selectRegion = selectRegion.concat(", " + name.get(i));
                         }
                         mListTextView.setText(selectRegion);
                         mIbtnComplete.setImageDrawable(getDrawable(R.drawable.ic_region_complete));
@@ -122,7 +123,6 @@ public class SignUpRegionActivity extends BaseActivity implements SignUpRegionAc
                 Intent startFinishIntent = new Intent(getApplicationContext(), SignUpFinishActivity.class);
                 startActivity(startFinishIntent);
                 finish();
-                //.putExtra("picture", mPictureImageView.getImageAlpha());
                 break;
             case R.id.btn_sign_up_region_pass:
                 //일단 하지않음
@@ -135,31 +135,31 @@ public class SignUpRegionActivity extends BaseActivity implements SignUpRegionAc
     }
 
     private void tryGetLocation() {
-        showProgressDialog();
 
+        showProgressDialog();
         final SignUpRegionService signUpRegionService = new SignUpRegionService(this);
         signUpRegionService.getLocation();
     }
 
+    private  void tryPostUser() {
+
+        showProgressDialog();
+        final SignUpRegionService signUpRegionService = new SignUpRegionService(this);
+        signUpRegionService.postUser();
+    }
+
     @Override
     public void validateSuccessGet(List<SignUpRegionResponse.data> result) {
-        this.result = result;
 
+        this.result = result;
         SignUpRegionItem regionItem;
-        //itemList = new ArrayList<SignUpRegionItem>();
-        System.out.println("inini");
 
         for(int i = 0; i < result.size(); i++){
-            //System.out.println(result.get(i).getLocation());
             regionItem = new SignUpRegionItem(result.get(i).getLocation(), getDrawable(R.drawable.ic_radio_button_true), getDrawable(R.drawable.ic_radio_button_false), result.get(i).getLocationNo());
             itemList.add(regionItem);
-            System.out.println(itemList.get(i).region);
         }
-
         adapter = new SignUpRegionAdapter(itemList);
-
         lvRegion.setAdapter(adapter);
-
         hideProgressDialog();
     }
 
@@ -176,6 +176,4 @@ public class SignUpRegionActivity extends BaseActivity implements SignUpRegionAc
         System.out.println(message);
         hideProgressDialog();
     }
-
-
 }

@@ -40,7 +40,7 @@
         android:layout_marginTop="32dp"
         android:lineSpacingExtra="8sp"
         android:text="@string/school_certification"
-        android:textColor="@color/loginTextColor"
+        android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@id/tv_sign_up_school_information_input"
         app:layout_constraintTop_toBottomOf="@id/btn_sign_up_school_back" />
@@ -65,7 +65,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="40dp"
         android:text="@string/please_input_school"
-        android:textColor="@color/loginTextColor"
+        android:textColor="@color/white"
         android:textSize="32sp"
         android:lineSpacingExtra="4sp"
         app:layout_constraintStart_toStartOf="parent"

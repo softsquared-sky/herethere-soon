@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HereThereProject</string>
+    <string name="app_name"><b>HERETHERE</b></string>
     <string name="loading">로딩중입니다</string>
     <string name="network_error">네트워크 연결이 원활하지 않습니다</string>
     <string name="login_sign_up">로그인/\n회원가입</string>

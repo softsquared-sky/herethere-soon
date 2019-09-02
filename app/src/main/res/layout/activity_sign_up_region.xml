@@ -26,7 +26,7 @@
         android:layout_marginTop="28dp"
         android:layout_marginEnd="24dp"
         android:text="@string/pass"
-        android:textColor="@color/loginTextColor"
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:gravity="end"
         android:paddingTop="0dp"
@@ -71,7 +71,7 @@
         android:layout_marginTop="32dp"
         android:text="@string/select_region"
         android:textStyle="bold"
-        android:textColor="@color/loginTextColor"
+        android:textColor="@color/white"
         android:textSize="14sp"
         android:lineSpacingExtra="8sp"
         app:layout_constraintStart_toEndOf="@id/tv_sign_up_region_school_certification"
@@ -84,7 +84,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="40dp"
         android:text="@string/please_select_region"
-        android:textColor="@color/loginTextColor"
+        android:textColor="@color/white"
         android:textSize="32sp"
         android:lineSpacingExtra="4sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -98,7 +98,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/info_select_region"
         android:textSize="12sp"
-        android:textColor="@color/loginTextColor"
+        android:textColor="@color/white"
         android:lineSpacingExtra="6sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_sign_up_region_please_input_picture" />
@@ -115,7 +115,7 @@
         android:onClick="signUpRegionOnClick"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/info_region"
-        android:background="@color/loginTextColor">
+        android:background="@color/white">
 
         <TextView
             android:id="@+id/tv_Sign_up_region_list"
@@ -137,7 +137,7 @@
             android:layout_centerHorizontal="false"
             android:layout_centerVertical="true"
             android:layout_marginEnd="14dp"
-            android:background="@color/loginTextColor"
+            android:background="@color/white"
             app:srcCompat="@drawable/ic_down_arrow" />
 
     </RelativeLayout>
@@ -146,7 +146,7 @@
         android:id="@+id/lv_Sign_up_region"
         android:layout_width="match_parent"
         android:layout_height="237dp"
-        android:background="@color/loginTextColor"
+        android:background="@color/white"
         android:layout_marginStart="24dp"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="46dp"

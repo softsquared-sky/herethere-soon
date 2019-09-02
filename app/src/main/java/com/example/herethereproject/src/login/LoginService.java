@@ -36,7 +36,7 @@ public class LoginService {
                     return;
                 }
 
-                mLoginActivityView.validateSuccess("success");
+                mLoginActivityView.validateSuccess(loginResponse.getMessage());
             }
 
             @Override

@@ -12,6 +12,7 @@ import com.example.herethereproject.R;
 import com.example.herethereproject.src.login.interfaces.LoginActivityView;
 import com.example.herethereproject.src.BaseActivity;
 import com.example.herethereproject.src.login.models.LoginBody;
+import com.example.herethereproject.src.main.MainActivity;
 import com.example.herethereproject.src.signUp.SignUpEmailActivity;
 
 public class LoginActivity extends BaseActivity implements LoginActivityView {
@@ -75,7 +76,9 @@ public class LoginActivity extends BaseActivity implements LoginActivityView {
             case R.id.login_button:
                 if(mLoginCheck){
 
-                    //로그인 성공, 메인화면으로 이동
+                    Intent startMainIntent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(startMainIntent);
+                    finish();
                     break;
                 } else {
                     break;
@@ -84,6 +87,7 @@ public class LoginActivity extends BaseActivity implements LoginActivityView {
             case R.id.login_sign_up:
                 Intent start_sign_up_intent = new Intent(getApplicationContext(), SignUpEmailActivity.class);
                 startActivity(start_sign_up_intent);
+                finish();
                 break;
             default:
                 break;

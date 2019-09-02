@@ -5,7 +5,9 @@
     <color name="colorAccent">#D81B60</color>
     <color name="loginBackground">#009FE5</color>
     <color name="loginTextColorNotFocus">#6BC6EF</color>
-    <color name="loginTextColor">#FFFFFF</color>
+    <color name="white">#FFFFFF</color>
     <color name="inputColor">#DCE1E1</color>
     <color name="listTextColor">#282D2D</color>
+    <color name="MainBackground">#FFFFFFFF</color>
+    <color name="hereThereText">#009FE5</color>
 </resources>
