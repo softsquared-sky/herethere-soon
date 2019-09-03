@@ -3,8 +3,11 @@ package com.example.herethereproject.src.signUp.SignUpRegion;
 import com.example.herethereproject.src.signUp.SignUpRegion.regionInterfaces.SignUpRegionActivityView;
 import com.example.herethereproject.src.signUp.SignUpRegion.regionInterfaces.SignUpRegionRetrofitInterface;
 
+import com.example.herethereproject.src.signUp.SignUpRegion.regionModels.SignUpRegionBody;
 import com.example.herethereproject.src.signUp.SignUpRegion.regionModels.SignUpRegionLocation;
 import com.example.herethereproject.src.signUp.SignUpRegion.regionModels.SignUpRegionResponse;
+import com.example.herethereproject.src.signUp.SignUpRegion.regionModels.SignUpResponse;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,26 +48,41 @@ class SignUpRegionService {
         });
     }
 
-    void postUser(){
+    void postUser(String email, String password, String name, int birth, String nickName, String schoolPicture, String schoolName, List<SignUpRegionBody.LocationList> locationList){
         final SignUpRegionRetrofitInterface signUpRegionRetrofitInterface = getRetrofit().create(SignUpRegionRetrofitInterface.class);
-        SignUpRegionLocation signUpRegionLocation = new SignUpRegionLocation(1);
-        List<SignUpRegionLocation> locationNo = new ArrayList<SignUpRegionLocation>();
+
+        SignUpRegionBody.LocationList signUpRegionLocation = new SignUpRegionBody.LocationList(1);
+        List<SignUpRegionBody.LocationList> locationNo = new ArrayList<SignUpRegionBody.LocationList>();
         locationNo.add(signUpRegionLocation);
-        //System.out.println(locationNo.get(0).locationNo);
-        //final SignUpRegionBody signUpRegionBody = new SignUpRegionBody(2, "randy3456@naver.com", "q1w2e3", "q1w2e3", "홍순재", 960603, "hsj321", "asdf.jpg", "항공대", integerList);
-        signUpRegionRetrofitInterface.postUser(2, "lemon1234@naver.com", "lemon1234", "lemon1234", "이재혁", 960603, "lemon", "http://naver.com/lemon.jpg", "항공대학교", locationNo).enqueue(new Callback<SignUpRegionResponse>() {
+
+        //String password = "q1w2e3";
+        final SignUpRegionBody signUpRegionBody = new SignUpRegionBody(2, email, password, password, name, birth, nickName, schoolPicture, schoolName, locationNo);
+
+        //final SignUpRegionBody signUpRegionBody = new SignUpRegionBody(2, "randy3456@naver.com", "q1w2e3","q1w2e3", "홍순재", 960603, "hsj321", "http://naver.com/lemon.jpg", "항공대학교", locationNo);
+
+        System.out.println(signUpRegionBody.email);
+        System.out.println(signUpRegionBody.password);
+        System.out.println(signUpRegionBody.name);
+        System.out.println(signUpRegionBody.birth);
+        System.out.println(signUpRegionBody.nickName);
+        System.out.println(signUpRegionBody.schoolName);
+        System.out.println(signUpRegionBody.schoolPicture);
+//        System.out.println(signUpRegionBody.locationList.get(1).locationNo);
+
+
+        signUpRegionRetrofitInterface.postUser(signUpRegionBody).enqueue(new Callback<SignUpResponse>() {
             @Override
-            public void onResponse(Call<SignUpRegionResponse> call, Response<SignUpRegionResponse> response) {
-                final SignUpRegionResponse signUpRegionResponse = response.body();
+            public void onResponse(Call<SignUpResponse> call, Response<SignUpResponse> response) {
+                final SignUpResponse signUpRegionResponse = response.body();
                 if (signUpRegionResponse == null) {
-                    mSignUpRegionActivityView.validateFailure(null);
+                    mSignUpRegionActivityView.validateFailure("null");
                     return;
                 }
-                mSignUpRegionActivityView.validateSuccessPost(signUpRegionResponse.getMessage());
+                mSignUpRegionActivityView.validateSuccessPost(signUpRegionResponse.getIsSuccess(), signUpRegionResponse.getMessage());
             }
 
             @Override
-            public void onFailure(Call<SignUpRegionResponse> call, Throwable t) {
+            public void onFailure(Call<SignUpResponse> call, Throwable t) {
                 mSignUpRegionActivityView.validateFailure("fail");
             }
         });

@@ -12,9 +12,13 @@ import android.widget.TextView;
 import com.example.herethereproject.R;
 import com.example.herethereproject.src.BaseActivity;
 import com.example.herethereproject.src.signUp.SignUpFinishActivity;
+import com.example.herethereproject.src.signUp.SignUpPictureActivity;
 import com.example.herethereproject.src.signUp.SignUpPictureCompleteActivity;
 import com.example.herethereproject.src.signUp.SignUpRegion.regionInterfaces.SignUpRegionActivityView;
+import com.example.herethereproject.src.signUp.SignUpRegion.regionModels.SignUpRegionBody;
 import com.example.herethereproject.src.signUp.SignUpRegion.regionModels.SignUpRegionResponse;
+
+import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +30,9 @@ public class SignUpRegionActivity extends BaseActivity implements SignUpRegionAc
 
     SignUpRegionAdapter adapter;
     public ArrayList<SignUpRegionItem> itemList;
-    public List<Integer> mLocationNo;
+
+    public SignUpRegionBody.LocationList signUpRegionLocation;
+    public List<SignUpRegionBody.LocationList> mLocationList = new ArrayList<SignUpRegionBody.LocationList>();
 
 
     TextView mListTextView;
@@ -34,6 +40,8 @@ public class SignUpRegionActivity extends BaseActivity implements SignUpRegionAc
     ImageButton mIbtnComplete;
     ListView lvRegion;
     View mBtnList;
+
+    boolean regionCheck = false;
 
     public List<SignUpRegionResponse.data> result = null;
 
@@ -45,12 +53,12 @@ public class SignUpRegionActivity extends BaseActivity implements SignUpRegionAc
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_region);
 
+
+
         Intent pictureIntent = getIntent();
         //회원가입 api를 위한 intent받기기
 
         itemList = new ArrayList<SignUpRegionItem>();
-
-        tryPostUser();
 
         //http주소
         tryGetLocation();
@@ -88,11 +96,12 @@ public class SignUpRegionActivity extends BaseActivity implements SignUpRegionAc
                     mIvArrow.setImageDrawable(getDrawable(R.drawable.ic_down_arrow));
 
                     ArrayList<String> name = new ArrayList<String >();
-                    mLocationNo = new ArrayList<Integer>();
                     for(int i = 0; i < itemList.size(); i++){
                         if(itemList.get(i).getRegionCheck()){
                             name.add(itemList.get(i).getRegion());
-                            mLocationNo.add(itemList.get(i).getRegionNo());
+
+                            signUpRegionLocation = new SignUpRegionBody.LocationList(itemList.get(i).getRegionNo());
+                            mLocationList.add(signUpRegionLocation);
                         }
                     }
                     if(name.size() != 0){
@@ -101,9 +110,11 @@ public class SignUpRegionActivity extends BaseActivity implements SignUpRegionAc
                             selectRegion = selectRegion.concat(", " + name.get(i));
                         }
                         mListTextView.setText(selectRegion);
+                        regionCheck = true;
                         mIbtnComplete.setImageDrawable(getDrawable(R.drawable.ic_region_complete));
                     } else {
                         mListTextView.setText(R.string.list_select_region);
+                        regionCheck = false;
                         mIbtnComplete.setImageDrawable(getDrawable(R.drawable.ic_select_complete));
                     }
 
@@ -111,18 +122,19 @@ public class SignUpRegionActivity extends BaseActivity implements SignUpRegionAc
                     lvRegion.setVisibility(View.VISIBLE);
                     mIvArrow.setImageDrawable(getDrawable(R.drawable.ic_up_arrow));
                     mListTextView.setText(R.string.list_select_region);
+                    regionCheck = false;
                     mIbtnComplete.setImageDrawable(getDrawable(R.drawable.ic_select_complete));
 
                 }
                 break;
             case R.id.btn_sign_up_region_back:
-                Intent backIntent = new Intent(getApplicationContext(), SignUpPictureCompleteActivity.class);
+                Intent backIntent = new Intent(getApplicationContext(), SignUpPictureActivity.class);
                 startActivity(backIntent);
                 break;
             case R.id.btn_sign_up_region_complete:
-                Intent startFinishIntent = new Intent(getApplicationContext(), SignUpFinishActivity.class);
-                startActivity(startFinishIntent);
-                finish();
+                if(regionCheck){
+                    tryPostUser();
+                }
                 break;
             case R.id.btn_sign_up_region_pass:
                 //일단 하지않음
@@ -143,14 +155,25 @@ public class SignUpRegionActivity extends BaseActivity implements SignUpRegionAc
 
     private  void tryPostUser() {
 
+        Intent pictureIntent = getIntent();
+        String email = pictureIntent.getStringExtra("email");
+        String password = pictureIntent.getStringExtra("password");
+        String name = pictureIntent.getStringExtra("name");
+        //System.out.println(pictureIntent.getStringExtra("birth"));
+        int birth = Integer.parseInt(pictureIntent.getStringExtra("birth"));
+        String nickName = pictureIntent.getStringExtra("nick");
+        String schoolPicture = pictureIntent.getStringExtra("picture");
+        String schoolName = pictureIntent.getStringExtra("school");
+
+
         showProgressDialog();
         final SignUpRegionService signUpRegionService = new SignUpRegionService(this);
-        signUpRegionService.postUser();
+        signUpRegionService.postUser(email, password, name, birth, nickName, schoolPicture, schoolName, mLocationList);
+        //signUpRegionService.postUser("randy3456@naver.com", "q1w2e3", "홍순재", 960603, "asdf321", "asdf.jpg", "한국항", locationNo);
     }
 
     @Override
     public void validateSuccessGet(List<SignUpRegionResponse.data> result) {
-
         this.result = result;
         SignUpRegionItem regionItem;
 
@@ -164,8 +187,20 @@ public class SignUpRegionActivity extends BaseActivity implements SignUpRegionAc
     }
 
     @Override
-    public void validateSuccessPost(String text){
-        System.out.println(text);
+    public void validateSuccessPost(boolean success, String message){
+        showCustomToast(message);
+
+        if(success){
+            showCustomToast(message);
+
+            Intent startFinishIntent = new Intent(getApplicationContext(), SignUpFinishActivity.class);
+            startActivity(startFinishIntent);
+            finish();
+
+        } else{
+            showCustomToast(message);
+        }
+
         hideProgressDialog();
 
     }

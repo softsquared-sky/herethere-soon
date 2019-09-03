@@ -19,7 +19,7 @@ public class LoginActivity extends BaseActivity implements LoginActivityView {
 
     EditText mLoginEmailEditText;
     EditText mLoginPasswordEditText;
-    ImageButton mImgaeButton;
+    ImageButton mImageButton;
     boolean mLoginCheck = false;
 
     public LoginBody mLoginBody;
@@ -29,14 +29,9 @@ public class LoginActivity extends BaseActivity implements LoginActivityView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        tryPostJwt();
-
-
-
-
         mLoginEmailEditText = findViewById(R.id.login_email_input);
         mLoginPasswordEditText = findViewById(R.id.login_password_input);
-        mImgaeButton = findViewById(R.id.login_button);
+        mImageButton = findViewById(R.id.login_button);
 
         TextWatcher textWatcher = new TextWatcher() {
             @Override
@@ -49,12 +44,12 @@ public class LoginActivity extends BaseActivity implements LoginActivityView {
                 if (checkPassword(mLoginPasswordEditText.getText().toString()) && checkEmail(mLoginEmailEditText.getText().toString())) {
                     //올바른 입력
                     System.out.println("success");
-                    mImgaeButton.setImageDrawable(getDrawable(R.drawable.ic_login_yes));
+                    mImageButton.setImageDrawable(getDrawable(R.drawable.ic_login_yes));
                     mLoginCheck = true;
                 } else {
                     //잘못된 입력
                     System.out.println("fail");
-                    mImgaeButton.setImageDrawable(getDrawable(R.drawable.ic_login_none));
+                    mImageButton.setImageDrawable(getDrawable(R.drawable.ic_login_none));
                     mLoginCheck = false;
                 }
             }
@@ -67,18 +62,13 @@ public class LoginActivity extends BaseActivity implements LoginActivityView {
 
         mLoginEmailEditText.addTextChangedListener(textWatcher);
         mLoginPasswordEditText.addTextChangedListener(textWatcher);
-
-
     }
 
     public void loginOnClick(View view) {
         switch (view.getId()) {
             case R.id.login_button:
                 if(mLoginCheck){
-
-                    Intent startMainIntent = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(startMainIntent);
-                    finish();
+                    tryPostJwt();
                     break;
                 } else {
                     break;
@@ -95,23 +85,31 @@ public class LoginActivity extends BaseActivity implements LoginActivityView {
     }
 
     private void tryPostJwt() {
-        mLoginBody = new LoginBody("test@naver.com","q1w2e3");
+        //mLoginBody = new LoginBody("test@naver.com","q1w2e3");
 
         final LoginService loginService = new LoginService(this);
-        loginService.postJwt();
-
+        loginService.postJwt("lemon34@naver.com", "s123444");
         showProgressDialog();
     }
 
     @Override
-    public void validateSuccess(String text) {
-        System.out.println(text);
+    public void validateSuccess(String message, boolean success) {
+        if(success){
+            showCustomToast(message);
+
+            Intent startMainIntent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(startMainIntent);
+            finish();
+
+        } else{
+            showCustomToast(message);
+        }
+
         hideProgressDialog();
     }
 
     @Override
     public void validateFailure(String message) {
-        System.out.println("이것은");
         System.out.println(message);
         hideProgressDialog();
     }

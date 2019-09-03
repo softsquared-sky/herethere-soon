@@ -12,8 +12,15 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface LoginRetrofitInterface {
+
+    /*
     @FormUrlEncoded
     @POST("/jwt")
     Call<LoginResponse> postJwt(@Field("email") String email,
                                 @Field("password") String password);
+
+                                */
+
+    @POST("/jwt")
+    Call<LoginResponse> postJwt(@Body LoginBody loginBody);
 }

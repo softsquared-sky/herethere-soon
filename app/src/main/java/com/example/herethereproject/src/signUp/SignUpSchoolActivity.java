@@ -50,21 +50,21 @@ public class SignUpSchoolActivity extends BaseActivity {
 
     public void signUpSchoolOnClick(View view) {
         switch (view.getId()) {
-            case R.id.btn_sign_up_email_back:
+            case R.id.btn_sign_up_school_back:
                 Intent backIntent = new Intent(getApplicationContext(), SignUpPrivacyActivity.class);
                 startActivity(backIntent);
                 break;
-            case R.id.btn_sign_up_email_complete:
+            case R.id.btn_sign_up_school_complete:
                 if(mSchoolCheck){
                     Intent privacyIntent = getIntent();
-                    Intent startPictureCompleteIntent = new Intent(getApplicationContext(), SignUpPictureActivity.class);
-                    startPictureCompleteIntent.putExtra("email", privacyIntent.getStringExtra("email"));
-                    startPictureCompleteIntent.putExtra("password", privacyIntent.getStringExtra("password"));
-                    startPictureCompleteIntent.putExtra("name", privacyIntent.getStringExtra("name"));
-                    startPictureCompleteIntent.putExtra("birth", privacyIntent.getStringExtra("birth"));
-                    startPictureCompleteIntent.putExtra("nick", privacyIntent.getStringExtra("nick"));
-                    startPictureCompleteIntent.putExtra("school", mSignUpSchoolEditText.getText().toString());
-                    startActivity(startPictureCompleteIntent);
+                    Intent startPictureIntent = new Intent(getApplicationContext(), SignUpPictureActivity.class);
+                    startPictureIntent.putExtra("email", privacyIntent.getStringExtra("email"));
+                    startPictureIntent.putExtra("password", privacyIntent.getStringExtra("password"));
+                    startPictureIntent.putExtra("name", privacyIntent.getStringExtra("name"));
+                    startPictureIntent.putExtra("birth", privacyIntent.getStringExtra("birth"));
+                    startPictureIntent.putExtra("nick", privacyIntent.getStringExtra("nick"));
+                    startPictureIntent.putExtra("school", mSignUpSchoolEditText.getText().toString());
+                    startActivity(startPictureIntent);
                     break;
                 } else{
                     showCustomToast(getString(R.string.toast_wrong_message));

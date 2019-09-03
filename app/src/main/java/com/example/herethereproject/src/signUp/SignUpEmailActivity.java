@@ -9,6 +9,7 @@ import android.widget.EditText;
 
 import com.example.herethereproject.R;
 import com.example.herethereproject.src.BaseActivity;
+import com.example.herethereproject.src.login.LoginActivity;
 
 public class SignUpEmailActivity extends BaseActivity {
     EditText mSignUpEmailEditText;
@@ -52,7 +53,9 @@ public class SignUpEmailActivity extends BaseActivity {
     public void signUpEmailOnClick(View view) {
         switch (view.getId()) {
             case R.id.btn_sign_up_email_back:
-                onBackPressed();
+                Intent startLoginIntent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(startLoginIntent);
+                finish();
                 break;
             case R.id.btn_sign_up_email_complete:
                 if(mEmailCheck){

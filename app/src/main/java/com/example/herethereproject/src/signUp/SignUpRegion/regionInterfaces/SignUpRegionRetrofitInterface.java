@@ -3,6 +3,9 @@ package com.example.herethereproject.src.signUp.SignUpRegion.regionInterfaces;
 import com.example.herethereproject.src.signUp.SignUpRegion.regionModels.SignUpRegionBody;
 import com.example.herethereproject.src.signUp.SignUpRegion.regionModels.SignUpRegionLocation;
 import com.example.herethereproject.src.signUp.SignUpRegion.regionModels.SignUpRegionResponse;
+import com.example.herethereproject.src.signUp.SignUpRegion.regionModels.SignUpResponse;
+
+import org.json.JSONObject;
 
 import java.util.List;
 
@@ -20,11 +23,11 @@ public interface SignUpRegionRetrofitInterface {
 
     @GET("/location")
     Call<SignUpRegionResponse> getTest();
-/*
-    @POST("/user")
-    Call<SignUpRegionResponse> postUser(@Body SignUpRegionBody signUpRegionBody);
-    */
 
+    @POST("/user")
+    Call<SignUpResponse> postUser(@Body SignUpRegionBody signUpRegionBody);
+
+/*
     @FormUrlEncoded
     @POST("/user")
     Call<SignUpRegionResponse> postUser(@Field("reqType") int reqType,
@@ -37,6 +40,7 @@ public interface SignUpRegionRetrofitInterface {
                                         @Field("schoolPicture") String schoolPicture,
                                         @Field("schoolName") String schoolName,
                                         @Field("locationList") List<SignUpRegionLocation> locationList);
+                                        */
 
 
 }

@@ -8,7 +8,7 @@ public interface SignUpRegionActivityView {
 
     void validateSuccessGet(List<SignUpRegionResponse.data> result);
 
-    void validateSuccessPost(String text);
+    void validateSuccessPost(boolean success, String message);
 
     void validateFailure(String message);
 }

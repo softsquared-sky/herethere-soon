@@ -23,11 +23,12 @@ public class LoginService {
         this.mLoginActivityView = loginActivityView;
     }
 
-    void postJwt() {
+    void postJwt(String email, String password) {
+        LoginBody loginBody = new LoginBody("lemon34@naver.com", "s123444");
         System.out.println("inpost");
         LoginResponse loginResponse = new LoginResponse();
         final LoginRetrofitInterface loginRetrofitInterface = getRetrofit().create(LoginRetrofitInterface.class);
-        loginRetrofitInterface.postJwt("randu2345@naver.com", "q1w2e3").enqueue(new Callback<LoginResponse>() {
+        loginRetrofitInterface.postJwt(loginBody).enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 final LoginResponse loginResponse = response.body();
@@ -35,8 +36,7 @@ public class LoginService {
                     mLoginActivityView.validateFailure(null);
                     return;
                 }
-
-                mLoginActivityView.validateSuccess(loginResponse.getMessage());
+                mLoginActivityView.validateSuccess(loginResponse.getMessage(), loginResponse.getIsSuccess());
             }
 
             @Override
