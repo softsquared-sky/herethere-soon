@@ -46,9 +46,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".src.signUp.SignUpEmailActivity"/>
+        <activity android:name=".src.signUp.SignUpEmail.SignUpEmailActivity"/>
         <activity android:name=".src.signUp.SignUpPasswordActivity"/>
-        <activity android:name=".src.signUp.SignUpPrivacyActivity"/>
+        <activity android:name=".src.signUp.SignUpPrivacy.SignUpPrivacyActivity"/>
 
         <activity android:name=".src.signUp.SignUpRegion.SignUpRegionActivity"/>
         <activity android:name=".src.signUp.SignUpPictureCompleteActivity"/>

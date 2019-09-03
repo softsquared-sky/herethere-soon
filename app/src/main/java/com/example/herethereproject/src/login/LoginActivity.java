@@ -13,7 +13,7 @@ import com.example.herethereproject.src.login.interfaces.LoginActivityView;
 import com.example.herethereproject.src.BaseActivity;
 import com.example.herethereproject.src.login.models.LoginBody;
 import com.example.herethereproject.src.main.MainActivity;
-import com.example.herethereproject.src.signUp.SignUpEmailActivity;
+import com.example.herethereproject.src.signUp.SignUpEmail.SignUpEmailActivity;
 
 public class LoginActivity extends BaseActivity implements LoginActivityView {
 

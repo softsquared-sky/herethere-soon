@@ -9,6 +9,7 @@ import android.widget.EditText;
 
 import com.example.herethereproject.R;
 import com.example.herethereproject.src.BaseActivity;
+import com.example.herethereproject.src.signUp.SignUpPrivacy.SignUpPrivacyActivity;
 
 public class SignUpSchoolActivity extends BaseActivity {
     EditText mSignUpSchoolEditText;

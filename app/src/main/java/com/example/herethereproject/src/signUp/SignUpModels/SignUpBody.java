@@ -1,4 +1,4 @@
-package com.example.herethereproject.src.signUp.SignUpRegion.regionModels;
+package com.example.herethereproject.src.signUp.SignUpModels;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SignUpRegionBody {
+public class SignUpBody {
     @Expose
     @SerializedName("reqType")
     public int reqType;
@@ -29,7 +29,7 @@ public class SignUpRegionBody {
 
     @Expose
     @SerializedName("birth")
-    public int birth;
+    public Integer birth;
 
     @Expose
     @SerializedName("nickName")
@@ -48,7 +48,7 @@ public class SignUpRegionBody {
     public List<LocationList> locationList;
 
 
-    public SignUpRegionBody(int reqType, String email, String password, String rePassword, String name, int birth, String nickName, String schoolPicture, String schoolName, List<LocationList> locationList){
+    public SignUpBody(int reqType, String email, String password, String rePassword, String name, Integer birth, String nickName, String schoolPicture, String schoolName, List<LocationList> locationList){
         this.reqType = reqType;
         this.email = email;
         this.password = password;

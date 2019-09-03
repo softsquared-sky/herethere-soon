@@ -13,26 +13,23 @@ import com.example.herethereproject.R;
 import com.example.herethereproject.src.BaseActivity;
 import com.example.herethereproject.src.signUp.SignUpFinishActivity;
 import com.example.herethereproject.src.signUp.SignUpPictureActivity;
-import com.example.herethereproject.src.signUp.SignUpPictureCompleteActivity;
-import com.example.herethereproject.src.signUp.SignUpRegion.regionInterfaces.SignUpRegionActivityView;
-import com.example.herethereproject.src.signUp.SignUpRegion.regionModels.SignUpRegionBody;
-import com.example.herethereproject.src.signUp.SignUpRegion.regionModels.SignUpRegionResponse;
-
-import org.json.JSONException;
+import com.example.herethereproject.src.signUp.SignUpInterfaces.SignUpActivityView;
+import com.example.herethereproject.src.signUp.SignUpModels.SignUpBody;
+import com.example.herethereproject.src.signUp.SignUpModels.SignUpRegionResponse;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class SignUpRegionActivity extends BaseActivity implements SignUpRegionActivityView {
+public class SignUpRegionActivity extends BaseActivity implements SignUpActivityView {
 
     public String[] mSampleList = {"대만", "한국", "미국", "홍콩", "중국", "몽골", "가나", "영국"};
 
     SignUpRegionAdapter adapter;
     public ArrayList<SignUpRegionItem> itemList;
 
-    public SignUpRegionBody.LocationList signUpRegionLocation;
-    public List<SignUpRegionBody.LocationList> mLocationList = new ArrayList<SignUpRegionBody.LocationList>();
+    public SignUpBody.LocationList signUpRegionLocation;
+    public List<SignUpBody.LocationList> mLocationList = new ArrayList<SignUpBody.LocationList>();
 
 
     TextView mListTextView;
@@ -100,7 +97,7 @@ public class SignUpRegionActivity extends BaseActivity implements SignUpRegionAc
                         if(itemList.get(i).getRegionCheck()){
                             name.add(itemList.get(i).getRegion());
 
-                            signUpRegionLocation = new SignUpRegionBody.LocationList(itemList.get(i).getRegionNo());
+                            signUpRegionLocation = new SignUpBody.LocationList(itemList.get(i).getRegionNo());
                             mLocationList.add(signUpRegionLocation);
                         }
                     }
@@ -164,6 +161,8 @@ public class SignUpRegionActivity extends BaseActivity implements SignUpRegionAc
         String nickName = pictureIntent.getStringExtra("nick");
         String schoolPicture = pictureIntent.getStringExtra("picture");
         String schoolName = pictureIntent.getStringExtra("school");
+
+
 
 
         showProgressDialog();

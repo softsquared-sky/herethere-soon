@@ -1,4 +1,4 @@
-package com.example.herethereproject.src.signUp;
+package com.example.herethereproject.src.signUp.SignUpPrivacy;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,8 +9,14 @@ import android.widget.EditText;
 
 import com.example.herethereproject.R;
 import com.example.herethereproject.src.BaseActivity;
+import com.example.herethereproject.src.signUp.SignUpInterfaces.SignUpActivityView;
+import com.example.herethereproject.src.signUp.SignUpModels.SignUpRegionResponse;
+import com.example.herethereproject.src.signUp.SignUpPasswordActivity;
+import com.example.herethereproject.src.signUp.SignUpSchoolActivity;
 
-public class SignUpPrivacyActivity extends BaseActivity {
+import java.util.List;
+
+public class SignUpPrivacyActivity extends BaseActivity implements SignUpActivityView {
 
     EditText mSignUpNameEditText;
     EditText mSignUpBirthEditText;
@@ -66,17 +72,9 @@ public class SignUpPrivacyActivity extends BaseActivity {
                 break;
             case R.id.btn_sign_up_privacy_complete:
                 if(privacyCheck){
-                    Intent password_intent = getIntent();
-                    Intent start_school_intent = new Intent(getApplicationContext(), SignUpSchoolActivity.class);
 
-                    start_school_intent.putExtra("email", password_intent.getStringExtra("email"));
-                    start_school_intent.putExtra("password", password_intent.getStringExtra("password"));
-                    start_school_intent.putExtra("name", mSignUpNameEditText.getText().toString());
-                    start_school_intent.putExtra("birth", mSignUpBirthEditText.getText().toString());
-                    start_school_intent.putExtra("nick", mSignUpNickEditText.getText().toString());
+                    tryPostUser();
 
-                    startActivity(start_school_intent);
-                    finish();
                     break;
                 } else {
                     showCustomToast(getString(R.string.toast_wrong_message));
@@ -85,5 +83,52 @@ public class SignUpPrivacyActivity extends BaseActivity {
             default:
                 break;
         }
+    }
+
+    private  void tryPostUser() {
+
+        showProgressDialog();
+        final SignUpPrivacyService signUpPrivacyService = new SignUpPrivacyService(this);
+
+        int reqType = 1;
+        String nickName = mSignUpNickEditText.getText().toString();
+        signUpPrivacyService.postUser(reqType, nickName);
+        //signUpRegionService.postUser("randy3456@naver.com", "q1w2e3", "홍순재", 960603, "asdf321", "asdf.jpg", "한국항", locationNo);
+    }
+
+
+    @Override
+    public void validateSuccessPost(boolean success, String message) {
+        hideProgressDialog();
+        if(message != null) {
+
+            showCustomToast(message);
+        } else {
+            showCustomToast(message);
+        }
+
+    }
+
+    @Override
+    public void validateFailure(String message) {
+        hideProgressDialog();
+
+        Intent password_intent = getIntent();
+        Intent start_school_intent = new Intent(getApplicationContext(), SignUpSchoolActivity.class);
+
+        start_school_intent.putExtra("email", password_intent.getStringExtra("email"));
+        start_school_intent.putExtra("password", password_intent.getStringExtra("password"));
+        start_school_intent.putExtra("name", mSignUpNameEditText.getText().toString());
+        start_school_intent.putExtra("birth", mSignUpBirthEditText.getText().toString());
+        start_school_intent.putExtra("nick", mSignUpNickEditText.getText().toString());
+
+        startActivity(start_school_intent);
+        finish();
+
+    }
+
+    @Override
+    public void validateSuccessGet(List<SignUpRegionResponse.data> result) {
+
     }
 }

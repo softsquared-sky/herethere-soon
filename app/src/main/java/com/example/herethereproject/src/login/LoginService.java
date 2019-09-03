@@ -4,11 +4,6 @@ import com.example.herethereproject.src.login.interfaces.LoginActivityView;
 import com.example.herethereproject.src.login.interfaces.LoginRetrofitInterface;
 import com.example.herethereproject.src.login.models.LoginBody;
 import com.example.herethereproject.src.login.models.LoginResponse;
-import com.example.herethereproject.src.signUp.SignUpRegion.regionInterfaces.SignUpRegionActivityView;
-import com.example.herethereproject.src.signUp.SignUpRegion.regionInterfaces.SignUpRegionRetrofitInterface;
-import com.example.herethereproject.src.signUp.SignUpRegion.regionModels.SignUpRegionResponse;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
