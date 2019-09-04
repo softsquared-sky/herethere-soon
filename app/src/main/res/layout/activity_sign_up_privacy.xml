@@ -63,72 +63,108 @@
         android:id="@+id/tv_sign_up_privacy_please_input_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="40dp"
         android:text="@string/please_input_privacy"
         android:textColor="@color/white"
         android:textSize="32sp"
         android:lineSpacingExtra="4sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_sign_up_privacy_information_input"
         app:layout_constraintTop_toBottomOf="@id/tv_sign_up_privacy_information_input" />
 
 
-    <EditText
-        android:id="@+id/et_sign_up_privacy_name"
+    <LinearLayout
+        android:id="@+id/linear_sign_up_privay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:orientation="vertical"
         android:layout_marginTop="62dp"
-        android:ems="15"
-        android:textSize="14sp"
-        android:theme="@style/EditTheme"
-        android:hint="@string/name_input"
-        android:textColorHint="@color/inputColor"
-        android:textColor="@color/inputColor"
-        android:inputType="text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_sign_up_privacy_please_input_email" />
+        app:layout_constraintStart_toStartOf="@id/tv_sign_up_privacy_information_input"
+        app:layout_constraintTop_toBottomOf="@id/tv_sign_up_privacy_please_input_email">
 
-    <EditText
-        android:id="@+id/et_sign_up_privacy_birth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:ems="15"
-        android:textSize="14sp"
-        android:theme="@style/EditTheme"
-        android:hint="@string/birth_input"
-        android:textColorHint="@color/inputColor"
-        android:textColor="@color/inputColor"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_sign_up_privacy_name" />
-    <EditText
-        android:id="@+id/et_sign_up_privacy_nick"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:ems="15"
-        android:textSize="14sp"
-        android:theme="@style/EditTheme"
-        android:hint="@string/nick_input"
-        android:textColorHint="@color/inputColor"
-        android:textColor="@color/inputColor"
-        android:inputType="text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_sign_up_privacy_birth" />
+        <EditText
+            android:id="@+id/et_sign_up_privacy_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:ems="15"
+            android:textSize="14sp"
+            android:theme="@style/EditTheme"
+            android:hint="@string/name_input"
+            android:textColorHint="@color/inputColor"
+            android:textColor="@color/inputColor"
+            android:inputType="text"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/inputColor"/>
+
+
+        <EditText
+            android:id="@+id/et_sign_up_privacy_birth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@null"
+            android:ems="15"
+            android:textSize="14sp"
+            android:theme="@style/EditTheme"
+            android:hint="@string/birth_input"
+            android:textColorHint="@color/inputColor"
+            android:textColor="@color/inputColor"
+            android:inputType="number"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/inputColor"/>
+
+
+        <EditText
+            android:id="@+id/et_sign_up_privacy_nick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@null"
+            android:ems="15"
+            android:textSize="14sp"
+            android:theme="@style/EditTheme"
+            android:hint="@string/nick_input"
+            android:textColorHint="@color/inputColor"
+            android:textColor="@color/inputColor"
+            android:inputType="text"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/inputColor"/>
+
+        <TextView
+            android:id="@+id/tv_sign_up_privacy_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textSize="10sp"
+            android:textColor="@color/signUpYellow"
+            android:lineSpacingExtra="6sp"/>
+
+    </LinearLayout>
+
+
 
     <ImageButton
         android:id="@+id/btn_sign_up_privacy_complete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:background="@color/loginBackground"
         android:src="@drawable/ic_sign_up_complete"
         android:onClick="signUpPrivacyOnClick"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_sign_up_privacy_nick" />
+        app:layout_constraintStart_toStartOf="@id/tv_sign_up_privacy_information_input"
+        app:layout_constraintTop_toBottomOf="@id/linear_sign_up_privay" />
 
     <TextView
         android:id="@+id/tv_sign_up_privacy_dot_first"

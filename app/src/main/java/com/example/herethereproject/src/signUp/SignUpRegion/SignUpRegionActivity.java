@@ -84,6 +84,13 @@ public class SignUpRegionActivity extends BaseActivity implements SignUpActivity
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent backIntent = new Intent(getApplicationContext(), SignUpPictureActivity.class);
+        startActivity(backIntent);
+        finish();
+    }
+
     public void signUpRegionOnClick(View view) {
         switch (view.getId()) {
             //선택창 눌러서 리스트 보이기
@@ -125,8 +132,7 @@ public class SignUpRegionActivity extends BaseActivity implements SignUpActivity
                 }
                 break;
             case R.id.btn_sign_up_region_back:
-                Intent backIntent = new Intent(getApplicationContext(), SignUpPictureActivity.class);
-                startActivity(backIntent);
+                onBackPressed();
                 break;
             case R.id.btn_sign_up_region_complete:
                 if(regionCheck){
@@ -191,8 +197,9 @@ public class SignUpRegionActivity extends BaseActivity implements SignUpActivity
 
         if(success){
             showCustomToast(message);
-
+            Intent pictureIntent = getIntent();
             Intent startFinishIntent = new Intent(getApplicationContext(), SignUpFinishActivity.class);
+            startFinishIntent.putExtra("nick", pictureIntent.getStringExtra("nick"));
             startActivity(startFinishIntent);
             finish();
 

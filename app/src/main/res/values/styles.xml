@@ -9,7 +9,6 @@
     </style>
 
     <style name="EditTheme" parent="Theme.AppCompat.Light.NoActionBar">
-
         <item name="colorAccent">@color/inputColor</item>
         <item name="colorControlNormal">@color/inputColor</item>
     </style>

@@ -6,6 +6,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.herethereproject.R;
 import com.example.herethereproject.src.BaseActivity;
@@ -18,7 +19,7 @@ import java.util.List;
 
 public class SignUpEmailActivity extends BaseActivity implements SignUpActivityView {
     EditText mSignUpEmailEditText;
-    boolean mEmailCheck = false;
+    TextView mSignUpEmailCheckTextView;
 
 
     @Override
@@ -27,49 +28,30 @@ public class SignUpEmailActivity extends BaseActivity implements SignUpActivityV
         setContentView(R.layout.activity_sign_up_email);
 
         mSignUpEmailEditText = findViewById(R.id.et_sign_up_email_input);
+        mSignUpEmailCheckTextView = findViewById(R.id.tv_sign_up_email_check);
+    }
 
-        TextWatcher textWatcher = new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if(checkEmail(mSignUpEmailEditText.getText().toString())){
-                    System.out.println("sign success");
-                    mEmailCheck = true;
-                } else {
-                    mEmailCheck = false;
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        };
-
-        mSignUpEmailEditText.addTextChangedListener(textWatcher);
-
-
+    @Override
+    public void onBackPressed() {
+        Intent startLoginIntent = new Intent(getApplicationContext(), LoginActivity.class);
+        startActivity(startLoginIntent);
+        finish();
     }
 
     public void signUpEmailOnClick(View view) {
         switch (view.getId()) {
             case R.id.btn_sign_up_email_back:
-                Intent startLoginIntent = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(startLoginIntent);
-                finish();
+                onBackPressed();
                 break;
             case R.id.btn_sign_up_email_complete:
-                if(mEmailCheck){
+                if(!checkEmail(mSignUpEmailEditText.getText().toString())){
+                    mSignUpEmailCheckTextView.setText("이메일 형식이 올바르지 않습니다.");
+                    break;
+                }
+                if(checkEmail(mSignUpEmailEditText.getText().toString())) {
                     tryPostUser();
                     break;
                     //비밀번호 입력으로 전환
-                } else{
-                    showCustomToast(getString(R.string.toast_wrong_message));
-                    break;
                 }
             default:
                 break;
@@ -92,7 +74,7 @@ public class SignUpEmailActivity extends BaseActivity implements SignUpActivityV
     public void validateSuccessPost(boolean success, String message) {
         hideProgressDialog();
         if(message != null) {
-
+            mSignUpEmailCheckTextView.setText(message);
             showCustomToast(message);
         } else {
             showCustomToast(message);

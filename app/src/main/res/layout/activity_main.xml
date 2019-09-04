@@ -19,10 +19,11 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <ImageButton
-            android:id="@+id/ibtn_main_buger"
+            android:id="@+id/btn_main_buger"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/white"
+            android:onClick="MainOnClick"
             android:src="@drawable/ic_main_buger"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -36,27 +37,29 @@
             android:textColor="#009fe5"
             android:lineSpacingExtra="8sp"
             android:layout_marginStart="16dp"
-            app:layout_constraintStart_toEndOf="@id/ibtn_main_buger"
+            app:layout_constraintStart_toEndOf="@id/btn_main_buger"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
         <ImageButton
-            android:id="@+id/ibtn_main_filter"
+            android:id="@+id/btn_main_filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="38dp"
             android:background="@color/white"
+            android:onClick="MainOnClick"
             android:src="@drawable/ic_main_filter"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/ibtn_main_search"
+            app:layout_constraintEnd_toStartOf="@+id/btn_main_search"
             app:layout_constraintTop_toTopOf="parent"/>
 
         <ImageButton
-            android:id="@+id/ibtn_main_search"
+            android:id="@+id/btn_main_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:src="@drawable/ic_main_search"
+            android:onClick="MainOnClick"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
@@ -65,12 +68,11 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <FrameLayout
-        android:id="@+id/Main_Frame"
+        android:id="@+id/main_frame"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginBottom="48dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
+        android:layout_marginTop="64dp"
         app:layout_constraintTop_toBottomOf="@id/main_top"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -86,58 +88,56 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:paddingStart="27dp"
-            android:paddingEnd="27dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
             android:layout_gravity="bottom">
 
             <ImageButton
-                android:id="@+id/ibtn_main_home"
+                android:id="@+id/btn_main_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:src="@drawable/ic_main_home_focus"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:onClick="MainOnClick"
+                android:layout_weight="1"
+                android:src="@drawable/ic_main_home_focus"/>
+            <ImageButton
+                android:id="@+id/btn_main_bookmark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:onClick="MainOnClick"
+                android:layout_weight="1"
+                android:src="@drawable/ic_main_bookmark_not"/>
+            <View
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
 
             <ImageButton
-                android:id="@+id/ibtn_main_bookmark"
+                android:id="@+id/btn_main_message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:src="@drawable/ic_main_home_focus"
-                android:layout_marginStart="38dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/ibtn_main_home"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:onClick="MainOnClick"
+                android:layout_weight="1"
+                android:src="@drawable/ic_main_message_not"/>
 
             <ImageButton
-                android:id="@+id/ibtn_main_message"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="38dp"
-                android:background="@color/white"
-                android:src="@drawable/ic_main_home_focus"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/ibtn_main_myPage"
-                app:layout_constraintTop_toTopOf="parent"/>
-
-            <ImageButton
-                android:id="@+id/ibtn_main_myPage"
+                android:id="@+id/btn_main_myPage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:src="@drawable/ic_main_home_focus"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                android:onClick="MainOnClick"
+                android:layout_weight="1"
+                android:src="@drawable/ic_main_mypage_not"/>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
         <ImageButton
+            android:id="@+id/btn_main_write"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

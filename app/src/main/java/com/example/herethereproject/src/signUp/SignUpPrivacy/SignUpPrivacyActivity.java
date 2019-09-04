@@ -6,6 +6,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.herethereproject.R;
 import com.example.herethereproject.src.BaseActivity;
@@ -21,6 +22,7 @@ public class SignUpPrivacyActivity extends BaseActivity implements SignUpActivit
     EditText mSignUpNameEditText;
     EditText mSignUpBirthEditText;
     EditText mSignUpNickEditText;
+    TextView mSignUpNickNameCheckTextView;
 
     boolean privacyCheck = false;
 
@@ -32,6 +34,7 @@ public class SignUpPrivacyActivity extends BaseActivity implements SignUpActivit
         mSignUpNameEditText = findViewById(R.id.et_sign_up_privacy_name);
         mSignUpBirthEditText = findViewById(R.id.et_sign_up_privacy_birth);
         mSignUpNickEditText = findViewById(R.id.et_sign_up_privacy_nick);
+        mSignUpNickNameCheckTextView = findViewById(R.id.tv_sign_up_privacy_check);
 
         TextWatcher textWatcher = new TextWatcher() {
             @Override
@@ -64,22 +67,36 @@ public class SignUpPrivacyActivity extends BaseActivity implements SignUpActivit
 
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent backIntent = new Intent(getApplicationContext(), SignUpPasswordActivity.class);
+        startActivity(backIntent);
+        finish();
+    }
+
     public void signUpPrivacyOnClick(View view) {
         switch (view.getId()) {
             case R.id.btn_sign_up_privacy_back:
-                Intent backIntent = new Intent(getApplicationContext(), SignUpPasswordActivity.class);
-                startActivity(backIntent);
+                onBackPressed();
                 break;
             case R.id.btn_sign_up_privacy_complete:
-                if(privacyCheck){
+                if(mSignUpNameEditText.getText().toString().length() <= 0) {
+                    mSignUpNickNameCheckTextView.setText("이름을 입력해주세요.");
 
-                    tryPostUser();
-
-                    break;
-                } else {
-                    showCustomToast(getString(R.string.toast_wrong_message));
                     break;
                 }
+                if(mSignUpBirthEditText.getText().toString().length() != 6){
+                    mSignUpNickNameCheckTextView.setText("생년월일을 정확히 입력해주세요.");
+                    break;
+                }
+
+                if(mSignUpNickEditText.getText().toString().length() <= 0){
+                    mSignUpNickNameCheckTextView.setText("닉네임을 입력해주세요.");
+                    break;
+                }
+
+                tryPostUser();
+
             default:
                 break;
         }
@@ -101,8 +118,7 @@ public class SignUpPrivacyActivity extends BaseActivity implements SignUpActivit
     public void validateSuccessPost(boolean success, String message) {
         hideProgressDialog();
         if(message != null) {
-
-            showCustomToast(message);
+            mSignUpNickNameCheckTextView.setText(message);
         } else {
             showCustomToast(message);
         }

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:paddingEnd="12dp">
+        
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_main_home_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter"
+                android:layout_marginEnd="10dp"
+                app:srcCompat="@drawable/ic_main_profile" />
+
+            <TextView
+                android:id="@+id/tv_main_home_profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:lineSpacingExtra="6sp"
+                android:gravity="bottom"
+                android:paddingBottom="0dp"
+                android:textColor="@color/listTextColor"
+                android:layout_toEndOf="@+id/iv_main_home_profile"
+                tools:text="asdf"/>
+
+            <TextView
+                android:id="@+id/tv_main_home_region"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:gravity="top"
+                android:paddingTop="0dp"
+                android:textColor="@color/mainHomeProfileStatus"
+                android:lineSpacingExtra="6sp"
+                android:layout_below="@id/tv_main_home_profile_name"
+                android:layout_toEndOf="@+id/iv_main_home_profile"
+                tools:text="asdfasdf"/>
+        </RelativeLayout>
+
+        <ImageButton
+            android:id="@+id/btn_main_home_dot"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:scaleType="fitCenter"
+            android:layout_alignParentEnd="true"
+            android:background="@color/white"
+            android:src="@drawable/ic_main_home_dot_manu" />
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/tv_main_home_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textSize="14sp"
+        android:textColor="@color/listTextColor"
+        android:lineSpacingExtra="8sp"
+        tools:text="오늘 저녁은 된장찌개, 밥, 김치, 김, 기타등등, 계란말이, 간장게장, 부추전, 김치찌개, 안자아라아라아아라ㅣ나ㅣ아ㅣㅏㅣㅏㅣㅓㅓㅏㅣ아아아아아아ㅏ아아아아아아아"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="47.8dp">
+
+        <LinearLayout
+            android:id="@+id/btn_main_home_heart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="15.8dp"
+                app:srcCompat="@drawable/ic_heart_not" />
+            <TextView
+                android:id="@+id/tv_main_home_heart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/mainHomeProfileStatus"
+                tools:text="100명"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_main_home_bookmark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@id/btn_main_home_heart"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="15.8dp"
+                app:srcCompat="@drawable/ic_main_home_bookmark" />
+            <TextView
+                android:id="@+id/tv_main_home_bookmark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/mainHomeProfileStatus"
+                tools:text="100명"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_main_home_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_alignParentEnd="true"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="15.8dp"
+                app:srcCompat="@drawable/ic_main_home_bookmark" />
+            <TextView
+                android:id="@+id/tv_main_home_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/mainHomeProfileStatus"
+                tools:text="100명"/>
+        </LinearLayout>
+
+
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>

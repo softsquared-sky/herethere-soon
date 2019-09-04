@@ -19,11 +19,17 @@ public class SignUpPictureCompleteActivity extends BaseActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent backIntent = new Intent(getApplicationContext(), SignUpPictureActivity.class);
+        startActivity(backIntent);
+        finish();
+    }
+
     public void signUpPictureCompleteOnClick(View view) {
         switch (view.getId()) {
             case R.id.btn_sign_up_cPicture_back:
-                Intent backIntent = new Intent(getApplicationContext(), SignUpPictureActivity.class);
-                startActivity(backIntent);
+                onBackPressed();
                 break;
             case R.id.btn_sign_up_cPicture_complete:
                 Intent pictureIntent = getIntent();

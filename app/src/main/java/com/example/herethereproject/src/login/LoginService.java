@@ -19,8 +19,8 @@ public class LoginService {
     }
 
     void postJwt(String email, String password) {
-        LoginBody loginBody = new LoginBody("lemon34@naver.com", "s123444");
-        System.out.println("inpost");
+        //LoginBody loginBody = new LoginBody("lemon34@naver.com", "s123444");
+        LoginBody loginBody = new LoginBody(email, password);
         LoginResponse loginResponse = new LoginResponse();
         final LoginRetrofitInterface loginRetrofitInterface = getRetrofit().create(LoginRetrofitInterface.class);
         loginRetrofitInterface.postJwt(loginBody).enqueue(new Callback<LoginResponse>() {

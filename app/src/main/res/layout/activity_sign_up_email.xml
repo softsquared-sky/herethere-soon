@@ -62,43 +62,70 @@
         android:id="@+id/tv_sign_up_email_please_input_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="40dp"
         android:text="@string/please_input_email"
         android:textColor="@color/white"
         android:textSize="32sp"
         android:lineSpacingExtra="4sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_sign_up_email_information_input"
         app:layout_constraintTop_toBottomOf="@id/tv_sign_up_email_information_input" />
 
-
-    <EditText
-        android:id="@+id/et_sign_up_email_input"
+    <LinearLayout
+        android:id="@+id/linear_sign_up_editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="62dp"
-        android:ems="15"
-        android:textSize="14sp"
-        android:theme="@style/EditTheme"
-        android:hint="@string/email_hint"
-        android:textColorHint="@color/inputColor"
-        android:textColor="@color/inputColor"
-        android:inputType="textEmailAddress"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_sign_up_email_please_input_email" />
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="@id/tv_sign_up_email_information_input"
+        app:layout_constraintTop_toBottomOf="@id/tv_sign_up_email_please_input_email">
+
+        <EditText
+            android:id="@+id/et_sign_up_email_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="15"
+            android:textSize="14sp"
+            android:hint="@string/email_hint"
+            android:background="@null"
+            android:textColorHint="@color/inputColor"
+            android:textColor="@color/inputColor"
+            android:inputType="textEmailAddress"
+            android:includeFontPadding="false"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="4dp"
+            android:background="@color/inputColor"/>
+
+        <TextView
+            android:id="@+id/tv_sign_up_email_check"
+            android:layout_gravity="start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="0dp"
+            android:textSize="10sp"
+            android:textColor="@color/signUpYellow"
+            android:lineSpacingExtra="6sp"/>
+
+
+    </LinearLayout>
+
+
+
+
 
     <ImageButton
         android:id="@+id/btn_sign_up_email_complete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="64dp"
         android:background="@color/loginBackground"
         android:src="@drawable/ic_sign_up_complete"
         android:onClick="signUpEmailOnClick"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_sign_up_email_input" />
+        app:layout_constraintStart_toStartOf="@id/tv_sign_up_email_information_input"
+        app:layout_constraintTop_toBottomOf="@id/linear_sign_up_editText" />
 
     <TextView
         android:id="@+id/tv_sign_up_email_dot_first"

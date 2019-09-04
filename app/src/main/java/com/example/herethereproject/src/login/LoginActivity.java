@@ -43,12 +43,12 @@ public class LoginActivity extends BaseActivity implements LoginActivityView {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if (checkPassword(mLoginPasswordEditText.getText().toString()) && checkEmail(mLoginEmailEditText.getText().toString())) {
                     //올바른 입력
-                    System.out.println("success");
+                    //System.out.println("success");
                     mImageButton.setImageDrawable(getDrawable(R.drawable.ic_login_yes));
                     mLoginCheck = true;
                 } else {
                     //잘못된 입력
-                    System.out.println("fail");
+                    //System.out.println("fail");
                     mImageButton.setImageDrawable(getDrawable(R.drawable.ic_login_none));
                     mLoginCheck = false;
                 }
@@ -88,7 +88,7 @@ public class LoginActivity extends BaseActivity implements LoginActivityView {
         //mLoginBody = new LoginBody("test@naver.com","q1w2e3");
 
         final LoginService loginService = new LoginService(this);
-        loginService.postJwt("lemon34@naver.com", "s123444");
+        loginService.postJwt(mLoginEmailEditText.getText().toString(), mLoginPasswordEditText.getText().toString());
         showProgressDialog();
     }
 
@@ -96,7 +96,6 @@ public class LoginActivity extends BaseActivity implements LoginActivityView {
     public void validateSuccess(String message, boolean success) {
         if(success){
             showCustomToast(message);
-
             Intent startMainIntent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(startMainIntent);
             finish();

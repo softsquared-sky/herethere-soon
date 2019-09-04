@@ -49,11 +49,17 @@ public class SignUpSchoolActivity extends BaseActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent backIntent = new Intent(getApplicationContext(), SignUpPrivacyActivity.class);
+        startActivity(backIntent);
+        finish();
+    }
+
     public void signUpSchoolOnClick(View view) {
         switch (view.getId()) {
             case R.id.btn_sign_up_school_back:
-                Intent backIntent = new Intent(getApplicationContext(), SignUpPrivacyActivity.class);
-                startActivity(backIntent);
+                onBackPressed();
                 break;
             case R.id.btn_sign_up_school_complete:
                 if(mSchoolCheck){
@@ -74,11 +80,5 @@ public class SignUpSchoolActivity extends BaseActivity {
             default:
                 break;
         }
-    }
-
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
     }
 }
