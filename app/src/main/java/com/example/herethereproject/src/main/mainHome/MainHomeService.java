@@ -1,6 +1,5 @@
 package com.example.herethereproject.src.main.mainHome;
 
-import com.example.herethereproject.src.main.postsInterfaces.MainActivityPostsView;
 import com.example.herethereproject.src.main.postsInterfaces.MainPostsRetrofitInterface;
 import com.example.herethereproject.src.main.postsModels.MainPostsResponse;
 
@@ -11,9 +10,9 @@ import retrofit2.Response;
 import static com.example.herethereproject.src.ApplicationClass.getRetrofit;
 
 public class MainHomeService {
-    private final MainActivityPostsView mMainActivityPostsView;
+    private final MainHomeFragment mMainActivityPostsView;
 
-    MainHomeService(final MainActivityPostsView mainActivityPostsView) {
+    MainHomeService(final MainHomeFragment mainActivityPostsView) {
         this.mMainActivityPostsView = mainActivityPostsView;
     }
 
@@ -24,10 +23,12 @@ public class MainHomeService {
             public void onResponse(Call<MainPostsResponse> call, Response<MainPostsResponse> response) {
                 final MainPostsResponse mainPostsResponse = response.body();
                 if (mainPostsResponse == null) {
-                    mMainActivityPostsView.validateFailure(null);
+                    mMainActivityPostsView.validateFailure("null");
                     return;
                 }
-                mMainActivityPostsView.validateSuccess("success");
+                mMainActivityPostsView.validateSuccess(mainPostsResponse.getMessage());
+//                if(ApplicationClass.X_ACCESS_TOKEN == )
+//                System.out.println(ApplicationClass.X_ACCESS_TOKEN);
             }
 
             @Override

@@ -2,6 +2,7 @@ package com.example.herethereproject.src;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +15,9 @@ import java.util.ArrayList;
 public class BaseActivity extends AppCompatActivity {
     public ProgressDialog mProgressDialog;
     public ArrayList<String> sign_up_list = new ArrayList<>();
+
+
+
 
 
     //올바른 비밀번호 입력 확인(대소문자 포함)
@@ -62,6 +66,16 @@ public class BaseActivity extends AppCompatActivity {
         if (mProgressDialog == null) {
             mProgressDialog = new ProgressDialog(this);
             mProgressDialog.setMessage(getString(R.string.loading));
+            mProgressDialog.setIndeterminate(true);
+        }
+
+        mProgressDialog.show();
+    }
+
+    public void showFragmentProgressDialog(Context context) {
+        if (mProgressDialog == null) {
+            mProgressDialog = new ProgressDialog(context);
+            mProgressDialog.setMessage(context.getString(R.string.loading));
             mProgressDialog.setIndeterminate(true);
         }
 

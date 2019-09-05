@@ -24,6 +24,23 @@ public class LoginResponse {
     @SerializedName("isSuccess")
     private boolean isSuccess;
 
+    @SerializedName("result")
+    private Data result;
+
+    public Data getResult() {
+        return result;
+    }
+
+    public class Data{
+        @SerializedName("jwt")
+        private String jwt;
+        public String getJwt(){
+            return this.jwt;
+        }
+    }
+
+
+
     public int getCode() {
         return code;
     }

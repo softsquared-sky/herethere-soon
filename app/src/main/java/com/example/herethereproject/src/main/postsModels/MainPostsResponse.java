@@ -8,13 +8,13 @@ import java.util.List;
 public class MainPostsResponse {
 
     @SerializedName("code")
-    public int code;
+    private int code;
 
     @SerializedName("message")
-    public String message;
+    private String message;
 
     @SerializedName("isSuccess")
-    public boolean isSuccess;
+    private boolean isSuccess;
 
     public int getCode() {
         return code;
@@ -30,45 +30,53 @@ public class MainPostsResponse {
 
 
     @SerializedName("result")
-    public List<MainPostsResponse.data> result = new ArrayList<>();
+    private List<Data> result = new ArrayList<>();
 
-    public List<MainPostsResponse.data> getResult(){
+    public List<Data> getResult(){
         return result;
     }
 
-    public class data {
+    public class Data {
 
         @SerializedName("postNo")
-        public int postNo;
+        private int postNo;
 
         @SerializedName("userPicture")
-        public String userPicture;
+        private String userPicture;
 
         @SerializedName("nickName")
-        public String nickName;
+        private String nickName;
 
         @SerializedName("postLocation")
-        public String postLocation;
+        private String postLocation;
 
         @SerializedName("timeAgo")
-        public String timeAgo;
+        private String timeAgo;
 
         @SerializedName("postContents")
-        public String postContents;
+        private String postContents;
 
         @SerializedName("pictureList")
-        public String pictureList;
+        private List<Picture> pictureList = new ArrayList<>();
 
-        public class picture{
+        public List<Picture> getPictureList(){
+            return getPictureList();
+        }
+
+        public class Picture{
             @SerializedName("postPicture")
-            public String postPicture;
+            private String postPicture;
+
+            public String getPostPicture() {
+                return this.postPicture;
+            }
         }
 
         @SerializedName("heart")
-        public int heart;
+        private int heart;
 
         @SerializedName("comment")
-        public String comment;
+        private String comment;
 
         public int getPostNo(){
             return postNo;

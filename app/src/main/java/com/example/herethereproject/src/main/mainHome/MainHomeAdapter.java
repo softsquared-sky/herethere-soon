@@ -26,7 +26,6 @@ public class MainHomeAdapter extends RecyclerView.Adapter<MainHomeAdapter.HomeVi
     @NonNull
     @Override
     public HomeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        System.out.println("in");
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_main_home, parent, false);
 
         return new HomeViewHolder(view);
@@ -34,7 +33,6 @@ public class MainHomeAdapter extends RecyclerView.Adapter<MainHomeAdapter.HomeVi
 
     @Override
     public void onBindViewHolder(@NonNull HomeViewHolder holder, int position) {
-        System.out.println("holder");
         holder.onBind(homeList.get(position));
     }
 
@@ -44,7 +42,6 @@ public class MainHomeAdapter extends RecyclerView.Adapter<MainHomeAdapter.HomeVi
     }
 
     void addItem(MainHomeItem mainHomeItem){
-        System.out.println("add");
         homeList.add(mainHomeItem);
     }
 
@@ -74,7 +71,6 @@ public class MainHomeAdapter extends RecyclerView.Adapter<MainHomeAdapter.HomeVi
         }
 
         void onBind(MainHomeItem mainHomeItem){
-            System.out.println("bind");
             profile.setImageResource(mainHomeItem.getProfilePicture());
             name.setText(mainHomeItem.getNickName());
             regionTime.setText("asdf");

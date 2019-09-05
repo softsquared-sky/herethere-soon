@@ -1,5 +1,6 @@
 package com.example.herethereproject.src.main.mainHome;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,19 +13,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.herethereproject.R;
-import com.example.herethereproject.src.BaseActivity;
 import com.example.herethereproject.src.main.MainInterfaces.MainActivityView;
-import com.example.herethereproject.src.main.postsInterfaces.MainActivityPostsView;
 
 import java.util.ArrayList;
 
 public class MainHomeFragment extends Fragment implements MainActivityView {
 
-    public MainHomeAdapter homeAdapter;
-    private RecyclerView.LayoutManager layoutManager;
+    private ProgressDialog mDialog;
 
-    private RecyclerView homeRecyclerView;
     public ArrayList<MainHomeItem> data = new ArrayList<>();
+
 
     public MainHomeFragment() {
 
@@ -34,11 +32,16 @@ public class MainHomeFragment extends Fragment implements MainActivityView {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_main_home, container, false);
-        homeRecyclerView = rootView.findViewById(R.id.list_home);
-        layoutManager = new LinearLayoutManager(getActivity());
+        RecyclerView homeRecyclerView = rootView.findViewById(R.id.list_home);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         homeRecyclerView.setLayoutManager(layoutManager);
 
-        //tryGetPosts();
+        mDialog = new ProgressDialog(getActivity());
+        mDialog.setMessage(getString(R.string.loading));
+        mDialog.setIndeterminate(true);
+        //질문필요
+
+        tryGetPosts();
 
         int profilePicture = R.drawable.ic_main_profile;
         String nickName = "hsj321";
@@ -54,11 +57,10 @@ public class MainHomeFragment extends Fragment implements MainActivityView {
 
 
 
-        System.out.println(data.get(0).getNickName());
+        //System.out.println(data.get(0).getNickName());
 
-        homeAdapter = new MainHomeAdapter(data);
+        MainHomeAdapter homeAdapter = new MainHomeAdapter(data);
 
-        System.out.println(homeAdapter.homeList.get(0).getNickName());
 
         data.add(mainHomeItem);
 
@@ -66,30 +68,30 @@ public class MainHomeFragment extends Fragment implements MainActivityView {
 
 
         homeRecyclerView.setAdapter(homeAdapter);
-        System.out.print(homeAdapter.getItemCount());
         return rootView;
     }
 
-    public void getDate(){
 
-
-    }
-
-    public void tryGetPosts(){
-        BaseActivity baseActivity = new BaseActivity();
-        baseActivity.showProgressDialog();
-        final MainHomeService mainHomeService = new MainHomeService((MainActivityPostsView) this);
+    private void tryGetPosts(){
+        mDialog.show();
+        //BaseActivity baseActivity = new BaseActivity();
+         //baseActivity.showFragmentProgressDialog(getActivity().getApplicationContext());
+        //base.showProgressDialog();
+        final MainHomeService mainHomeService = new MainHomeService(this);
         mainHomeService.getPosts();
 
     }
 
     @Override
     public void validateSuccess(String text) {
-
+        mDialog.hide();
+        System.out.println(text);
     }
 
     @Override
     public void validateFailure(String message) {
+        mDialog.hide();
+        System.out.println(message);
 
     }
 }
