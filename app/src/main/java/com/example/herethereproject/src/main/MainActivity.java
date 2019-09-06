@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -15,11 +16,9 @@ import com.example.herethereproject.R;
 import com.example.herethereproject.src.BaseActivity;
 import com.example.herethereproject.src.login.LoginActivity;
 import com.example.herethereproject.src.main.MainInterfaces.MainActivityView;
-import com.example.herethereproject.src.main.mainHome.MainHomeFragment;
+import com.example.herethereproject.src.mainHome.MainHomeFragment;
 import com.example.herethereproject.src.main.userInterfaces.MainActivityUserView;
 import com.example.herethereproject.src.main.userModels.MainUserProfileResponse;
-
-import java.util.List;
 
 import static com.example.herethereproject.src.ApplicationClass.sSharedPreferences;
 
@@ -33,8 +32,8 @@ public class MainActivity extends BaseActivity implements MainActivityView, Main
         setContentView(R.layout.activity_main);
 
         Intent loginIntent = getIntent();
-        tryUserProfileGet(loginIntent.getStringExtra("email"));
-
+//        tryUserProfileGet(loginIntent.getStringExtra("email"));
+        tryUserProfileGet("randy3456@naver.com");
         FragmentManager mainFragment = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = mainFragment.beginTransaction();
         fragmentTransaction.add(R.id.main_frame, new MainHomeFragment());
@@ -78,6 +77,7 @@ public class MainActivity extends BaseActivity implements MainActivityView, Main
                 SharedPreferences.Editor editor = sSharedPreferences.edit();
                 editor.clear();
                 startActivity(startLoginIntent);
+                break;
         }
     }
 
@@ -110,9 +110,9 @@ public class MainActivity extends BaseActivity implements MainActivityView, Main
 
 
     public void tryUserProfileGet(String email){
+        showProgressDialog();
         final MainService mainService = new MainService(this);
         mainService.getUserProfile(email);
-        showProgressDialog();
     }
 
     @Override
@@ -129,12 +129,23 @@ public class MainActivity extends BaseActivity implements MainActivityView, Main
 
 
     @Override
-    public void validateUserProfileSuccess(List<MainUserProfileResponse.Result> result) {
+    public void validateUserProfileSuccess(MainUserProfileResponse.Result result)
+    {
+        TextView hamNickNameTextView = findViewById(R.id.tv_ham_nickName);
+        TextView hamEmailTextView = findViewById(R.id.tv_ham_email);
+        TextView hamSchoolTextView = findViewById(R.id.tv_ham_school);
+//        TextView hamRegionTextView = findViewById(R.id.tv_ham_region);
+
+        hamNickNameTextView.setText(result.getNickName());
+        hamEmailTextView.setText(result.getEmail());
+        hamSchoolTextView.setText(result.getSchoolName());
+//        hamRegionTextView.setText(result.);
+        hideProgressDialog();
     }
 
     @Override
     public void validateUserProfileFailure(String message) {
-        System.out.println(message);
+        hideProgressDialog();
     }
     //MainUserProfile
 }

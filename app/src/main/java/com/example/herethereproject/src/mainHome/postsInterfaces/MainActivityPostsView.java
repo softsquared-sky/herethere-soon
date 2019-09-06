@@ -1,6 +1,6 @@
-package com.example.herethereproject.src.main.postsInterfaces;
+package com.example.herethereproject.src.mainHome.postsInterfaces;
 
-import com.example.herethereproject.src.main.postsModels.MainPostsResponse;
+import com.example.herethereproject.src.mainHome.postsModels.MainPostsResponse;
 
 import java.util.List;
 

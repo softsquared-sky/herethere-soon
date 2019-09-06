@@ -1,4 +1,4 @@
-package com.example.herethereproject.src.main.postsModels;
+package com.example.herethereproject.src.mainHome.postsModels;
 
 import com.google.gson.annotations.SerializedName;
 

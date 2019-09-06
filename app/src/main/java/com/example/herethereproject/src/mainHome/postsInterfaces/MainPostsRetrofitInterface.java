@@ -1,9 +1,9 @@
-package com.example.herethereproject.src.main.postsInterfaces;
+package com.example.herethereproject.src.mainHome.postsInterfaces;
 
-import com.example.herethereproject.src.main.postsModels.MainHeartBody;
-import com.example.herethereproject.src.main.postsModels.MainHeartResponse;
-import com.example.herethereproject.src.main.postsModels.MainPostsBody;
-import com.example.herethereproject.src.main.postsModels.MainPostsResponse;
+import com.example.herethereproject.src.mainHome.postsModels.MainHeartBody;
+import com.example.herethereproject.src.mainHome.postsModels.MainHeartResponse;
+import com.example.herethereproject.src.mainHome.postsModels.MainPostsBody;
+import com.example.herethereproject.src.mainHome.postsModels.MainPostsResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

@@ -1,4 +1,4 @@
-package com.example.herethereproject.src.main.mainHome;
+package com.example.herethereproject.src.mainHome;
 
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -14,8 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.herethereproject.R;
-import com.example.herethereproject.src.main.postsInterfaces.MainActivityPostsView;
-import com.example.herethereproject.src.main.postsModels.MainPostsResponse;
+import com.example.herethereproject.src.mainHome.postsInterfaces.MainActivityPostsView;
+import com.example.herethereproject.src.mainHome.postsModels.MainPostsResponse;
 
 import java.util.ArrayList;
 import java.util.List;

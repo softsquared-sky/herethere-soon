@@ -1,4 +1,4 @@
-package com.example.herethereproject.src.main.postsModels;
+package com.example.herethereproject.src.mainHome.postsModels;
 
 import com.example.herethereproject.src.signUp.signUpModels.SignUpRegionResponse;
 import com.google.gson.annotations.SerializedName;

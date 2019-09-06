@@ -23,7 +23,7 @@ public class MainService {
 
 
 
-        mainUserRetrofitInterface.getUserProfile("randy3456@naver.com").enqueue(new Callback<MainUserProfileResponse>() {
+        mainUserRetrofitInterface.getUserProfile(email).enqueue(new Callback<MainUserProfileResponse>() {
             @Override
             public void onResponse(Call<MainUserProfileResponse> call, Response<MainUserProfileResponse> response) {
                 final MainUserProfileResponse mainUserProfileResponse = response.body();
@@ -31,8 +31,9 @@ public class MainService {
                     mMainActivityUserView.validateUserProfileFailure("null");
                     return;
                 }
-                System.out.println(mainUserProfileResponse.getMessage());
-                mMainActivityUserView.validateUserProfileSuccess(mainUserProfileResponse.getResult());
+                if(mainUserProfileResponse.getIsSuccess()){
+                    mMainActivityUserView.validateUserProfileSuccess(mainUserProfileResponse.getResult().get(0));
+                }
             }
 
             @Override

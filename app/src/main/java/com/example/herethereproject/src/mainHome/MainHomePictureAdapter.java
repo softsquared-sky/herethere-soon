@@ -1,4 +1,4 @@
-package com.example.herethereproject.src.main.mainHome;
+package com.example.herethereproject.src.mainHome;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.herethereproject.R;
-import com.example.herethereproject.src.main.postsModels.MainPostsResponse;
+import com.example.herethereproject.src.mainHome.postsModels.MainPostsResponse;
 
 import java.util.List;
 
@@ -33,7 +33,6 @@ public class MainHomePictureAdapter extends RecyclerView.Adapter<MainHomePicture
 
     @Override
     public void onBindViewHolder(@NonNull HomeViewHolder holder, int position) {
-        System.out.println(position);
         if(!mPictureList.get(0).getPostPicture().equals("")) {
             holder.onBind(mPictureList.get(position));
         }
@@ -60,7 +59,6 @@ public class MainHomePictureAdapter extends RecyclerView.Adapter<MainHomePicture
         }
 
         void onBind(MainPostsResponse.Data.Picture postPicture) {
-            System.out.println(postPicture.getPostPicture());
             Glide.with(itemView)
                     .load(postPicture.getPostPicture())
                     .into(postPictureImageButton);

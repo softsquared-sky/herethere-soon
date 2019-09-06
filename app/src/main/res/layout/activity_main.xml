@@ -202,18 +202,12 @@
                 android:layout_below="@id/tv_ham_email"
                 android:layout_marginTop="15dp"
                 app:srcCompat="@drawable/ic_ham_hat" />
-            <ImageView
-                android:id="@+id/iv_ham_hat_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/iv_ham_hat_1"
-                app:srcCompat="@drawable/ic_ham_hat" />
 
             <TextView
                 android:id="@+id/tv_ham_school"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
+                android:layout_marginStart="7dp"
                 android:layout_toRightOf="@id/iv_ham_hat_1"
                 android:textSize="10sp"
                 android:layout_alignTop="@id/iv_ham_hat_1"
@@ -221,17 +215,6 @@
                 android:lineSpacingExtra="6sp"
                 tools:text="홍익대학교(서울)"/>
 
-            <TextView
-                android:id="@+id/tv_ham_region"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
-                android:layout_toRightOf="@id/iv_ham_hat_2"
-                android:layout_alignTop="@id/iv_ham_hat_2"
-                android:textSize="10sp"
-                android:textColor="@color/mainHomeProfileStatus"
-                android:lineSpacingExtra="6sp"
-                tools:text="홍익대학교(서울)"/>
 
         </RelativeLayout>
 

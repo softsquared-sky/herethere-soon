@@ -1,4 +1,4 @@
-package com.example.herethereproject.src.main.mainHome;
+package com.example.herethereproject.src.mainHome;
 
 public class MainHomePictureItem {
 
