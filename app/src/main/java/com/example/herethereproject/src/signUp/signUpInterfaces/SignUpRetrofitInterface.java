@@ -1,7 +1,7 @@
-package com.example.herethereproject.src.signUp.SignUpInterfaces;
+package com.example.herethereproject.src.signUp.signUpInterfaces;
 
-import com.example.herethereproject.src.signUp.SignUpModels.SignUpBody;
-import com.example.herethereproject.src.signUp.SignUpModels.SignUpRegionResponse;
+import com.example.herethereproject.src.signUp.signUpModels.SignUpBody;
+import com.example.herethereproject.src.signUp.signUpModels.SignUpRegionResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

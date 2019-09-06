@@ -1,9 +1,9 @@
-package com.example.herethereproject.src.signUp.SignUpEmail;
+package com.example.herethereproject.src.signUp.signUpEmain;
 
-import com.example.herethereproject.src.signUp.SignUpInterfaces.SignUpActivityView;
-import com.example.herethereproject.src.signUp.SignUpInterfaces.SignUpRetrofitInterface;
-import com.example.herethereproject.src.signUp.SignUpModels.SignUpBody;
-import com.example.herethereproject.src.signUp.SignUpModels.SignUpRegionResponse;
+import com.example.herethereproject.src.signUp.signUpInterfaces.SignUpActivityView;
+import com.example.herethereproject.src.signUp.signUpInterfaces.SignUpRetrofitInterface;
+import com.example.herethereproject.src.signUp.signUpModels.SignUpBody;
+import com.example.herethereproject.src.signUp.signUpModels.SignUpRegionResponse;
 
 
 

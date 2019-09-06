@@ -13,15 +13,28 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.herethereproject.R;
-import com.example.herethereproject.src.main.MainInterfaces.MainActivityView;
+import com.example.herethereproject.src.main.postsInterfaces.MainActivityPostsView;
+import com.example.herethereproject.src.main.postsModels.MainPostsResponse;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class MainHomeFragment extends Fragment implements MainActivityView {
+public class MainHomeFragment extends Fragment implements MainActivityPostsView {
 
     private ProgressDialog mDialog;
 
-    public ArrayList<MainHomeItem> data = new ArrayList<>();
+    public ArrayList<MainHomeItem> mData = new ArrayList<>();
+
+    private MainHomeItem mMainHomeItem;
+
+    private int mPostNo = 0;
+
+    private MainHomePictureAdapter mMainHomePictureAdapter;
+
+    private RecyclerView mHomeRecyclerView;
+
+    //private RecyclerView mHomePictureRecyclerView;
+
 
 
     public MainHomeFragment() {
@@ -32,66 +45,80 @@ public class MainHomeFragment extends Fragment implements MainActivityView {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_main_home, container, false);
-        RecyclerView homeRecyclerView = rootView.findViewById(R.id.list_home);
+        mHomeRecyclerView = rootView.findViewById(R.id.list_home);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        homeRecyclerView.setLayoutManager(layoutManager);
+        mHomeRecyclerView.setLayoutManager(layoutManager);
+
+
 
         mDialog = new ProgressDialog(getActivity());
         mDialog.setMessage(getString(R.string.loading));
         mDialog.setIndeterminate(true);
         //질문필요
 
-        tryGetPosts();
-
-        int profilePicture = R.drawable.ic_main_profile;
-        String nickName = "hsj321";
-        String region = "영국";
-        String time = "2";
-        String like = "10";
-        String bookMark = "10";
-        String comment = "10";
-
-        MainHomeItem mainHomeItem = new MainHomeItem(profilePicture, nickName, region, time, like, bookMark, comment);
-
-        data.add(mainHomeItem);
-
-
-
-        //System.out.println(data.get(0).getNickName());
-
-        MainHomeAdapter homeAdapter = new MainHomeAdapter(data);
-
-
-        data.add(mainHomeItem);
-
-        homeAdapter.addItem(mainHomeItem);
-
-
-        homeRecyclerView.setAdapter(homeAdapter);
+        tryGetPosts(mPostNo);
         return rootView;
     }
 
 
-    private void tryGetPosts(){
+    private void tryGetPosts(int postNo){
         mDialog.show();
-        //BaseActivity baseActivity = new BaseActivity();
-         //baseActivity.showFragmentProgressDialog(getActivity().getApplicationContext());
-        //base.showProgressDialog();
         final MainHomeService mainHomeService = new MainHomeService(this);
-        mainHomeService.getPosts();
+        mainHomeService.getPosts(postNo);
 
     }
 
     @Override
-    public void validateSuccess(String text) {
+    public void validateSuccess(String message, List<MainPostsResponse.Data> result, boolean isSuccess) {
+        if(isSuccess){
+            for(MainPostsResponse.Data data : result){
+
+                int postNo = data.getPostNo();
+                System.out.println(postNo);
+                String userPicture;
+                if(data.getUserPicture() == null){
+                    userPicture = "";
+                } else{
+                    userPicture = data.getUserPicture();
+                }
+
+                String nickName = data.getNickName();
+                String postLocation = data.getPostLocation();
+                String timeAgo = data.getTimeAgo();
+                String postContents = data.getPostContents();
+
+                if(data.getPictureList().get(0).getPostPicture() == null){
+                    data.getPictureList().get(0).setPostPicture();
+                    System.out.println(data.getPictureList().get(0).getPostPicture());
+                }
+                List<MainPostsResponse.Data.Picture> pictureList = data.getPictureList();
+                int heart = data.getHeart();
+                String comment = data.getComment();
+                mMainHomeItem = new MainHomeItem(postNo,userPicture, nickName, postLocation, timeAgo, postContents,heart, comment, pictureList);
+                mData.add(mMainHomeItem);
+            }
+
+            MainHomeAdapter homeAdapter = new MainHomeAdapter(mData);
+            homeAdapter.addItem(mMainHomeItem);
+            mHomeRecyclerView.setAdapter(homeAdapter);
+        }
+
+
         mDialog.hide();
-        System.out.println(text);
+    }
+
+    public void tryPostHeart(int postNo){
+        final MainHomeService mainHomeService = new MainHomeService(this);
+        mainHomeService.postHeart(postNo);
+    }
+
+    @Override
+    public void validateSuccessHeart(boolean isSccess) {
+
     }
 
     @Override
     public void validateFailure(String message) {
         mDialog.hide();
-        System.out.println(message);
-
     }
 }

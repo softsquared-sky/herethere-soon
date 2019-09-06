@@ -1,4 +1,4 @@
-package com.example.herethereproject.src.login.interfaces;
+package com.example.herethereproject.src.login.loginInterfaces;
 
 public interface LoginActivityView {
 

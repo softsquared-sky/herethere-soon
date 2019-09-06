@@ -1,6 +1,6 @@
 package com.example.herethereproject.src.main.postsModels;
 
-import com.example.herethereproject.src.signUp.SignUpModels.SignUpRegionResponse;
+import com.example.herethereproject.src.signUp.signUpModels.SignUpRegionResponse;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;

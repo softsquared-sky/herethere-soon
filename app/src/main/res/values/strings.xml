@@ -32,7 +32,8 @@
     <string name="info_select_region">교환학생으로 가고 싶은 곳, 친구가 교환학생으로 간 곳 등\n관심지역을 선택하면 해당 지역의 소식을 볼 수 있습니다</string>
     <string name="info_picture">학생을 인증할 수 있는 증명서 사진을\n제출해주세요.</string>
     <string name="list_select_region">관심지역 선택하기</string>
-    <string name="finish_sign_up">사용자닉네임님,\n환영합니다!</string>
+    <string name="finish_sign_up_first">님,</string>
+    <string name="finish_sign_up_second">환영합니다!</string>
     <string name="finish_sign_up_info">Here there에 오신 것을 환영합니다.\n이제부터 교환학생에 관한 모든 정보를 얻으실 수 있을 거예요.</string>
     <!--햄메뉴-->
     <string name="ham_myprofile">내 프로필</string>
@@ -41,4 +42,10 @@
     <string name="ham_setting">어플리케이션 설정</string>
     <string name="ham_faq">FAQ/고객센터</string>
     <string name="ham_logout">로그아웃</string>
+
+    <!--글쓰기-->
+    <string name="write_write"><b>게시글 작성</b></string>
+    <string name="write_complete">완료</string>
+    <string name="write_retoin">관심지역 선택하기</string>
+
 </resources>

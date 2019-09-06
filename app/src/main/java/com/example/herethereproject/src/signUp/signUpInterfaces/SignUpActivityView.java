@@ -1,6 +1,6 @@
-package com.example.herethereproject.src.signUp.SignUpInterfaces;
+package com.example.herethereproject.src.signUp.signUpInterfaces;
 
-import com.example.herethereproject.src.signUp.SignUpModels.SignUpRegionResponse;
+import com.example.herethereproject.src.signUp.signUpModels.SignUpRegionResponse;
 
 import java.util.List;
 

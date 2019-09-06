@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="146dp"
-        android:text="@string/finish_sign_up"
         android:textColor="@color/white"
         android:textSize="32sp"
         android:lineSpacingExtra="4sp"

@@ -1,4 +1,4 @@
-package com.example.herethereproject.src.signUp.SignUpPrivacy;
+package com.example.herethereproject.src.signUp.signUpPrivacy;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import com.example.herethereproject.R;
 import com.example.herethereproject.src.BaseActivity;
-import com.example.herethereproject.src.signUp.SignUpInterfaces.SignUpActivityView;
-import com.example.herethereproject.src.signUp.SignUpModels.SignUpRegionResponse;
+import com.example.herethereproject.src.signUp.signUpInterfaces.SignUpActivityView;
+import com.example.herethereproject.src.signUp.signUpModels.SignUpRegionResponse;
 import com.example.herethereproject.src.signUp.SignUpPasswordActivity;
 import com.example.herethereproject.src.signUp.SignUpSchoolActivity;
 

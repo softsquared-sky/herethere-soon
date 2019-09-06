@@ -1,51 +1,73 @@
 package com.example.herethereproject.src.main.mainHome;
 
+import com.example.herethereproject.src.main.postsModels.MainPostsResponse;
+
+import java.util.List;
+
 public class MainHomeItem{
 
-    private int profilePicture;
-    private String nickName;
-    private String region;
-    private String time;
-    private String like;
-    private String bookMark;
-    private String comment;
 
-    public MainHomeItem(int profilePicture, String nickName, String region, String time, String like, String bookMark, String comment){
-        this.profilePicture = profilePicture;
+    private int postNo;
+    private String userPicture;
+    private String nickName;
+    private String postLocation;
+    private String timeAgo;
+    private String postContents;
+    private int heart;
+    private String comment;
+    public List<MainPostsResponse.Data.Picture> pictureList;
+
+    public MainHomeItem(int postNo, String  userPicture, String nickName, String postLocation, String timeAgo, String postContents, int heart, String comment, List<MainPostsResponse.Data.Picture> pictureList){
+        this.postNo = postNo;
+        this.userPicture = userPicture;
         this.nickName = nickName;
-        this.region = region;
-        this.time = time;
-        this.like = like;
-        this.bookMark = bookMark;
+        this.postLocation = postLocation;
+        this.timeAgo = timeAgo;
+        this.postContents = postContents;
+        this.heart = heart;
         this.comment = comment;
+        this.pictureList = pictureList;
 
     }
 
-    public int  getProfilePicture(){
-        return profilePicture;
+    public int getPostNo() {
+        return postNo;
+    }
+
+    public String  getUserPicture(){
+        return userPicture;
     }
 
     public String getNickName(){
         return nickName;
     }
 
-    public String getRegion(){
-        return region;
+    public String getPostLocation(){
+        return postLocation;
     }
 
-    public String getTime(){
-        return time;
+    public String getTimeAgo(){
+        return timeAgo;
     }
 
-    public String getLike(){
-        return like;
+    public String getPostContents() {
+        return postContents;
     }
 
-    public String getBookMark(){
-        return bookMark;
+    public int getHeart(){
+        return heart;
     }
+
+    public void setHeart(){
+        heart += 1;
+    }
+
 
     public String getComment(){
         return comment;
+    }
+
+    public List<MainPostsResponse.Data.Picture> getPictureList() {
+        return pictureList;
     }
 }

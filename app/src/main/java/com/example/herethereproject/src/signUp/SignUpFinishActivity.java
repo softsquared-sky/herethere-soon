@@ -2,10 +2,9 @@ package com.example.herethereproject.src.signUp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.text.Html;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.herethereproject.R;
 import com.example.herethereproject.src.BaseActivity;
@@ -19,6 +18,13 @@ public class SignUpFinishActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_finish);
+
+        TextView nictNameTextView = findViewById(R.id.tv_sign_up_finish_please_input_picture);
+
+        Intent regionIntent = getIntent();
+        String nickName = regionIntent.getStringExtra("nick");
+        String sourceString = "<b>" + nickName + "</b>" + getString(R.string.finish_sign_up_first) + "<br />" + getString(R.string.finish_sign_up_second);
+        nictNameTextView.setText(Html.fromHtml(sourceString));
     }
 
     public void signUpFinishOnClick(View view) {

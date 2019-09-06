@@ -9,11 +9,11 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import com.example.herethereproject.R;
-import com.example.herethereproject.src.login.interfaces.LoginActivityView;
+import com.example.herethereproject.src.login.loginInterfaces.LoginActivityView;
 import com.example.herethereproject.src.BaseActivity;
-import com.example.herethereproject.src.login.models.LoginBody;
+import com.example.herethereproject.src.login.loginModels.LoginBody;
 import com.example.herethereproject.src.main.MainActivity;
-import com.example.herethereproject.src.signUp.SignUpEmail.SignUpEmailActivity;
+import com.example.herethereproject.src.signUp.signUpEmain.SignUpEmailActivity;
 
 public class LoginActivity extends BaseActivity implements LoginActivityView {
 

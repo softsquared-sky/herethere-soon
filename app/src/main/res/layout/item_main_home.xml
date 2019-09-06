@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:layout_marginBottom="5dp"
+    android:elevation="4dp"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white">
 
@@ -76,7 +78,17 @@
         android:lineSpacingExtra="8sp"
         tools:text="오늘 저녁은 된장찌개, 밥, 김치, 김, 기타등등, 계란말이, 간장게장, 부추전, 김치찌개, 안자아라아라아아라ㅣ나ㅣ아ㅣㅏㅣㅏㅣㅓㅓㅏㅣ아아아아아아ㅏ아아아아아아아"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_main_home_picture"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        
+        android:visibility="gone">
 
+    </androidx.recyclerview.widget.RecyclerView>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="47.8dp">
@@ -85,9 +97,11 @@
             android:id="@+id/btn_main_home_heart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:clickable="true"
             android:orientation="horizontal">
 
             <ImageView
+                android:id="@+id/iv_main_home_heart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -104,30 +118,6 @@
                 tools:text="100명"/>
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/btn_main_home_bookmark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_toEndOf="@id/btn_main_home_heart"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="15.8dp"
-                app:srcCompat="@drawable/ic_main_home_bookmark" />
-            <TextView
-                android:id="@+id/tv_main_home_bookmark"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:layout_marginStart="5dp"
-                android:textColor="@color/mainHomeProfileStatus"
-                tools:text="100명"/>
-        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/btn_main_home_comment"
@@ -143,7 +133,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="15.8dp"
-                app:srcCompat="@drawable/ic_main_home_bookmark" />
+                app:srcCompat="@drawable/ic_main_home_comment" />
             <TextView
                 android:id="@+id/tv_main_home_comment"
                 android:layout_width="wrap_content"

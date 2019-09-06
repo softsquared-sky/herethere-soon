@@ -1,16 +1,17 @@
-package com.example.herethereproject.src.signUp.signUpModels;
+package com.example.herethereproject.src.main.postsModels;
 
 import com.google.gson.annotations.SerializedName;
 
-public class SignUpResponse {
+public class MainHeartResponse {
+
     @SerializedName("code")
-    public int code;
+    private int code;
 
     @SerializedName("message")
-    public String message;
+    private String message;
 
     @SerializedName("isSuccess")
-    public boolean isSuccess;
+    private boolean isSuccess;
 
     public int getCode() {
         return code;

@@ -60,12 +60,18 @@ public class MainPostsResponse {
         private List<Picture> pictureList = new ArrayList<>();
 
         public List<Picture> getPictureList(){
-            return getPictureList();
+            return pictureList;
         }
 
         public class Picture{
             @SerializedName("postPicture")
             private String postPicture;
+
+
+            public void setPostPicture(){
+                postPicture = "";
+            }
+
 
             public String getPostPicture() {
                 return this.postPicture;

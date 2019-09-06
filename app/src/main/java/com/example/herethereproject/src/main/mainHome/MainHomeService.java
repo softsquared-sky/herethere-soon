@@ -1,6 +1,8 @@
 package com.example.herethereproject.src.main.mainHome;
 
 import com.example.herethereproject.src.main.postsInterfaces.MainPostsRetrofitInterface;
+import com.example.herethereproject.src.main.postsModels.MainHeartBody;
+import com.example.herethereproject.src.main.postsModels.MainHeartResponse;
 import com.example.herethereproject.src.main.postsModels.MainPostsResponse;
 
 import retrofit2.Call;
@@ -16,7 +18,7 @@ public class MainHomeService {
         this.mMainActivityPostsView = mainActivityPostsView;
     }
 
-    void getPosts() {
+    void getPosts(int postNo) {
         final MainPostsRetrofitInterface mainPostsRetrofitInterface = getRetrofit().create(MainPostsRetrofitInterface.class);
         mainPostsRetrofitInterface.getPosts(0).enqueue(new Callback<MainPostsResponse>() {
             @Override
@@ -26,13 +28,36 @@ public class MainHomeService {
                     mMainActivityPostsView.validateFailure("null");
                     return;
                 }
-                mMainActivityPostsView.validateSuccess(mainPostsResponse.getMessage());
-//                if(ApplicationClass.X_ACCESS_TOKEN == )
-//                System.out.println(ApplicationClass.X_ACCESS_TOKEN);
+                mMainActivityPostsView.validateSuccess(mainPostsResponse.getMessage(), mainPostsResponse.getResult(), mainPostsResponse.getIsSuccess());
             }
 
             @Override
             public void onFailure(Call<MainPostsResponse> call, Throwable t) {
+                mMainActivityPostsView.validateFailure("fail");
+            }
+        });
+    }
+
+    void postHeart(int postNo){
+        final MainPostsRetrofitInterface mainPostsRetrofitInterface = getRetrofit().create(MainPostsRetrofitInterface.class);
+
+
+        final MainHeartBody mainHeartBody = new MainHeartBody(postNo);
+
+
+        mainPostsRetrofitInterface.postHeart(mainHeartBody).enqueue(new Callback<MainHeartResponse>() {
+            @Override
+            public void onResponse(Call<MainHeartResponse> call, Response<MainHeartResponse> response) {
+                final MainHeartResponse mainHeartResponse = response.body();
+                if (mainHeartResponse == null) {
+                    mMainActivityPostsView.validateFailure("null");
+                    return;
+                }
+                mMainActivityPostsView.validateSuccessHeart(mainHeartResponse.getIsSuccess());
+            }
+
+            @Override
+            public void onFailure(Call<MainHeartResponse> call, Throwable t) {
                 mMainActivityPostsView.validateFailure("fail");
             }
         });

@@ -1,14 +1,10 @@
-package com.example.herethereproject.src.login.interfaces;
+package com.example.herethereproject.src.login.loginInterfaces;
 
-import com.example.herethereproject.src.login.models.LoginBody;
-import com.example.herethereproject.src.login.models.LoginResponse;
+import com.example.herethereproject.src.login.loginModels.LoginBody;
+import com.example.herethereproject.src.login.loginModels.LoginResponse;
 
-import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface LoginRetrofitInterface {

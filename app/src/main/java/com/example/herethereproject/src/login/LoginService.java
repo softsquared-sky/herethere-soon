@@ -3,10 +3,10 @@ package com.example.herethereproject.src.login;
 import android.content.SharedPreferences;
 
 import com.example.herethereproject.src.ApplicationClass;
-import com.example.herethereproject.src.login.interfaces.LoginActivityView;
-import com.example.herethereproject.src.login.interfaces.LoginRetrofitInterface;
-import com.example.herethereproject.src.login.models.LoginBody;
-import com.example.herethereproject.src.login.models.LoginResponse;
+import com.example.herethereproject.src.login.loginInterfaces.LoginActivityView;
+import com.example.herethereproject.src.login.loginInterfaces.LoginRetrofitInterface;
+import com.example.herethereproject.src.login.loginModels.LoginBody;
+import com.example.herethereproject.src.login.loginModels.LoginResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,11 +37,14 @@ public class LoginService {
                     return;
                 }
                 mLoginActivityView.validateSuccess(loginResponse.getMessage(), loginResponse.getIsSuccess());
-                ApplicationClass.X_ACCESS_TOKEN = loginResponse.getResult().getJwt();
-                SharedPreferences.Editor editor = sSharedPreferences.edit();
-                String jwt = loginResponse.getResult().getJwt(); // 사용자가 입력한 저장할 데이터
-                editor.putString(X_ACCESS_TOKEN,jwt);
-                editor.commit();
+                if(loginResponse.getIsSuccess()){
+                    ApplicationClass.X_ACCESS_TOKEN = loginResponse.getResult().getJwt();
+                    SharedPreferences.Editor editor = sSharedPreferences.edit();
+                    String jwt = loginResponse.getResult().getJwt(); // 사용자가 입력한 저장할 데이터
+                    editor.putString(X_ACCESS_TOKEN,jwt);
+                    editor.commit();
+                }
+
 
 
             }

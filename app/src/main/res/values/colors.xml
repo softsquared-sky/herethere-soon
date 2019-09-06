@@ -12,4 +12,5 @@
     <color name="hereThereText">#009FE5</color>
     <color name="signUpYellow">#FFF200</color>
     <color name="mainHomeProfileStatus">#6E7373</color>
+    <color name="heartColor">#F62F61</color>
 </resources>

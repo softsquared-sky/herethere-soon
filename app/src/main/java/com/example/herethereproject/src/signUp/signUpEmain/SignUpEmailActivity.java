@@ -1,9 +1,7 @@
-package com.example.herethereproject.src.signUp.SignUpEmail;
+package com.example.herethereproject.src.signUp.signUpEmain;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -11,8 +9,8 @@ import android.widget.TextView;
 import com.example.herethereproject.R;
 import com.example.herethereproject.src.BaseActivity;
 import com.example.herethereproject.src.login.LoginActivity;
-import com.example.herethereproject.src.signUp.SignUpInterfaces.SignUpActivityView;
-import com.example.herethereproject.src.signUp.SignUpModels.SignUpRegionResponse;
+import com.example.herethereproject.src.signUp.signUpInterfaces.SignUpActivityView;
+import com.example.herethereproject.src.signUp.signUpModels.SignUpRegionResponse;
 import com.example.herethereproject.src.signUp.SignUpPasswordActivity;
 
 import java.util.List;

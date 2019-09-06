@@ -1,4 +1,4 @@
-package com.example.herethereproject.src.login.models;
+package com.example.herethereproject.src.login.loginModels;
 
 public class LoginBody {
 

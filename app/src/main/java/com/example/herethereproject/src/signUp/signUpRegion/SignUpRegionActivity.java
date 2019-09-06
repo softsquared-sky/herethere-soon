@@ -1,4 +1,4 @@
-package com.example.herethereproject.src.signUp.SignUpRegion;
+package com.example.herethereproject.src.signUp.signUpRegion;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,9 +13,9 @@ import com.example.herethereproject.R;
 import com.example.herethereproject.src.BaseActivity;
 import com.example.herethereproject.src.signUp.SignUpFinishActivity;
 import com.example.herethereproject.src.signUp.SignUpPictureActivity;
-import com.example.herethereproject.src.signUp.SignUpInterfaces.SignUpActivityView;
-import com.example.herethereproject.src.signUp.SignUpModels.SignUpBody;
-import com.example.herethereproject.src.signUp.SignUpModels.SignUpRegionResponse;
+import com.example.herethereproject.src.signUp.signUpInterfaces.SignUpActivityView;
+import com.example.herethereproject.src.signUp.signUpModels.SignUpBody;
+import com.example.herethereproject.src.signUp.signUpModels.SignUpRegionResponse;
 
 import java.util.ArrayList;
 import java.util.List;

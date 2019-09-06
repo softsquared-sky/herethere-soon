@@ -1,20 +1,9 @@
-package com.example.herethereproject.src.login.models;
+package com.example.herethereproject.src.login.loginModels;
 
 import com.google.gson.annotations.SerializedName;
 
 public class LoginResponse {
-/*
-    @SerializedName("email")
-    public String email;
 
-    @SerializedName("password")
-    public String password;
-
-    public LoginResponse(String email, String password){
-        this.email = email;
-        this.password = password;
-    }
-*/
     @SerializedName("code")
     private int code;
 
@@ -26,10 +15,6 @@ public class LoginResponse {
 
     @SerializedName("result")
     private Data result;
-
-    public Data getResult() {
-        return result;
-    }
 
     public class Data{
         @SerializedName("jwt")
@@ -51,6 +36,10 @@ public class LoginResponse {
 
     public boolean getIsSuccess() {
         return isSuccess;
+    }
+
+    public Data getResult() {
+        return result;
     }
 
 

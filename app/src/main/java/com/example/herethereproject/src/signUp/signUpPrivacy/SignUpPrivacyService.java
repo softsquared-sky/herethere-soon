@@ -1,12 +1,9 @@
-package com.example.herethereproject.src.signUp.SignUpPrivacy;
+package com.example.herethereproject.src.signUp.signUpPrivacy;
 
-import com.example.herethereproject.src.signUp.SignUpInterfaces.SignUpActivityView;
-import com.example.herethereproject.src.signUp.SignUpInterfaces.SignUpRetrofitInterface;
-import com.example.herethereproject.src.signUp.SignUpModels.SignUpBody;
-import com.example.herethereproject.src.signUp.SignUpModels.SignUpRegionResponse;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.herethereproject.src.signUp.signUpInterfaces.SignUpActivityView;
+import com.example.herethereproject.src.signUp.signUpInterfaces.SignUpRetrofitInterface;
+import com.example.herethereproject.src.signUp.signUpModels.SignUpBody;
+import com.example.herethereproject.src.signUp.signUpModels.SignUpRegionResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;

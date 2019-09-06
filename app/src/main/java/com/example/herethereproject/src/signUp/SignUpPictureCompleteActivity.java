@@ -6,7 +6,7 @@ import android.view.View;
 
 import com.example.herethereproject.R;
 import com.example.herethereproject.src.BaseActivity;
-import com.example.herethereproject.src.signUp.SignUpRegion.SignUpRegionActivity;
+import com.example.herethereproject.src.signUp.signUpRegion.SignUpRegionActivity;
 
 public class SignUpPictureCompleteActivity extends BaseActivity {
 

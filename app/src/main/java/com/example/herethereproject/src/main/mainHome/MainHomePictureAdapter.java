@@ -3,82 +3,74 @@ package com.example.herethereproject.src.main.mainHome;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.herethereproject.R;
+import com.example.herethereproject.src.main.postsModels.MainPostsResponse;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class MainHomeAdapter extends RecyclerView.Adapter<MainHomeAdapter.HomeViewHolder>{
+public class MainHomePictureAdapter extends RecyclerView.Adapter<MainHomePictureAdapter.HomeViewHolder>{
 
-    public ArrayList<MainHomeItem> homeList;
+    private MainHomeItem mMainHomeItem;
+    private List<MainPostsResponse.Data.Picture> mPictureList;
 
-    public MainHomeAdapter(ArrayList<MainHomeItem> homeList){
-        this.homeList = homeList;
-
+    public MainHomePictureAdapter(List<MainPostsResponse.Data.Picture> pictureList){
+        this.mPictureList = pictureList;
     }
 
 
     @NonNull
     @Override
     public HomeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_main_home, parent, false);
-
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_main_home_picture, parent, false);
         return new HomeViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull HomeViewHolder holder, int position) {
-        holder.onBind(homeList.get(position));
+        //System.out.println(mPictureList.get(0).getPostPicture());
+        if(mPictureList.get(0).getPostPicture() != "") {
+            holder.onBind(mPictureList.get(position));
+        }
     }
 
     @Override
     public int getItemCount() {
-        return homeList.size();
+        return mPictureList.size();
     }
 
-    void addItem(MainHomeItem mainHomeItem){
-        homeList.add(mainHomeItem);
+    /*
+    void addItem(MainHomePictureItem mainHomePictureItem){
+        mPictureList.add(mainHomePictureItem);
     }
+    */
 
     class HomeViewHolder extends RecyclerView.ViewHolder{
 
-        private ImageView profile;
-        private TextView name;
-        private TextView regionTime;
-        private TextView line;
-        private TextView heart;
-        private TextView bookMark;
-        private TextView comment;
+        private ImageButton postPictureImageButton;
+
 
         public HomeViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            profile = itemView.findViewById(R.id.iv_main_home_profile);
-            name = itemView.findViewById(R.id.tv_main_home_profile_name);
-            regionTime = itemView.findViewById(R.id.tv_main_home_region);
-            line = itemView.findViewById(R.id.tv_main_home_line);
-            heart = itemView.findViewById(R.id.tv_main_home_heart);
-            bookMark = itemView.findViewById(R.id.tv_main_home_bookmark);
-            comment = itemView.findViewById(R.id.tv_main_home_comment);
 
+            postPictureImageButton =itemView.findViewById(R.id.btn_main_home_picture);
 
 
         }
 
-        void onBind(MainHomeItem mainHomeItem){
-            profile.setImageResource(mainHomeItem.getProfilePicture());
-            name.setText(mainHomeItem.getNickName());
-            regionTime.setText("asdf");
-            line.setText("asdf");
-            heart.setText("asdf");
-            bookMark.setText("asdf");
-            comment.setText("asdf");
+        void onBind(MainPostsResponse.Data.Picture postPicture) {
+            Glide.with(itemView)
+                    .load("https://firebasestorage.googleapis.com/v0/b/herethere-soon.appspot.com/o/picture%2F20190920_2138.jpg?alt=media&token=c733fbfa-413e-4367-9ab9-e00f1e74364f")
+//                    .placeholder()
+//                    .error(R.drawable.imagenotfound)
+                    .into(postPictureImageButton);
+            //postPictureImageButton.setImageURI(Uri.parse("https://firebasestorage.googleapis.com/v0/b/herethere-soon.appspot.com/o/picture%2F20190920_2138.jpg?alt=media&token=c733fbfa-413e-4367-9ab9-e00f1e74364f"));
         }
-
     }
 }

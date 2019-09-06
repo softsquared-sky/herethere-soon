@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/app_name"
                 android:textSize="16sp"
-                android:textColor="#009fe5"
+                android:textColor="@color/hereThereText"
                 android:lineSpacingExtra="8sp"
                 android:layout_marginStart="16dp"
                 app:layout_constraintStart_toEndOf="@id/btn_main_ham"

@@ -1,4 +1,4 @@
-package com.example.herethereproject.src.signUp.SignUpRegion;
+package com.example.herethereproject.src.signUp.signUpRegion;
 
 import android.content.Context;
 import android.view.LayoutInflater;
