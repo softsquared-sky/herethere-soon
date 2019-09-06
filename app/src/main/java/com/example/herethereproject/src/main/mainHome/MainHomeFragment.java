@@ -29,11 +29,8 @@ public class MainHomeFragment extends Fragment implements MainActivityPostsView 
 
     private int mPostNo = 0;
 
-    private MainHomePictureAdapter mMainHomePictureAdapter;
-
     private RecyclerView mHomeRecyclerView;
 
-    //private RecyclerView mHomePictureRecyclerView;
 
 
 
@@ -74,7 +71,7 @@ public class MainHomeFragment extends Fragment implements MainActivityPostsView 
             for(MainPostsResponse.Data data : result){
 
                 int postNo = data.getPostNo();
-                System.out.println(postNo);
+                //System.out.println(postNo);
                 String userPicture;
                 if(data.getUserPicture() == null){
                     userPicture = "";
@@ -99,7 +96,6 @@ public class MainHomeFragment extends Fragment implements MainActivityPostsView 
             }
 
             MainHomeAdapter homeAdapter = new MainHomeAdapter(mData);
-            homeAdapter.addItem(mMainHomeItem);
             mHomeRecyclerView.setAdapter(homeAdapter);
         }
 

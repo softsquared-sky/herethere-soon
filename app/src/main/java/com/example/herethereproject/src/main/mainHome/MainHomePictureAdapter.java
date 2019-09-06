@@ -33,8 +33,8 @@ public class MainHomePictureAdapter extends RecyclerView.Adapter<MainHomePicture
 
     @Override
     public void onBindViewHolder(@NonNull HomeViewHolder holder, int position) {
-        //System.out.println(mPictureList.get(0).getPostPicture());
-        if(mPictureList.get(0).getPostPicture() != "") {
+        System.out.println(position);
+        if(!mPictureList.get(0).getPostPicture().equals("")) {
             holder.onBind(mPictureList.get(position));
         }
     }
@@ -44,11 +44,6 @@ public class MainHomePictureAdapter extends RecyclerView.Adapter<MainHomePicture
         return mPictureList.size();
     }
 
-    /*
-    void addItem(MainHomePictureItem mainHomePictureItem){
-        mPictureList.add(mainHomePictureItem);
-    }
-    */
 
     class HomeViewHolder extends RecyclerView.ViewHolder{
 
@@ -65,12 +60,10 @@ public class MainHomePictureAdapter extends RecyclerView.Adapter<MainHomePicture
         }
 
         void onBind(MainPostsResponse.Data.Picture postPicture) {
+            System.out.println(postPicture.getPostPicture());
             Glide.with(itemView)
-                    .load("https://firebasestorage.googleapis.com/v0/b/herethere-soon.appspot.com/o/picture%2F20190920_2138.jpg?alt=media&token=c733fbfa-413e-4367-9ab9-e00f1e74364f")
-//                    .placeholder()
-//                    .error(R.drawable.imagenotfound)
+                    .load(postPicture.getPostPicture())
                     .into(postPictureImageButton);
-            //postPictureImageButton.setImageURI(Uri.parse("https://firebasestorage.googleapis.com/v0/b/herethere-soon.appspot.com/o/picture%2F20190920_2138.jpg?alt=media&token=c733fbfa-413e-4367-9ab9-e00f1e74364f"));
         }
     }
 }

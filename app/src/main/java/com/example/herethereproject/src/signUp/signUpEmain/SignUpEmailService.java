@@ -1,17 +1,17 @@
 package com.example.herethereproject.src.signUp.signUpEmain;
 
-import com.example.herethereproject.src.signUp.signUpInterfaces.SignUpActivityView;
-import com.example.herethereproject.src.signUp.signUpInterfaces.SignUpRetrofitInterface;
-import com.example.herethereproject.src.signUp.signUpModels.SignUpBody;
+        import com.example.herethereproject.src.signUp.signUpInterfaces.SignUpActivityView;
+        import com.example.herethereproject.src.signUp.signUpInterfaces.SignUpRetrofitInterface;
+        import com.example.herethereproject.src.signUp.signUpModels.SignUpBody;
 import com.example.herethereproject.src.signUp.signUpModels.SignUpRegionResponse;
 
 
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+        import retrofit2.Call;
+        import retrofit2.Callback;
+        import retrofit2.Response;
 
-import static com.example.herethereproject.src.ApplicationClass.getRetrofit;
+        import static com.example.herethereproject.src.ApplicationClass.getRetrofit;
 
 
 class SignUpEmailService {

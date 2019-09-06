@@ -97,6 +97,7 @@ public class LoginActivity extends BaseActivity implements LoginActivityView {
         if(success){
             showCustomToast(message);
             Intent startMainIntent = new Intent(getApplicationContext(), MainActivity.class);
+            startMainIntent.putExtra("email", mLoginEmailEditText.getText().toString());
             startActivity(startMainIntent);
             finish();
 

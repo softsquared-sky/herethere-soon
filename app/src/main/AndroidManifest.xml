@@ -55,6 +55,7 @@
         <activity android:name=".src.signUp.SignUpSchoolActivity"/>
         <activity android:name=".src.signUp.SignUpFinishActivity"/>
         <activity android:name=".src.login.LoginActivity"/>
+        <activity android:name=".src.main.MainWriteActivity"/>
     </application>
 
 </manifest>

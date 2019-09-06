@@ -5,6 +5,8 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_marginBottom="5dp"
+    android:layout_marginEnd="5dp"
+    android:layout_marginStart="5dp"
     android:elevation="4dp"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white">
@@ -55,14 +57,6 @@
                 tools:text="asdfasdf"/>
         </RelativeLayout>
 
-        <ImageButton
-            android:id="@+id/btn_main_home_dot"
-            android:layout_width="wrap_content"
-            android:layout_height="24dp"
-            android:scaleType="fitCenter"
-            android:layout_alignParentEnd="true"
-            android:background="@color/white"
-            android:src="@drawable/ic_main_home_dot_manu" />
 
     </RelativeLayout>
 
@@ -80,12 +74,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_main_home_picture"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="12dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        
+        android:orientation="horizontal"
         android:visibility="gone">
 
     </androidx.recyclerview.widget.RecyclerView>

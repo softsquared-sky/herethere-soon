@@ -55,29 +55,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
-            <ImageButton
-                android:id="@+id/btn_main_filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="38dp"
-                android:background="@color/white"
-                android:onClick="MainOnClick"
-                android:src="@drawable/ic_main_filter"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/btn_main_search"
-                app:layout_constraintTop_toTopOf="parent"/>
-
-            <ImageButton
-                android:id="@+id/btn_main_search"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:src="@drawable/ic_main_search"
-                android:onClick="MainOnClick"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -121,37 +98,23 @@
                 <ImageButton
                     android:id="@+id/btn_main_home"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:background="@color/white"
                     android:onClick="MainOnClick"
                     android:layout_weight="1"
                     android:src="@drawable/ic_main_home_focus"/>
-                <ImageButton
-                    android:id="@+id/btn_main_bookmark"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:onClick="MainOnClick"
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_main_bookmark_not"/>
+
                 <View
                     android:layout_width="1dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"/>
 
-                <ImageButton
-                    android:id="@+id/btn_main_message"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:onClick="MainOnClick"
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_main_message_not"/>
+
 
                 <ImageButton
                     android:id="@+id/btn_main_myPage"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:background="@color/white"
                     android:onClick="MainOnClick"
                     android:layout_weight="1"
@@ -165,6 +128,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="@color/white"
+                android:onClick="MainOnClick"
                 android:src="@drawable/ic_main_write" />
 
         </FrameLayout>
@@ -218,7 +182,6 @@
                 android:layout_below="@id/iv_ham_profile"
                 android:layout_marginTop="10dp"
                 android:textStyle="bold"
-                android:text="사용자 닉네임"
                 android:textSize="16sp"
                 android:textColor="@color/listTextColor"
                 android:lineSpacingExtra="8sp"/>
@@ -228,7 +191,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_ham_nickName"
-                android:text="randu3456@navr.com"
                 android:textSize="12sp"
                 android:textColor="@color/mainHomeProfileStatus"
                 android:lineSpacingExtra="6sp"/>
@@ -248,6 +210,7 @@
                 app:srcCompat="@drawable/ic_ham_hat" />
 
             <TextView
+                android:id="@+id/tv_ham_school"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="3dp"
@@ -256,10 +219,10 @@
                 android:layout_alignTop="@id/iv_ham_hat_1"
                 android:textColor="@color/mainHomeProfileStatus"
                 android:lineSpacingExtra="6sp"
-                android:text="홍익대학교"
                 tools:text="홍익대학교(서울)"/>
 
             <TextView
+                android:id="@+id/tv_ham_region"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="3dp"
@@ -268,7 +231,6 @@
                 android:textSize="10sp"
                 android:textColor="@color/mainHomeProfileStatus"
                 android:lineSpacingExtra="6sp"
-                android:text="ㄴ대ㅣㅕ"
                 tools:text="홍익대학교(서울)"/>
 
         </RelativeLayout>
@@ -302,127 +264,14 @@
                 app:layout_constraintBottom_toBottomOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraint_ham_alarm"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_below="@id/constraint_ham_mypage">
-
-            <ImageView
-                android:id="@+id/iv_ham_alarm"
-                android:layout_width="wrap_content"
-                android:layout_height="24dp"
-                android:scaleType="fitCenter"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_ham_alarm" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="@string/ham_alarm"
-                android:textSize="14sp"
-                android:textColor="@color/listTextColor"
-                android:lineSpacingExtra="8sp"
-                app:layout_constraintStart_toEndOf="@id/iv_ham_alarm"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraint_ham_security"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_below="@id/constraint_ham_alarm">
-
-            <ImageView
-                android:id="@+id/iv_ham_security"
-                android:layout_width="wrap_content"
-                android:layout_height="24dp"
-                android:scaleType="fitCenter"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_ham_security" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="@string/ham_myprofile"
-                android:textSize="14sp"
-                android:textColor="@color/listTextColor"
-                android:lineSpacingExtra="8sp"
-                app:layout_constraintStart_toEndOf="@id/iv_ham_security"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraint_ham_setting"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_below="@id/constraint_ham_security">
-
-            <ImageView
-                android:id="@+id/iv_ham_setting"
-                android:layout_width="wrap_content"
-                android:layout_height="24dp"
-                android:scaleType="fitCenter"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_ham_setting" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="@string/ham_setting"
-                android:textSize="14sp"
-                android:textColor="@color/listTextColor"
-                android:lineSpacingExtra="8sp"
-                app:layout_constraintStart_toEndOf="@id/iv_ham_setting"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraint_ham_faq"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_below="@id/constraint_ham_setting">
-
-            <ImageView
-                android:id="@+id/iv_ham_faq"
-                android:layout_width="wrap_content"
-                android:layout_height="24dp"
-                android:scaleType="fitCenter"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_ham_faq" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="@string/ham_faq"
-                android:textSize="14sp"
-                android:textColor="@color/listTextColor"
-                android:lineSpacingExtra="8sp"
-                app:layout_constraintStart_toEndOf="@id/iv_ham_faq"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraint_ham_logout"
             android:layout_width="match_parent"
             android:layout_height="48dp"
+            android:clickable="true"
+            android:onClick="MainOnClick"
             android:layout_alignParentBottom="true">
 
             <ImageView

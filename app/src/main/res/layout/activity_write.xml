@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:src="@drawable/ic_arrow_write"
+            android:onClick="MainWriteOnClick"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>

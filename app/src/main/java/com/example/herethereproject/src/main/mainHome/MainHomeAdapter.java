@@ -41,7 +41,7 @@ public class MainHomeAdapter extends RecyclerView.Adapter<MainHomeAdapter.HomeVi
     public HomeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_main_home, parent, false);
 
-        mLayoutManager = new LinearLayoutManager(parent.getContext(), RecyclerView.HORIZONTAL, true);
+        mLayoutManager = new LinearLayoutManager(parent.getContext());
 
 
 
@@ -108,7 +108,6 @@ public class MainHomeAdapter extends RecyclerView.Adapter<MainHomeAdapter.HomeVi
         private TextView commentTextView;
         private RecyclerView pictureView;
 
-        //private LinearLayout heartLinearLayout;
 
         public HomeViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -125,6 +124,7 @@ public class MainHomeAdapter extends RecyclerView.Adapter<MainHomeAdapter.HomeVi
 
 
             pictureView.setLayoutManager(mLayoutManager);
+
 
 
 
