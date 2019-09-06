@@ -1,19 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_marginBottom="5dp"
-    android:layout_marginEnd="5dp"
-    android:layout_marginStart="5dp"
-    android:elevation="4dp"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_posts_top"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:paddingTop="28dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="12dp">
+
+        <ImageButton
+            android:id="@+id/btn_posts_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:onClick="postsOnClick"
+            android:src="@drawable/ic_posts_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="16sp"
+            android:textColor="@color/hereThereText"
+            android:lineSpacingExtra="8sp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toEndOf="@id/btn_posts_back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <RelativeLayout
+        android:id="@+id/relative_posts_profile"
         android:layout_width="match_parent"
         android:layout_height="72dp"
+        android:layout_below="@+id/constraint_posts_top"
         android:paddingStart="16dp"
         android:paddingTop="16dp"
         android:paddingBottom="16dp"
@@ -24,7 +57,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/iv_main_home_profile"
+                android:id="@+id/iv_posts_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:scaleType="fitCenter"
@@ -32,7 +65,7 @@
                 app:srcCompat="@drawable/ic_main_profile" />
 
             <TextView
-                android:id="@+id/tv_main_home_profile_name"
+                android:id="@+id/tv_posts_profile_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
@@ -40,11 +73,11 @@
                 android:gravity="bottom"
                 android:paddingBottom="0dp"
                 android:textColor="@color/listTextColor"
-                android:layout_toEndOf="@+id/iv_main_home_profile"
+                android:layout_toEndOf="@+id/iv_posts_profile"
                 tools:text="asdf"/>
 
             <TextView
-                android:id="@+id/tv_main_home_region"
+                android:id="@+id/tv_posts_region"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
@@ -52,8 +85,8 @@
                 android:paddingTop="0dp"
                 android:textColor="@color/mainHomeProfileStatus"
                 android:lineSpacingExtra="6sp"
-                android:layout_below="@id/tv_main_home_profile_name"
-                android:layout_toEndOf="@+id/iv_main_home_profile"
+                android:layout_below="@id/tv_posts_profile_name"
+                android:layout_toEndOf="@+id/iv_posts_profile"
                 tools:text="asdfasdf"/>
         </RelativeLayout>
 
@@ -61,26 +94,23 @@
     </RelativeLayout>
 
 
-
-
     <TextView
-        android:id="@+id/tv_main_home_line"
-        android:background="@color/white"
+        android:id="@+id/tv_posts_line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:clickable="true"
-        android:gravity="start"
+        android:layout_below="@+id/relative_posts_profile"
         android:textSize="14sp"
         android:textColor="@color/listTextColor"
         android:lineSpacingExtra="8sp"
         tools:text="오늘 저녁은 된장찌개, 밥, 김치, 김, 기타등등, 계란말이, 간장게장, 부추전, 김치찌개, 안자아라아라아아라ㅣ나ㅣ아ㅣㅏㅣㅏㅣㅓㅓㅏㅣ아아아아아아ㅏ아아아아아아아"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview_main_home_picture"
+        android:id="@+id/recyclerview_posts_picture"
         android:layout_width="match_parent"
         android:layout_height="70dp"
+        android:layout_below="@+id/tv_posts_line"
         android:layout_marginTop="12dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
@@ -89,18 +119,21 @@
 
     </androidx.recyclerview.widget.RecyclerView>
     <RelativeLayout
+        android:id="@+id/relative_posts_heart_line"
         android:layout_width="match_parent"
-        android:layout_height="47.8dp">
+        android:layout_height="47.8dp"
+        android:layout_below="@id/recyclerview_posts_picture">
 
         <LinearLayout
-            android:id="@+id/btn_main_home_heart"
+            android:id="@+id/btn_posts_heart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
+            android:onClick="postsOnClick"
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/iv_main_home_heart"
+                android:id="@+id/iv_posts_heart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -108,7 +141,7 @@
                 android:layout_marginBottom="15.8dp"
                 app:srcCompat="@drawable/ic_heart_not" />
             <TextView
-                android:id="@+id/tv_main_home_heart"
+                android:id="@+id/tv_posts_heart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
@@ -119,7 +152,7 @@
 
 
         <LinearLayout
-            android:id="@+id/btn_main_home_comment"
+            android:id="@+id/btn_posts_comment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -134,7 +167,7 @@
                 android:layout_marginBottom="15.8dp"
                 app:srcCompat="@drawable/ic_main_home_comment" />
             <TextView
-                android:id="@+id/tv_main_home_comment"
+                android:id="@+id/tv_posts_comment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
@@ -149,4 +182,37 @@
 
     </RelativeLayout>
 
-</LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_posts_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relative_posts_heart_line"
+        android:layout_marginBottom="58dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="56dp"
+        android:background="@color/postsEditText"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:paddingStart="10dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        android:hint="@string/write_comment_hint"
+        android:textColorHint="@color/postsEditTextHint"
+        android:textSize="12sp"
+        android:textColor="@color/postsEditTextHint"
+        android:lineSpacingExtra="6sp"
+        android:background="@drawable/et_posts"/>
+
+
+</RelativeLayout>

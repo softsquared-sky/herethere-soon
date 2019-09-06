@@ -2,12 +2,10 @@ package com.example.herethereproject.src.signUp.signUpRegion;
 
 import com.example.herethereproject.src.signUp.signUpInterfaces.SignUpActivityView;
 import com.example.herethereproject.src.signUp.signUpInterfaces.SignUpRetrofitInterface;
-
 import com.example.herethereproject.src.signUp.signUpModels.SignUpBody;
 import com.example.herethereproject.src.signUp.signUpModels.SignUpRegionResponse;
+import com.example.herethereproject.src.signUp.signUpModels.SignUpResponse;
 
-
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -49,13 +47,9 @@ class SignUpRegionService {
     void postUser(String email, String password, String name, int birth, String nickName, String schoolPicture, String schoolName, List<SignUpBody.LocationList> locationList){
         final SignUpRetrofitInterface signUpRetrofitInterface = getRetrofit().create(SignUpRetrofitInterface.class);
 
-        SignUpBody.LocationList signUpRegionLocation = new SignUpBody.LocationList(1);
-        List<SignUpBody.LocationList> locationNo = new ArrayList<SignUpBody.LocationList>();
-        locationNo.add(signUpRegionLocation);
 
-        //String password = "q1w2e3";
 
-        final SignUpBody signUpBody = new SignUpBody(2, "randy3456@naver.com", "q1w2e3","q1w2e3", "홍순재", 960603, "hsj321", "http://naver.com/lemon.jpg", "항공대학교", locationNo);
+        final SignUpBody signUpBody = new SignUpBody(2, email, password, password,name, birth,nickName,schoolPicture, schoolName, locationList);
 
         System.out.println(signUpBody.email);
         System.out.println(signUpBody.password);
@@ -66,19 +60,19 @@ class SignUpRegionService {
         System.out.println(signUpBody.schoolPicture);
 
 
-        signUpRetrofitInterface.postUser(signUpBody).enqueue(new Callback<SignUpRegionResponse>() {
+        signUpRetrofitInterface.postUser(signUpBody).enqueue(new Callback<SignUpResponse>() {
             @Override
-            public void onResponse(Call<SignUpRegionResponse> call, Response<SignUpRegionResponse> response) {
-                final SignUpRegionResponse signUpRegionResponse = response.body();
-                if (signUpRegionResponse == null) {
+            public void onResponse(Call<SignUpResponse> call, Response<SignUpResponse> response) {
+                final SignUpResponse signUpResponse = response.body();
+                if (signUpResponse == null) {
                     mSignUpActivityView.validateFailure("null");
                     return;
                 }
-                mSignUpActivityView.validateSuccessPost(signUpRegionResponse.getIsSuccess(), signUpRegionResponse.getMessage());
+                mSignUpActivityView.validateSuccessPost(signUpResponse.getIsSuccess(), signUpResponse.getMessage());
             }
 
             @Override
-            public void onFailure(Call<SignUpRegionResponse> call, Throwable t) {
+            public void onFailure(Call<SignUpResponse> call, Throwable t) {
                 mSignUpActivityView.validateFailure("fail");
             }
         });

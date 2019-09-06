@@ -14,6 +14,7 @@ public class MainHomeItem{
     private String timeAgo;
     private String postContents;
     private int heart;
+    public boolean heartCheck = false;
     private String comment;
     public List<MainPostsResponse.Data.Picture> pictureList;
 

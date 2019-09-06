@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.herethereproject.R;
 import com.example.herethereproject.src.mainHome.postsInterfaces.MainActivityPostsView;
+import com.example.herethereproject.src.mainHome.postsModels.MainPostsNoResponse;
 import com.example.herethereproject.src.mainHome.postsModels.MainPostsResponse;
 
 import java.util.ArrayList;
@@ -101,6 +102,11 @@ public class MainHomeFragment extends Fragment implements MainActivityPostsView 
 
 
         mDialog.hide();
+    }
+
+    @Override
+    public void validateSuccessPostNo(String message, List<MainPostsNoResponse.Result> result, boolean isSuccess) {
+
     }
 
     public void tryPostHeart(int postNo){

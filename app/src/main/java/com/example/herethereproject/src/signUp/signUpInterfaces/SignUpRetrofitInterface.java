@@ -2,6 +2,7 @@ package com.example.herethereproject.src.signUp.signUpInterfaces;
 
 import com.example.herethereproject.src.signUp.signUpModels.SignUpBody;
 import com.example.herethereproject.src.signUp.signUpModels.SignUpRegionResponse;
+import com.example.herethereproject.src.signUp.signUpModels.SignUpResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -14,6 +15,6 @@ public interface SignUpRetrofitInterface {
     Call<SignUpRegionResponse> getTest();
 
     @POST("/user")
-    Call<SignUpRegionResponse> postUser(@Body SignUpBody signUpBody);
+    Call<SignUpResponse> postUser(@Body SignUpBody signUpBody);
 
 }

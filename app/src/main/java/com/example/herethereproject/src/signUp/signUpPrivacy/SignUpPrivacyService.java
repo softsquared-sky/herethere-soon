@@ -3,7 +3,7 @@ package com.example.herethereproject.src.signUp.signUpPrivacy;
 import com.example.herethereproject.src.signUp.signUpInterfaces.SignUpActivityView;
 import com.example.herethereproject.src.signUp.signUpInterfaces.SignUpRetrofitInterface;
 import com.example.herethereproject.src.signUp.signUpModels.SignUpBody;
-import com.example.herethereproject.src.signUp.signUpModels.SignUpRegionResponse;
+import com.example.herethereproject.src.signUp.signUpModels.SignUpResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,19 +26,19 @@ class SignUpPrivacyService {
         final SignUpBody signUpBody = new SignUpBody(reqType, null, null,null, null, null, nickName, null, null, null);
 
 
-        signUpRetrofitInterface.postUser(signUpBody).enqueue(new Callback<SignUpRegionResponse>() {
+        signUpRetrofitInterface.postUser(signUpBody).enqueue(new Callback<SignUpResponse>() {
             @Override
-            public void onResponse(Call<SignUpRegionResponse> call, Response<SignUpRegionResponse> response) {
-                final SignUpRegionResponse signUpRegionResponse = response.body();
-                if (signUpRegionResponse == null) {
+            public void onResponse(Call<SignUpResponse> call, Response<SignUpResponse> response) {
+                final SignUpResponse signUpResponse = response.body();
+                if (signUpResponse == null) {
                     mSignUpActivityView.validateFailure("null");
                     return;
                 }
-                mSignUpActivityView.validateSuccessPost(signUpRegionResponse.getIsSuccess(), signUpRegionResponse.getMessage());
+                mSignUpActivityView.validateSuccessPost(signUpResponse.getIsSuccess(), signUpResponse.getMessage());
             }
 
             @Override
-            public void onFailure(Call<SignUpRegionResponse> call, Throwable t) {
+            public void onFailure(Call<SignUpResponse> call, Throwable t) {
                 mSignUpActivityView.validateFailure("fail");
             }
         });

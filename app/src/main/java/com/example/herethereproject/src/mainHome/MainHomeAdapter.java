@@ -1,5 +1,6 @@
 package com.example.herethereproject.src.mainHome;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +15,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.herethereproject.R;
+import com.example.herethereproject.src.mainHome.posts.PostsActivity;
 import com.example.herethereproject.src.mainHome.postsInterfaces.MainActivityPostsView;
+import com.example.herethereproject.src.mainHome.postsModels.MainPostsNoResponse;
 import com.example.herethereproject.src.mainHome.postsModels.MainPostsResponse;
 
 import java.util.ArrayList;
@@ -22,14 +25,14 @@ import java.util.List;
 
 public class MainHomeAdapter extends RecyclerView.Adapter<MainHomeAdapter.HomeViewHolder> implements MainActivityPostsView {
 
-    public ArrayList<MainHomeItem> homeList;
+    public ArrayList<MainHomeItem> mHomeList;
 
     private RecyclerView.LayoutManager mLayoutManager;
 
     private MainHomeFragment mMainHomeFragment = new MainHomeFragment();
 
-    public MainHomeAdapter(ArrayList<MainHomeItem> homeList){
-        this.homeList = homeList;
+    public MainHomeAdapter(ArrayList<MainHomeItem> mHomeList){
+        this.mHomeList = mHomeList;
 
 
     }
@@ -50,7 +53,7 @@ public class MainHomeAdapter extends RecyclerView.Adapter<MainHomeAdapter.HomeVi
 
     @Override
     public void onBindViewHolder(@NonNull final HomeViewHolder holder, final int position) {
-        holder.onBind(homeList.get(position));
+        holder.onBind(mHomeList.get(position));
 
         final ImageView heartImageView = holder.itemView.findViewById(R.id.iv_main_home_heart);
 
@@ -59,26 +62,38 @@ public class MainHomeAdapter extends RecyclerView.Adapter<MainHomeAdapter.HomeVi
             public void onClick(View view) {
                 switch (view.getId()){
                     case R.id.btn_main_home_heart:
-                        mMainHomeFragment.tryPostHeart(homeList.get(position).getPostNo());
-                        heartImageView.setImageResource(R.drawable.ic_heart_fill);
-                        holder.onBindHeart(homeList.get(position));
+                        if(!mHomeList.get(position).heartCheck) {
+                            mMainHomeFragment.tryPostHeart(mHomeList.get(position).getPostNo());
+                            heartImageView.setImageResource(R.drawable.ic_heart_fill);
+                            mHomeList.get(position).heartCheck = true;
+                            holder.onBindHeart(mHomeList.get(position));
+                        }
+                        break;
+
+                    case R.id.tv_main_home_line:
+                        Intent startPostsIntent = new Intent(view.getContext(), PostsActivity.class);
+                        startPostsIntent.putExtra("postNo", mHomeList.get(position).getPostNo());
+                        startPostsIntent.putExtra("heartCheck", mHomeList.get(position).heartCheck);
+                        view.getContext().startActivity(startPostsIntent);
                         break;
                 }
             }
         };
 
         LinearLayout linearLayout = holder.itemView.findViewById(R.id.btn_main_home_heart);
+        TextView commentTextView = holder.itemView.findViewById(R.id.tv_main_home_line);
         linearLayout.setOnClickListener(listener);
+        commentTextView.setOnClickListener(listener);
     }
 
 
     @Override
     public int getItemCount() {
-        return homeList.size();
+        return mHomeList.size();
     }
 
     void addItem(MainHomeItem mainHomeItem){
-        homeList.add(mainHomeItem);
+        mHomeList.add(mainHomeItem);
     }
 
 
@@ -86,6 +101,11 @@ public class MainHomeAdapter extends RecyclerView.Adapter<MainHomeAdapter.HomeVi
     @Override
     public void validateSuccess(String message, List<MainPostsResponse.Data> result, boolean isSuccess) {
         
+    }
+
+    @Override
+    public void validateSuccessPostNo(String message, List<MainPostsNoResponse.Result> result, boolean isSuccess) {
+
     }
 
     @Override
@@ -134,6 +154,7 @@ public class MainHomeAdapter extends RecyclerView.Adapter<MainHomeAdapter.HomeVi
             mainHomeItem.setHeart();
             heartTextView.setText(Integer.toString(mainHomeItem.getHeart()));
             heartTextView.setTextColor(ContextCompat.getColor(itemView.getContext(),R.color.heartColor));
+            heartTextView.setEnabled(false);
         }
 
         void onBind(MainHomeItem mainHomeItem){
