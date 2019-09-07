@@ -10,13 +10,15 @@ import androidx.core.content.ContextCompat;
 
 import com.example.herethereproject.R;
 import com.example.herethereproject.src.BaseActivity;
+import com.example.herethereproject.src.mainHome.posts.commentInterfaces.CommentActivityView;
+import com.example.herethereproject.src.mainHome.posts.commentModels.CommentGetResponse;
 import com.example.herethereproject.src.mainHome.postsInterfaces.MainActivityPostsView;
 import com.example.herethereproject.src.mainHome.postsModels.MainPostsNoResponse;
 import com.example.herethereproject.src.mainHome.postsModels.MainPostsResponse;
 
 import java.util.List;
 
-public class PostsActivity extends BaseActivity implements MainActivityPostsView {
+public class PostsActivity extends BaseActivity implements MainActivityPostsView, CommentActivityView {
 
     boolean mHeartCheck = false;
 
@@ -24,10 +26,14 @@ public class PostsActivity extends BaseActivity implements MainActivityPostsView
     private ImageView mHeartImageView;
     private int mPostNo;
 
+    private int mCurrent = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_posts);
+
+
 
         mHeartTextView = findViewById(R.id.tv_posts_heart);
         mHeartImageView = findViewById(R.id.iv_posts_heart);
@@ -42,6 +48,8 @@ public class PostsActivity extends BaseActivity implements MainActivityPostsView
         if(mPostNo == -1){
             finish();
         }
+
+        tryGetComment(mCurrent, mPostNo);
         tryPostsNo(mPostNo);
 
 
@@ -70,14 +78,21 @@ public class PostsActivity extends BaseActivity implements MainActivityPostsView
     }
 
     public void tryPostHeart(int postNo){
-        final PostsService postsService = new PostsService(this);
+        final PostsService postsService = new PostsService(this, this);
         postsService.postHeart(postNo);
+        showProgressDialog();
     }
 
 
     public void tryPostsNo(int postNo){
-        final PostsService postsService = new PostsService(this);
+        final PostsService postsService = new PostsService(this, this);
         postsService.getPostsNo(postNo);
+        showProgressDialog();
+    }
+
+    public void tryGetComment(int current, int postNo){
+        final PostsService postsService = new PostsService(this, this);
+        postsService.getComment(current, postNo);
         showProgressDialog();
     }
 
@@ -115,6 +130,18 @@ public class PostsActivity extends BaseActivity implements MainActivityPostsView
     @Override
     public void validateSuccessHeart(boolean isSccess) {
         hideProgressDialog();
+    }
+
+
+    // 댓글 api
+    @Override
+    public void validateSuccessCommentPost(String message, boolean isSuccess) {
+
+    }
+
+    @Override
+    public void validateSuccessCommentGet(String message, List<CommentGetResponse.Result> result, boolean isSuccess) {
+        System.out.println(message);
     }
 
     @Override

@@ -1,5 +1,9 @@
 package com.example.herethereproject.src.mainHome.posts;
 
+import com.example.herethereproject.src.mainHome.posts.commentInterfaces.CommentActivityView;
+import com.example.herethereproject.src.mainHome.posts.commentInterfaces.CommentRetrofitInterface;
+import com.example.herethereproject.src.mainHome.posts.commentModels.CommentGetBody;
+import com.example.herethereproject.src.mainHome.posts.commentModels.CommentGetResponse;
 import com.example.herethereproject.src.mainHome.postsInterfaces.MainActivityPostsView;
 import com.example.herethereproject.src.mainHome.postsInterfaces.MainPostsRetrofitInterface;
 import com.example.herethereproject.src.mainHome.postsModels.MainHeartBody;
@@ -15,9 +19,11 @@ import static com.example.herethereproject.src.ApplicationClass.getRetrofit;
 
 class PostsService {
     private final MainActivityPostsView mMainActivityPostsView;
+    private final CommentActivityView mCommentActivityView;
 
-    PostsService(final MainActivityPostsView mainActivityPostsView) {
+    PostsService(final MainActivityPostsView mainActivityPostsView, final CommentActivityView commentActivityView) {
         this.mMainActivityPostsView = mainActivityPostsView;
+        this.mCommentActivityView = commentActivityView;
     }
 
 
@@ -63,6 +69,28 @@ class PostsService {
             @Override
             public void onFailure(Call<MainHeartResponse> call, Throwable t) {
                 mMainActivityPostsView.validateFailure("fail");
+            }
+        });
+    }
+
+    void getComment(int current, int postNo){
+        final CommentRetrofitInterface commentRetrofitInterface = getRetrofit().create(CommentRetrofitInterface.class);
+        final CommentGetBody commentGetBody = new CommentGetBody(postNo);
+
+        commentRetrofitInterface.getComment(commentGetBody, current).enqueue(new Callback<CommentGetResponse>() {
+            @Override
+            public void onResponse(Call<CommentGetResponse> call, Response<CommentGetResponse> response) {
+                final CommentGetResponse commentGetResponse = response.body();
+                if(commentGetResponse == null) {
+                    mCommentActivityView.validateFailure("null");
+                    return;
+                }
+                mCommentActivityView.validateSuccessCommentGet(commentGetResponse.getMessage(), commentGetResponse.getResult(), commentGetResponse.getIsSuccess());
+            }
+
+            @Override
+            public void onFailure(Call<CommentGetResponse> call, Throwable t) {
+                mCommentActivityView.validateFailure(t.getMessage());
             }
         });
     }

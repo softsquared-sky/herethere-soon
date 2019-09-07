@@ -19,6 +19,7 @@ import com.example.herethereproject.src.main.MainInterfaces.MainActivityView;
 import com.example.herethereproject.src.mainHome.MainHomeFragment;
 import com.example.herethereproject.src.main.userInterfaces.MainActivityUserView;
 import com.example.herethereproject.src.main.userModels.MainUserProfileResponse;
+import com.example.herethereproject.src.write.WriteActivity;
 
 import static com.example.herethereproject.src.ApplicationClass.sSharedPreferences;
 
@@ -55,7 +56,7 @@ public class MainActivity extends BaseActivity implements MainActivityView, Main
                 break;
 
             case R.id.btn_main_write:
-                Intent startWriteIntent = new Intent(getApplicationContext(), MainWriteActivity.class);
+                Intent startWriteIntent = new Intent(getApplicationContext(), WriteActivity.class);
                 startActivity(startWriteIntent);
                 break;
 

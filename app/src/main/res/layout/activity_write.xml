@@ -62,11 +62,13 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_write"
         android:layout_width="match_parent"
-        android:layout_height="153dp">
+        android:layout_height="153dp"
+        android:scrollbars="none">
 
-    </ListView>
+    </androidx.recyclerview.widget.RecyclerView>
 
     <View
         android:layout_width="match_parent"

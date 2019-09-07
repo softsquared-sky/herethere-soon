@@ -48,5 +48,6 @@
     <string name="write_complete">완료</string>
     <string name="write_retoin">관심지역 선택하기</string>
     <string name="write_comment_hint">댓글 입력하기..</string>
+    <string name="write_plus">사진 추가하기</string>
 
 </resources>
