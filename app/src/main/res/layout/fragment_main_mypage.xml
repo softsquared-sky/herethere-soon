@@ -1,7 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/relative_mypage_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true">
+
+                <ImageView
+                    android:id="@+id/iv_mypage_profile"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/ic_ham_profile" />
+
+                <TextView
+                    android:id="@+id/tv_mypage_nickName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/iv_mypage_profile"
+                    android:layout_marginTop="10dp"
+                    android:textSize="16sp"
+                    android:lineSpacingExtra="8sp"
+                    tools:text="사용자닉네임"
+                    android:textStyle="bold"
+                    android:textColor="@color/listTextColor"/>
+
+                <TextView
+                    android:id="@+id/tv_mypage_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_mypage_nickName"
+                    android:layout_toEndOf="@id/iv_mypage_profile"
+                    android:textSize="12sp"
+                    android:textColor="@color/mainHomeProfileStatus"
+                    android:lineSpacingExtra="6sp"
+                    tools:text="address@email.com"/>
+
+                <ImageView
+                    android:id="@+id/iv_mypage_hat_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/iv_mypage_profile"
+                    android:layout_below="@id/tv_mypage_email"
+                    android:layout_marginTop="15dp"
+                    app:srcCompat="@drawable/ic_ham_hat" />
+
+                <TextView
+                    android:id="@+id/tv_mypage_school"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:layout_toRightOf="@id/iv_mypage_hat_1"
+                    android:textSize="10sp"
+                    android:layout_alignTop="@id/iv_mypage_hat_1"
+                    android:textColor="@color/mainHomeProfileStatus"
+                    android:lineSpacingExtra="6sp"
+                    tools:text="홍익대학교(서울)"/>
+
+
+
+
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/tv_mypage_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="12sp"
+                android:textColor="#6e7373"
+                android:lineSpacingExtra="6sp"
+                tools:text="이곳에 상태메세지가 입력됩니다. 문단 길이는 312픽셀, 최대 두 줄까지 입력할 수 있습니다. 한/영 바이트 수 계산 해봐야할 것."/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal">
+                <Button
+                    android:background="@color/white"
+                    android:id="@+id/btn_mypage_contents"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textSize="14sp"
+                    android:textColor="@color/hereThereText"
+                    android:lineSpacingExtra="6sp"
+                    android:text="글"/>
+                <Button
+                    android:background="@color/white"
+                    android:id="@+id/btn_mypage_picture"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textSize="14sp"
+                    android:textColor="@color/mainHomeProfileStatus"
+                    android:lineSpacingExtra="6sp"
+                    android:text="갤러리"/>
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/frame_mypage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </FrameLayout>
+
+
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+
 
 
 

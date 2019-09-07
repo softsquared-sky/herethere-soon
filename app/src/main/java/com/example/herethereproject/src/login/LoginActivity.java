@@ -7,10 +7,11 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.herethereproject.R;
-import com.example.herethereproject.src.login.loginInterfaces.LoginActivityView;
 import com.example.herethereproject.src.BaseActivity;
+import com.example.herethereproject.src.login.loginInterfaces.LoginActivityView;
 import com.example.herethereproject.src.login.loginModels.LoginBody;
 import com.example.herethereproject.src.main.MainActivity;
 import com.example.herethereproject.src.signUp.signUpEmain.SignUpEmailActivity;
@@ -28,6 +29,13 @@ public class LoginActivity extends BaseActivity implements LoginActivityView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        Intent logoutIntent = getIntent();
+
+        if(logoutIntent.getBooleanExtra("logout", false)){
+            TextView loginTextView = findViewById(R.id.login_text);
+            loginTextView.setText(getString(R.string.logout));
+        }
 
         mLoginEmailEditText = findViewById(R.id.login_email_input);
         mLoginPasswordEditText = findViewById(R.id.login_password_input);

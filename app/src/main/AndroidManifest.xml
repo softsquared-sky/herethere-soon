@@ -54,7 +54,7 @@
         <activity android:name=".src.signUp.SignUpPictureActivity"/>
         <activity android:name=".src.signUp.SignUpSchoolActivity"/>
         <activity android:name=".src.signUp.SignUpFinishActivity"/>
-        <activity android:name=".src.mainHome.posts.PostsActivity"/>
+        <activity android:name=".src.main.mainHome.posts.PostsActivity"/>
         <activity android:name=".src.login.LoginActivity"/>
         <activity android:name=".src.write.WriteActivity"/>
     </application>

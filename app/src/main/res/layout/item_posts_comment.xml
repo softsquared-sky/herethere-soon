@@ -26,16 +26,17 @@
         android:layout_marginEnd="16dp"
         android:layout_toEndOf="@id/btn_comment_profile"
         android:textSize="12sp"
-        android:textStyle="bold"
         android:textColor="@color/listTextColor"
         android:lineSpacingExtra="6sp"
         tools:text="ㅁㄴㅇㄻㄴ"/>
 
     <TextView
+        android:id="@+id/tv_comment_timeAgo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_comment_comment"
         android:layout_toEndOf="@id/btn_comment_profile"
+        android:layout_marginTop="4dp"
         android:layout_marginStart="1dp"
         android:textSize="10sp"
         android:textColor="@color/postsComment"

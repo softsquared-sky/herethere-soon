@@ -107,7 +107,7 @@
         tools:text="오늘 저녁은 된장찌개, 밥, 김치, 김, 기타등등, 계란말이, 간장게장, 부추전, 김치찌개, 안자아라아라아아라ㅣ나ㅣ아ㅣㅏㅣㅏㅣㅓㅓㅏㅣ아아아아아아ㅏ아아아아아아아"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview_posts_picture"
+        android:id="@+id/list_posts_picture"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_below="@+id/tv_posts_line"
@@ -122,7 +122,7 @@
         android:id="@+id/relative_posts_heart_line"
         android:layout_width="match_parent"
         android:layout_height="47.8dp"
-        android:layout_below="@id/recyclerview_posts_picture">
+        android:layout_below="@id/list_posts_picture">
 
         <LinearLayout
             android:id="@+id/btn_posts_heart"
@@ -183,7 +183,7 @@
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview_posts_comment"
+        android:id="@+id/list_posts_comment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/relative_posts_heart_line"
@@ -198,21 +198,36 @@
         android:layout_marginBottom="56dp"
         android:background="@color/postsEditText"/>
 
+
+
     <EditText
+        android:id="@+id/et_posts_comment"
         android:layout_width="match_parent"
         android:layout_height="36dp"
         android:paddingStart="10dp"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@id/btn_posts_uplode"
+        android:maxLines="1"
         android:hint="@string/write_comment_hint"
         android:textColorHint="@color/postsEditTextHint"
         android:textSize="12sp"
         android:textColor="@color/postsEditTextHint"
         android:lineSpacingExtra="6sp"
         android:background="@drawable/et_posts"/>
+    <Button
+        style="?android:attr/borderlessButtonStyle"
+        android:id="@+id/btn_posts_uplode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:onClick="postsOnClick"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/hereThereText"
+        android:text="게시"/>
 
 
 </RelativeLayout>

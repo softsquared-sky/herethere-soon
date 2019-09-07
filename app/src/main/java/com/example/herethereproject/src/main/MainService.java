@@ -13,12 +13,12 @@ import static com.example.herethereproject.src.ApplicationClass.getRetrofit;
 public class MainService {
     private final MainActivityUserView mMainActivityUserView;
 
-    MainService(final MainActivityUserView signUpActivityView) {
-        this.mMainActivityUserView = signUpActivityView;
+    public MainService(final MainActivityUserView mainActivityUserView) {
+        this.mMainActivityUserView = mainActivityUserView;
     }
 
 
-    void getUserProfile(String email){
+    public void getUserProfile(String email){
         final MainUserRetrofitInterface mainUserRetrofitInterface = getRetrofit().create(MainUserRetrofitInterface.class);
 
 

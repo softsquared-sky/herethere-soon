@@ -12,6 +12,8 @@
     <string name="information_input">기본정보입력</string>
     <string name="school_certification">학교인증</string>
     <string name="select_region">관심지역선택</string>
+
+    <string name="logout">정상적으로\n<b>로그아웃</b> 되었습니다.</string>
     <!---->
     <string name="please_input_email"><b>이메일</b>을\n입력해주세요.</string>
     <string name="please_input_password"><b>비밀번호</b>을\n입력해주세요.</string>
